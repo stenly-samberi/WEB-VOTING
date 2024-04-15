@@ -1,0 +1,65 @@
+<?php
+
+use App\Http\Controllers\ControllerDashboard;
+use App\Http\Controllers\ControllerDataJemaat;
+use App\Http\Controllers\ControllerGenreLagu;
+use App\Http\Controllers\ControllerKategoriJemaat;
+use App\Http\Controllers\ControllerKategoriLomba;
+use App\Http\Controllers\ControllerPeserta;
+use App\Http\Controllers\ControllerUser;
+use Illuminate\Support\Facades\Route;
+
+Route::get('dash', function () {
+    // halaman dashboard
+})->middleware('auth');
+
+// Route::get('/', function () {
+//     return view('html.login');
+// });
+
+Route::get('logout', [ControllerUser::class, 'logout'])->name('logout');
+
+Route::prefix('login')->name('login.')->group(function () {
+    Route::get('/', [ControllerUser::class, 'index'])->name('index');
+    Route::post('/', [ControllerUser::class, 'auth'])->name('auth');
+   
+});
+
+Route::prefix('dash')->name('dash.')->group(function () {
+    Route::get('/', [ControllerDashboard::class, 'index'])->name('index');
+    Route::post('/', [ControllerDashboard::class, 'store'])->name('store');
+    Route::delete('/{id}', [ControllerDashboard::class, 'destroy'])->name('destroy');
+});
+
+Route::prefix('peserta')->name('peserta.')->group(function () {
+    Route::get('/', [ControllerPeserta::class, 'index'])->name('index');
+    Route::post('/', [ControllerPeserta::class, 'store'])->name('store');
+    Route::delete('/{id}', [ControllerPeserta::class, 'destroy'])->name('destroy');
+});
+
+Route::prefix('kategori_lomba')->name('kategori_lomba.')->group(function () {
+    Route::get('/', [ControllerKategoriLomba::class, 'index'])->name('index');
+    Route::post('/', [ControllerKategoriLomba::class, 'store'])->name('store');
+    Route::delete('/{id}', [ControllerKategoriLomba::class, 'destroy'])->name('destroy');
+});
+
+Route::prefix('data_jemaat')->name('data_jemaat.')->group(function () {
+    Route::get('/', [ControllerDataJemaat::class, 'index'])->name('index');
+    Route::post('/', [ControllerDataJemaat::class, 'store'])->name('store');
+    Route::delete('/{id}', [ControllerDataJemaat::class, 'destroy'])->name('destroy');
+});
+
+Route::prefix('kategori_jemaat')->name('kategori_jemaat.')->group(function () {
+    Route::get('/', [ControllerKategoriJemaat::class, 'index'])->name('index');
+    Route::post('/', [ControllerKategoriJemaat::class, 'store'])->name('store');
+    Route::delete('/{id}', [ControllerKategoriJemaat::class, 'destroy'])->name('destroy');
+});
+
+Route::prefix('genre_lagu')->name('genre_lagu.')->group(function () {
+    Route::get('/', [ControllerGenreLagu::class, 'index'])->name('index');
+    Route::post('/', [ControllerGenreLagu::class, 'store'])->name('store');
+    Route::delete('/{id}', [ControllerGenreLagu::class, 'destroy'])->name('destroy');
+});
+
+
+
