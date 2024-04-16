@@ -12,8 +12,6 @@ class ControllerUser extends Controller
 
     public function auth(Request $request){
 
-       
-    
         try {
             $request->validate([
                 'name' => 'required',
@@ -41,6 +39,6 @@ class ControllerUser extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect('login');
+        return redirect('login.index');
     }
 }
