@@ -39,6 +39,6 @@ class ControllerUser extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect('login.index');
+        return redirect('login');
     }
 }
