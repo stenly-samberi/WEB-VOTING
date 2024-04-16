@@ -14,7 +14,7 @@ Route::get('dash', function () {
 })->middleware('auth');
 
 Route::get('/', function () {
-    return view('html.login');
+    return view('html.logis');
 });
 
 Route::get('logout', [ControllerUser::class, 'logout'])->name('logout');
