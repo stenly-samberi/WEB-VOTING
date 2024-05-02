@@ -40,7 +40,7 @@ class Peserta extends Model
 
     public function lagu(){
         return GenreLagu::join('tbl_kategori_lomba', 'tbl_kategori_lomba.id_kategori_lomba', '=', 'tbl_lagu.id_kategori_lomba')
-                    ->select('tbl_lagu.id_lagu as idl', 'tbl_lagu.judul', 'tbl_lagu.genre','tbl_kategori_lomba.id_kategori_lomba as idk','tbl_kategori_lomba.kategori_lomba')
+                    ->select('tbl_lagu.id_lagu as idl','tbl_kategori_lomba.id_kategori_lomba as idk','tbl_lagu.judul', 'tbl_lagu.genre','tbl_kategori_lomba.kategori_lomba')
                     ->get();
     }
 
