@@ -1,0 +1,704 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Volkhov:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap');
+:root {
+   --Default-color: #000;
+   --Primary-color: #176ee0;
+   --color-hover:#008bcc;
+   --Secondary-color: #EFECEC;
+   --blue-color: #176ee0;
+   --Gray-color:#e2e2e2;
+   --dark-color :#2b2a2a;
+}
+
+:root {
+   --font-default: "Poppins", sans-serif;
+ }
+
+ html,body{
+   overflow-x: hidden;
+  }
+
+ body{
+   font-family: var(--font-default);
+ }
+
+ 
+
+ #btn-primary{
+   font-weight: 600;
+   text-transform: uppercase;
+   padding-left: 40px;
+   padding-right: 40px;
+   padding-top: 10px;
+   padding-bottom: 10px;
+   background-color: var(--Primary-color);
+   color: var(--Secondary-color);
+   font-size: 13px;
+   font-family: var(--font-default);
+   text-decoration: none;
+   border-radius: 7px;
+ }
+
+ #btn-primary:hover{
+   background-color: var(--color-hover);
+ }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-default);
+}
+
+/* Style nav */
+
+.main-nav{
+      /* position: fixed;
+      background-color: rgb(248, 181, 79); */
+      width: 100%;
+      margin-top: 20px;
+      z-index: 1000;
+      
+}
+
+.main-nav .logo h1{
+   font-size: 20px;
+   font-weight: 600;
+}
+
+.wrapper-nav{
+   margin: 0;
+   padding: 0;
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
+   gap: 30px;
+   height: 100%;
+  }
+
+  .wrapper-nav li {
+   list-style: none;
+  }
+
+  .wrapper-nav a {
+   position: relative; /* Diperlukan untuk menampilkan efek garis bawah */
+   text-decoration: none; /* Hapus garis bawah default dari tautan */
+   color: #333; /* Warna teks tautan */
+   transition: color 0.3s, border-bottom-color 0.3s; /* Efek transisi saat hover */
+ }
+
+  .wrapper-nav li a{
+   color: #000;
+   text-decoration: none;
+   font-size: 17px;
+   text-transform:uppercase;
+   font-size: 15px;
+  }
+
+  .wrapper-nav a:hover{
+   border-bottom: 2px solid var(--Default-color); /* Garis bawah oranye saat dihover */
+  }
+
+
+
+/* End Nav */
+
+#hero{
+   background-image: url("../assets/img/bg-hero.svg");
+   background-size: cover;
+   background-position: center;
+   max-width: 100%;
+}
+
+/* #service{
+   background-image: url("../assets/img/bg-service.svg");
+   background-size: cover;
+   background-position: center;
+   max-width: 100%;
+} */
+
+#hero .left-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100%;
+  
+}
+
+#hero .left-content h1{
+   line-height: 57px;
+   font-size: 60px;
+   font-weight: 900;
+   font-family: var(--font-default);
+}
+
+#hero .left-content p{
+   line-height: 30px;
+   font-size: 17px;
+   font-weight: 300;
+   font-family: var(--font-default);
+}
+
+#hero .left-content .btn-rounded{
+   width: 52px;
+   height: 52px;
+   background-color: var(--dark-color);
+   border-radius: 50%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-right: 20px;
+}
+
+
+#hero .left-content .btn-hero{
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
+   width: 100%;
+}
+
+
+#hero .left-content .btn-play{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-left: 30px;
+}
+
+#hero .left-content .btn-hero .bg-color{
+   background-color: var(--Primary-color);
+}
+
+
+#hero .decor-hero-right{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+#hero .decor-hero-right img{
+   margin-top: 70px;
+}
+
+#hero .decor-right{
+ position: absolute;
+ right: 0;
+ top: 0;
+ z-index: -999;
+}
+
+/* style service */
+
+   #service h1{
+      font-size: 37px;
+      font-family: var(--font-default);
+      font-weight: 700;
+   }
+
+   #service .card-service{
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 20px;
+      max-height: 100%;
+      box-shadow: 0px 0px 4px 0px var(--Gray-color);
+   }
+
+   #service .card-service .card-title{
+      display: flex;
+      justify-content: left;
+      align-items: center;
+   }
+
+   #service .card-service .card-title img{
+      max-width: 100%;
+      margin-right: 12px;
+      height: 40px;
+      border-radius: 10px;
+   }
+
+   #service .card-service .card-title h3{
+     font-family: var(--font-default);
+     font-size: 20px;
+     font-weight: 600;
+     margin-top: 7px;
+   }
+
+   #service .card-service p{
+      font-size: 15px;
+      margin-top: 7px;
+    }
+
+    #service .card-left-service img{
+      max-width: 100%;
+      height: 100%;
+      transform: rotate(-4deg);
+    }
+
+    #service .service-decor-left{
+      position:absolute;
+      left:0;
+      top:770px;
+      z-index:-9999;
+      max-width:100%;
+      height:420px
+  }
+
+  #service .content-decor{
+   width: 100px;
+   position: absolute;
+   right: 80px;
+   top: 165%;
+  }
+
+  #service .right-service-content .maps{
+   display: flex;
+   justify-content:left;
+   align-items: center;
+}
+
+#service .right-service-content .maps p{
+   font-weight: 600;
+   margin: 0;
+}
+
+#service .right-service-content .maps svg{
+   width: 50px;
+   height: 50px;
+   margin-right: 10px;
+  
+}
+/* end service */
+
+
+
+
+/* other service */
+#other-services .btn-order{
+   display: flex;
+   justify-content: center;
+}
+
+#other-services .service-list{
+   list-style: none;
+}
+
+#other-services .service-list li{
+   margin: 10px;
+   text-transform: capitalize;
+   display: flex;
+   align-items: center;
+   background: url("../../../assets/images/logos/clarity_success-line.png") no-repeat left center; /* Ganti 'path-to-your-icon.png' dengan path gambar ikon Anda */
+   padding-left: 30px; /* Sesuaikan jarak antara ikon dan teks */
+}
+
+#other-services .x-blue{
+   border: 2px solid var(--blue-color);
+   box-shadow: 1px 0px 30px 1px #33333360;
+}
+/* end services */
+
+
+/* portfolio */
+
+#portfolio .main-content{
+   display: flex;
+   overflow-x: scroll;
+   padding: 0;
+   margin: 0;   
+}
+
+#portfolio .main-content #zlide{
+   width: 100%;
+   display: grid;
+   grid-template-columns: auto auto auto;
+   grid-gap: 20px;
+   flex: none;
+}
+
+#portfolio .main-content::-webkit-scrollbar{
+   display: none;
+}
+
+#portfolio .main-content div .text-content{
+   display: flex;
+   flex-direction: column;
+   align-items: start;
+}
+
+#portfolio #img-port{
+   border-radius: 10px;
+   box-shadow: 1px 0px 2px 1px var(--Gray-color);
+   max-width: 100%;
+   max-height: 100%;
+   max-height: 100%;
+}
+
+#portfolio #decor-left{
+   position: absolute;
+   top: 1910px;
+   left: 120px;
+   z-index: -9999;
+   max-width: 100%;
+   height: 80px;
+}
+
+#portfolio .title{
+   text-align:center;
+   /* padding: 20px; */
+}
+
+#portfolio .nav-content .arrow-left,
+#portfolio .nav-content .arrow-right{
+   background-color: var(--Primary-color);
+   border-radius: 6px;
+   padding-left: 20px;
+   padding-right: 20px;
+   padding-top: 5px;
+   padding-bottom: 5px;
+   cursor: pointer;
+}
+
+#portfolio .nav-content .arrow-right{
+   margin-left: 10px;
+}
+
+#portfolio .nav-content img{
+   width: 20px;
+}
+
+#portfolio .nav-content{
+   text-align: center;
+  
+  /* position: relative;
+  text-align: center;
+  bottom: 100px;
+  z-index: 1000; */
+
+}
+
+#portfolio .nav-content .arrow-left{
+   opacity: 0.5;
+}
+/* end porfolio */
+
+#faq span,
+#other-services span{
+   color: var(--Primary-color);
+   text-transform: uppercase;
+   font-weight: 500;
+}
+
+#faq h1{
+   font-size: 50px;
+}
+
+
+
+
+/* foother */
+
+#contact{
+   border-top: 2px solid var(--Primary-color);
+   background-color: var(--dark-color);
+}
+
+#contact label{
+   font-family: 'Josefin Sans', sans-serif;
+   font-weight: 500;
+   line-height: 60px;
+   font-size: 60px;
+   color: var(--Secondary-color);
+}
+
+
+#contact .sosmed-grup{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+#contact .sosmed-grup a{
+   text-decoration: none;
+   color: var(--dark-color);
+}
+
+#contact .sosmed-grup div{
+   background-color: var(--Primary-color);
+   padding: 7px;
+   margin: 5px;
+   border-radius: 50px;
+   cursor: pointer;
+}
+
+/* #contact .sosmed-grup svg{
+   color: var(--Secondary-color);
+} */
+
+#contact .sosmed-grup div:hover{
+  background-color: var(--color-hover);
+}
+
+#contact .line-bottom{
+   border-bottom: 1px solid #696565;
+   padding-bottom: 40px;
+}
+
+#contact .content-right{
+   text-align: end;
+}
+
+#contact .foother-content{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+#contact .foother-content p{
+   color: var(--Secondary-color);
+}
+
+#contact .foother-content img{
+  width: 50px;
+  /* margin-left: 100px; */
+  margin-top: 20px;
+  border-radius: 10px;
+  /* filter: grayscale(100%); */
+}
+
+#contact .content-right ul{
+ list-style-type: none;
+ padding: 0;
+ margin: 0;
+}
+
+#contact .content-right h1{
+   color: var(--Secondary-color);
+  }
+
+#contact .content-right ul li{
+   color: var(--Secondary-color);
+   margin-top: 10px;
+  }
+/* end foother */
+
+
+/* kioks */
+#kiosk img{
+   border-radius: 5px;
+   margin-bottom: 12px;
+}
+
+#kiosk .text-title,
+#kiosk .text-search{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+#kiosk .text-search .icon{
+   background-color: var(--blue-color);
+   padding: 11px;
+   border-radius: 1px;
+}
+
+#kiosk .text-search .icon svg{
+ color: var(--Gray-color);
+}
+
+
+
+#kiosk .text-title input{
+  padding: 12px;
+}
+
+#kiosk .card-title h5{
+   font-size: 25px;
+   font-weight: 600;
+}
+
+#kiosk .card-title span{
+   margin-top: 0;
+   padding-top: 0;
+   font-size: 15px;
+}
+
+#kiosk h4{
+ 
+   width: 100%;
+   text-align: left;
+   font-size: 25px;
+   font-weight: 600;
+}
+
+#kiosk a{
+   text-decoration: none;
+   text-align: end;
+}
+
+
+#kiosk svg{
+  color: var(--dark-color);
+  width: 30px;
+  height: 30px;
+}
+
+/* end kiosk */
+
+@media (max-width:992px){
+
+   #service .content-decor,
+   #portfolio .decor-left{
+      display: none;
+   }
+
+   #hero .row-reverse{
+      flex-direction: column-reverse;
+   }
+
+   .wrapper-nav{
+      position: fixed;
+      top: 0;
+      width: 100vw;
+      right:-100vw;
+      bottom: 0;
+      background-color: #ffffffd7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      z-index: 999;
+      transition: 0.3s;
+   }
+
+   .main-nav .wrapper-nav a{
+      font-size: 30px;
+      font-weight: 500;
+      font-family: var(--font-default);
+   }
+
+   .wrapper-nav.show{
+      right: 0;
+   }
+
+   ul.wrapper-nav{
+      flex-direction: column;
+   }
+
+   .humberger {
+      width: 50px;
+      position: fixed;
+      right: 20px;
+      top: 10px;
+      cursor: pointer;
+      z-index: 9999;
+   }
+
+   #hero .decor-hero-right {
+      display :flex;
+      justify-content:center;
+      align-items:center;
+  }
+
+  #hero .left-content{
+   padding-top: 40px;
+  }
+  
+  #hero .decor-hero-right img{
+      max-width: 100%;
+      max-height:100%;
+      margin: 0;
+  }
+
+  #hero .left-content p{
+     margin-top: 15px;
+  }
+
+  #hero .btn-hero {
+   padding-bottom: 30px;
+}
+
+/* screen mobile service */
+
+#service .card-left-service{
+   display: none;
+}
+
+#service .service-decor-left{
+   display: none;
+}
+
+#service h1{
+   font-size: 50px;
+}
+
+
+
+#other-services .card{
+   margin-top: 20px;
+}
+
+#other-services h1{
+   font-size: 50px;
+}
+
+#portfolio .title h1{
+   margin-top: 20px;
+   text-align: left;
+   font-size: 50px;
+}
+
+#portfolio .main-content #zlide{
+   width: 100%;
+   display: grid;
+   grid-template-columns: auto auto auto;
+   grid-gap: 30px;
+   display: flex;
+   flex-direction: column;
+}
+
+#portfolio .text-content img{
+   display: none;
+}
+
+#portfolio #zlide #img-port{
+   width: 100%;
+   height: 100%;
+   padding: 10px;
+   box-shadow: 1px 0px 3px 0px var(--Gray-color);
+}
+
+#portfolio .text-content p,
+#portfolio .text-content h6{
+   text-align: left;
+   margin: 12px;
+}
+
+#portfolio .nav-content{
+   text-align: left;
+}
+
+
+
+/* end screen service */
+
+#contact .content-right{
+   text-align: left;
+}
+
+}
+
+@media (max-width:434px){
+   #hero .left-content .main-text h1{
+      font-size :50px;
+}
+
+#hero .left-content p{
+  margin-top :0;
+}
+
+
+}

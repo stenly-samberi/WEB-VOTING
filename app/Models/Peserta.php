@@ -28,4 +28,23 @@ class Peserta extends Model
     {
         return $this->belongsTo(KategoriLomba::class, 'id_kategori_lomba','id_kategori_lomba');
     }
+
+
+
+
+    #menampilkan data dari tabel
+
+    public function jenis(){
+        return KategoriLomba::SELECT('id_kategori_lomba as idk','kategori_lomba as kategori')->get();
+    }
+
+    public function lagu(){
+        return GenreLagu::SELECT('id_lagu as idl','judul','genre')->get();
+    }
+
+    public function jemaat(){
+        return DataJemaat::SELECT('id_njemaat as idj','nama')->get();
+    }
+
+    
 }

@@ -6,6 +6,7 @@ use App\Models\DataJemaat;
 use App\Models\GenreLagu;
 use App\Models\KategoriJemaat;
 use App\Models\Peserta;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
 class ControllerPeserta extends Controller
@@ -17,6 +18,22 @@ class ControllerPeserta extends Controller
         return view('html.data_peserta', [
             'peserta' => $registers
         ]);
+    }
+
+    public function store_data_register(){
+
+
+    }
+
+    public function display_data_register(){
+        $model = new Peserta();
+       
+        return response([
+            'kategori' => $model->jenis(),
+            'lagu'     => $model->lagu(),
+            'jemaat'   => $model->jemaat()
+        ]);
+        
     }
 
     public function destroy($id)
