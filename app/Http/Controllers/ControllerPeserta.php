@@ -14,7 +14,6 @@ class ControllerPeserta extends Controller
     public function index(){
 
         $registers = Peserta::with('data_jemaat', 'data_lagu', 'kategori_lomba')->get();
-
         return view('html.data_peserta', [
             'peserta' => $registers
         ]);

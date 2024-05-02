@@ -9,21 +9,29 @@
         @include('alert.message')
         <form action="{{ route('genre_lagu.store') }}" method="POST">
           @csrf
+
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Judul</label>
             <input type="text" name="judul" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            {{-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> --}}
           </div>
 
           <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Genre</label>
-            <select class="form-control" name="genre" id="kategori">
-              <option value="">Pilih Genre</option>
-              <option value="pilihan">Pilihan</option>
-              <option value="wajib">Wajib</option>
-              
-          </select>
-            {{-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> --}}
+            <label for="exampleInputEmail1" class="form-label">Kategori Peserta</label>
+              <select class="form-control" name="kategori" id="kategori">
+                <option value="">Pilihan</option>
+                  @foreach ($ketegori as $item)
+                    <option value="{{ $item->id_kategori_lomba }}">{{ $item->jenis_lomba }}</option>
+                  @endforeach
+              </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Jenis Lagu</label>
+              <select class="form-control" name="genre" id="kategori">
+                <option value="">Pilihan</option>
+                <option value="pilihan">Pilihan</option>
+                <option value="wajib">Wajib</option> 
+              </select>
           </div>
          
           <button type="submit" class="btn btn-primary">Simpan</button>
@@ -38,7 +46,8 @@
             <tr>
               <th scope="col">NO</th>
               <th scope="col">Judul</th>
-              <th scope="col">Genre</th>
+              <th scope="col">Jenis Lagu</th>
+              <th scope="col">Peserta</th>
               <th scope="col">Created at</th>
               <th scope="col">Updated at</th>
               <th scope="col">Aksi</th>
@@ -50,6 +59,7 @@
                 <th scope="row">{{ $key + 1 }}</th>
                 <td>{{ $lagu->judul }}</td>
                 <td>{{ $lagu->genre }}</td>
+                <td>{{ $lagu->lagu->kategori_lomba }}</td>
                 <td>{{ $lagu->created_at }}</td>
                 <td>{{ $lagu->updated_at }}</td>
                 <td>
