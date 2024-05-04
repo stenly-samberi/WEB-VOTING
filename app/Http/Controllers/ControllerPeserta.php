@@ -26,11 +26,11 @@ class ControllerPeserta extends Controller
         return $request->all();
         
         $validator = Validator::make($request->all(), [
-            'nama' => 'required|integer|max:100',
+            'nama' => 'required|integer|max:5',
             'kordinator' => 'required|string|max:100',
             'phone' => 'required|number|max:20',
             'kategori' => 'required|integer|max:5',
-            'lagu_wajib' => 'required|integer|max:5',
+            'lagu_wajib' => 'required|string|max:5',
             'lagu_pilihan' => 'required|integer|max:5',
         ]);
 
