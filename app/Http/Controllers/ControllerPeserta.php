@@ -15,6 +15,9 @@ class ControllerPeserta extends Controller
     public function index(){
 
         $registers = Peserta::with('data_jemaat', 'data_lagu', 'kategori_lomba')->get();
+
+        // return $registers;
+
         return view('html.data_peserta', [
             'peserta' => $registers
         ]);
@@ -23,24 +26,40 @@ class ControllerPeserta extends Controller
     public function store_data_register(Request $request){
         // $data = json_decode($request->getContent(), true);
 
-        // return $request->all();
-        
-        $validator = Validator::make($request->all(), [
-            'nama' => 'required|integer|max:5',
-            'kordinator' => 'required|string|max:100',
-            'phone' => 'required|number|max:20',
-            'kategori' => 'required|integer|max:5',
-            'lagu_wajib' => 'required|string|max:5',
-            'lagu_pilihan' => 'required|integer|max:5',
-        ]);
+        try {
+            // Validasi data
+            $validator = Validator::make($request->all(), [
+                'id_njemaat'  => 'required|unique:tbl_register|integer|max:5',
+                'kordinator'  => 'required|string|max:100',
+                'phone'       => 'required|unique:tbl_register|max:20',
+                'kategori'    => 'required|integer|max:5',
+                'laguWajib'   => 'required|string|max:100',
+                'laguPilihan' => 'required|integer|max:100',
+            ],['id_njemaat.unique' => 'Jemaat sudah terdaftar.','phone.unique'=>'Phone sudah terdaftar']);
+    
+            // Jika validasi gagal
+            if ($validator->fails()) {
+                return response()->json($validator->errors(), 422); // 422 adalah kode status untuk validasi gagal
+            }
 
-        if ($validator->fails()) {
-            return response()->json($validator->errors(), 422); // 422 adalah kode status untuk validasi gagal
+            // Validasi berhasil, simpan data
+            Peserta::create([
+                'id_njemaat'         => $request->id_njemaat,
+                'id_lagu'            => $request->laguPilihan,
+                'lagu_wajib'         => $request->laguWajib,
+                'id_kategori_lomba'  => $request->kategori,
+                'kordinator'         => $request->kordinator,
+                'phone'              => $request->phone,
+                'status'             => 0,
+                'file'               => 'empty.pdf',
+            ]);
+
+            // Berikan respons sukses
+            return response()->json('Pendaftaran Peserta Berhasil', 200);
+        } catch (\Exception $e) {
+            // Tangani kesalahan
+            return response()->json('Terjadi Kesalahan : ' . $e->getMessage(), 500);
         }
-       
-
-       
-
     }
 
     public function display_data_register(){
@@ -52,6 +71,16 @@ class ControllerPeserta extends Controller
             'jemaat'   => $model->jemaat()
         ]);
         
+    }
+
+    public function peserta_detail(Request $request){
+        $model = new Peserta();
+
+        // return $model->detail_peserta($request->idP);
+
+        return view('html.detail_peserta', [
+            'peserta' => $model->detail_peserta($request->idP)
+        ]);
     }
 
     public function destroy($id)

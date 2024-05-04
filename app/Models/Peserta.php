@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Peserta extends Model
@@ -11,8 +12,21 @@ class Peserta extends Model
     use HasFactory;
 
     protected $table = 'tbl_register';
+
     protected $primaryKey = 'id_register';
-    protected $guarded = [];
+
+    protected $fillable = [
+        'id_njemaat',
+        'id_lagu',
+        'lagu_wajib',
+        'id_kategori_lomba',
+        'kordinator',
+        'phone',
+        'status',
+        'file'
+    ];
+
+
 
     public function data_jemaat()
     {
@@ -47,6 +61,18 @@ class Peserta extends Model
     public function jemaat(){
         return DataJemaat::SELECT('id_njemaat as idj','nama')->get();
     }
+
+    public function detail_peserta($id){
+        return Peserta::join('tbl_lagu', 'tbl_lagu.id_lagu', '=', 'tbl_register.id_lagu')
+                    ->join('tbl_kategori_lomba', 'tbl_kategori_lomba.id_kategori_lomba', '=', 'tbl_register.id_kategori_lomba')
+                    ->join('tbl_njemaat', 'tbl_njemaat.id_njemaat', '=', 'tbl_register.id_njemaat')
+                    ->select('tbl_register.lagu_wajib', 'tbl_lagu.genre as jenis_lagu','tbl_njemaat.nama as nama_jemaat', 
+                    'tbl_lagu.judul as judul_lagu', 'tbl_kategori_lomba.kategori_lomba','tbl_register.kordinator','tbl_register.phone',
+                    'tbl_register.status','tbl_register.file','tbl_register.created_at','tbl_register.updated_at')
+                    ->where('tbl_register.id_register', $id)
+                    ->get();
+    }
+    
 
     
 }

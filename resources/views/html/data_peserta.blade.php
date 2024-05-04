@@ -10,16 +10,15 @@
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th scope="col">No</th>
-                  <th scope="col">Jemaat</th>
-                  <th scope="col">Lagu</th>
-                  <th scope="col">Kategori</th>
-                  <th scope="col">Kordinator</th>
-                  <th scope="col">Phone</th>
-                  <th scope="col">Register</th>
-                  <th scope="col">Status</th>
-                  <th scope="col">Doc</th>
-                  <th scope="col">Aksi</th>
+                  <th scope="col">NO</th>
+                  <th scope="col">JEMAAT</th>
+                  <th scope="col">KATEGORI</th>
+                  <th scope="col">LAGU WAJIB</th>
+                  <th scope="col">LAGU PILIHAN</th>
+                  {{-- <th scope="col">Kordinator</th>
+                  <th scope="col">Phone</th> --}}
+                  {{-- <th scope="col">Tanggal Daftar</th> --}}
+                  <th scope="col">MORE ACTION</th>
                 </tr>
               </thead>
               <tbody>
@@ -27,15 +26,16 @@
                 <tr>
                     <th scope="row">{{ $key + 1 }}</th>
                     <td>{{ $user->data_jemaat->nama }}</td>
-                    <td>{{ $user->data_lagu->judul }}</td>
                     <td>{{ $user->kategori_lomba->kategori_lomba }}</td>
-                    <td>{{ $user->kordinator }}</td>
-                    <td>{{ $user->phone }}</td>
-                    <td>{{ $user->created_at->format('d M Y') }}</td>
-                    <td>{{ $user->status }}</td>
-                    <td>{{ $user->file }}</td>
+                    <td>{{ $user->lagu_wajib }}</td>
+                    <td>{{ $user->data_lagu->judul }}</td>
+                    {{-- <td>{{ $user->kordinator }}</td>
+                    <td>{{ $user->phone }}</td> --}}
+                    {{-- <td>{{ $user->created_at->format('d M Y') }}</td> --}}
+                    {{-- <td>{{ $user->status }}</td>
+                    <td>{{ $user->file }}</td> --}}
                   
-                    <td>
+                    <td class="d-flex">
                         <form action="{{ route('peserta.destroy', $user->id_register) }}" method="POST">
                             @csrf
                             @method('DELETE')
@@ -43,7 +43,19 @@
                                 <i class="ti ti-trash"></i>
                             </button>
                         </form>
+
+                        <form action="{{ route('peserta.detail') }}" method="POST">
+                            @csrf
+                            <input name="idP" value="{{ $user->id_register }}" type="text" hidden>
+                            <button type="submit" class="btn btn-success search-button">
+                                <i class="ti ti-search"></i>
+                            </button>
+                        </form>
+
+                        
                     </td>
+
+                    
                 </tr>
                 @empty
                 <tr>
