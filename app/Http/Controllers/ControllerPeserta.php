@@ -8,6 +8,7 @@ use App\Models\KategoriJemaat;
 use App\Models\Peserta;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ControllerPeserta extends Controller
 {
@@ -19,8 +20,24 @@ class ControllerPeserta extends Controller
         ]);
     }
 
-    public function store_data_register(){
+    public function store_data_register(Request $request){
+        // $data = json_decode($request->getContent(), true);
+        
+        $validator = Validator::make($request->all(), [
+            'nama' => 'required|integer|max:10',
+            'kordinator' => 'required|string|max:255',
+            'phone' => 'required|string|max:20',
+            'kategori' => 'required|string|max:255',
+            'lagu_wajib' => 'required|string|max:255',
+            'lagu_pilihan' => 'required|string|max:255',
+        ]);
 
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 422); // 422 adalah kode status untuk validasi gagal
+        }
+       
+
+       
 
     }
 

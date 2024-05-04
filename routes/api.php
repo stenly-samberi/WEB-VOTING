@@ -8,9 +8,6 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::get('/register', function (Request $request) {
-   return "daya";
-});
 
 
 Route::prefix('register')->name('register.')->group(function(){
