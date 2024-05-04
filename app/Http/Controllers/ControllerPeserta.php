@@ -23,7 +23,7 @@ class ControllerPeserta extends Controller
     public function store_data_register(Request $request){
         // $data = json_decode($request->getContent(), true);
 
-        return $request->all();
+        // return $request->all();
         
         $validator = Validator::make($request->all(), [
             'nama' => 'required|integer|max:5',
