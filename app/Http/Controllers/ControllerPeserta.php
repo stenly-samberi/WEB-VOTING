@@ -22,14 +22,16 @@ class ControllerPeserta extends Controller
 
     public function store_data_register(Request $request){
         // $data = json_decode($request->getContent(), true);
+
+        return $request->all();
         
         $validator = Validator::make($request->all(), [
-            'nama' => 'required|integer|max:10',
-            'kordinator' => 'required|string|max:255',
-            'phone' => 'required|string|max:20',
-            'kategori' => 'required|string|max:255',
-            'lagu_wajib' => 'required|string|max:255',
-            'lagu_pilihan' => 'required|string|max:255',
+            'nama' => 'required|integer|max:100',
+            'kordinator' => 'required|string|max:100',
+            'phone' => 'required|number|max:20',
+            'kategori' => 'required|integer|max:5',
+            'lagu_wajib' => 'required|integer|max:5',
+            'lagu_pilihan' => 'required|integer|max:5',
         ]);
 
         if ($validator->fails()) {
