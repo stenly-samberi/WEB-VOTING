@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -24,6 +25,10 @@ class DataJemaat extends Model
     {
         return $this->belongsTo(KategoriJemaat::class, 'id_kjemaat', 'id_kjemaat');
     }
+
+    // public function data_jemaat(){
+    //     return DataJemaat::find($id);
+    // }
 
    
 

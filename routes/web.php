@@ -47,6 +47,7 @@ Route::prefix('data_jemaat')->name('data_jemaat.')->group(function () {
     Route::get('/', [ControllerDataJemaat::class, 'index'])->name('index')->middleware('auth');
     Route::post('/', [ControllerDataJemaat::class, 'store'])->name('store')->middleware('auth');
     Route::post('/edit', [ControllerDataJemaat::class, 'edit'])->name('edit')->middleware('auth');
+    Route::put('/updated', [ControllerDataJemaat::class, 'updated'])->name('updated')->middleware('auth');
     Route::delete('/{id}', [ControllerDataJemaat::class, 'destroy'])->name('destroy')->middleware('auth');
 });
 
