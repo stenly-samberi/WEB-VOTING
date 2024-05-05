@@ -46,10 +46,13 @@ Route::prefix('kategori_lomba')->name('kategori_lomba.')->group(function () {
 Route::prefix('data_jemaat')->name('data_jemaat.')->group(function () {
     Route::get('/', [ControllerDataJemaat::class, 'index'])->name('index')->middleware('auth');
     Route::post('/', [ControllerDataJemaat::class, 'store'])->name('store')->middleware('auth');
-    Route::post('/edit', [ControllerDataJemaat::class, 'edit'])->name('edit')->middleware('auth');
-    Route::put('/updated', [ControllerDataJemaat::class, 'updated'])->name('updated')->middleware('auth');
+    Route::put('/', [ControllerDataJemaat::class, 'updated'])->name('updated')->middleware('auth');
     Route::delete('/{id}', [ControllerDataJemaat::class, 'destroy'])->name('destroy')->middleware('auth');
 });
+
+Route::post('/', [ControllerDataJemaat::class, 'edit'])->name('data_jemaat.edit')->middleware('auth');
+
+
 
 Route::prefix('kategori_jemaat')->name('kategori_jemaat.')->group(function () {
     Route::get('/', [ControllerKategoriJemaat::class, 'index'])->name('index')->middleware('auth');

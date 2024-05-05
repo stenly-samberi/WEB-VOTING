@@ -61,13 +61,24 @@ class ControllerDataJemaat extends Controller
         ]);
     }
 
-    public function updated(Request $request){
-        return $request;
-        // $peserta = DataJemaat::find($id);
-        // $peserta->nama = $request->nama; // Ubah sesuai dengan nama kolom Anda
-        // // Tambahkan kolom-kolom lain yang ingin Anda edit
-        // $peserta->save();
-        // return redirect()->route('peserta.index')->with('success', 'Data berhasil diperbarui');
-    }
+    public function updated(Request $request)
+        {
+            try {
+                $request->validate([
+                    'nama' => 'required|string|max:255',
+                    'kategori' => 'required|integer',
+                ]);
+
+                $peserta = DataJemaat::find($request->id_jemaat);
+                $peserta->nama = $request->nama; 
+                $peserta->id_kjemaat = $request->kategori; 
+                $peserta->save();
+
+                return redirect()->route('data_jemaat.index')->with('success', 'Data berhasil diperbarui');
+            
+            } catch (\Exception $e) {
+                return redirect()->back()->withErrors(['error' => 'Gagal Updated Data Jemaat.'.$e->getMessage()]);
+            }
+        }
 
 }
