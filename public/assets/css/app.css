@@ -1,0 +1,4 @@
+.container-fluid .horizontal{
+    display: flex;
+    gap: 5px;
+}

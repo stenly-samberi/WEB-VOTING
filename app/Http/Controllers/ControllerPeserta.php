@@ -29,13 +29,17 @@ class ControllerPeserta extends Controller
         try {
             // Validasi data
             $validator = Validator::make($request->all(), [
-                'id_njemaat'  => 'required|unique:tbl_register|integer|max:5',
-                'kordinator'  => 'required|string|max:100',
-                'phone'       => 'required|unique:tbl_register|max:20',
+                'id_njemaat'  => 'required|unique:tbl_register|integer|max:255',
+                'kordinator'  => 'required|string|max:255',
+                'phone'       => 'required|unique:tbl_register|min:12|max:20',
                 'kategori'    => 'required|integer|max:5',
-                'laguWajib'   => 'required|string|max:100',
-                'laguPilihan' => 'required|integer|max:100',
-            ],['id_njemaat.unique' => 'Jemaat sudah terdaftar.','phone.unique'=>'Phone sudah terdaftar']);
+                'laguWajib'   => 'required|string|max:255',
+                'laguPilihan' => 'required|integer|max:255',
+            ],
+            
+            ['id_njemaat.unique' => 'Nama Jemaat had been registered.',
+            'phone.unique'=>'Phone had been registered.'
+        ]);
     
             // Jika validasi gagal
             if ($validator->fails()) {
@@ -55,7 +59,9 @@ class ControllerPeserta extends Controller
             ]);
 
             // Berikan respons sukses
-            return response()->json('Pendaftaran Peserta Berhasil', 200);
+            // return response()->json('Pendaftaran Peserta Berhasil', 200);
+            return response()->json(['message' => 'Pendaftaran Peserta Berhasil', 'redirect_url' => 'https://register.viadolorosa.web.id'], 200);
+
         } catch (\Exception $e) {
             // Tangani kesalahan
             return response()->json('Terjadi Kesalahan : ' . $e->getMessage(), 500);
