@@ -31,7 +31,7 @@ class ControllerPeserta extends Controller
             $validator = Validator::make($request->all(), [
                 'id_njemaat'  => 'required|unique:tbl_register|integer|max:255',
                 'kordinator'  => 'required|string|max:255',
-                'phone'       => 'required|unique:tbl_register|min:12',
+                'phone'       => 'required|unique:tbl_register|min:10|max:12',
                 'kategori'    => 'required|integer|max:5',
                 'laguWajib'   => 'required|string|max:255',
                 'laguPilihan' => 'required|integer|max:255',
