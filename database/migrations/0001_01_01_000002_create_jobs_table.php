@@ -48,6 +48,7 @@ return new class extends Migration
             $table->bigIncrements('id_register');
             $table->unsignedBigInteger('id_njemaat');
             $table->unsignedBigInteger('id_lagu');
+            $table->string('lagu_wajib');
             $table->unsignedBigInteger('id_kategori_lomba');
             $table->string('kordinator');
             $table->string('phone')->nullable();
