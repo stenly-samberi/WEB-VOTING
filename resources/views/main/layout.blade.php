@@ -66,9 +66,9 @@
             <li class="sidebar-item">
               <a class="sidebar-link" href="data_jemaat" aria-expanded="false">
                 <span>
-                  <i class="ti ti-file"></i>
+                  <i class="ti ti-database"></i>
                 </span>
-                <span class="hide-menu">File Jemaat</span>
+                <span class="hide-menu">Data Jemaat</span>
               </a>
             </li>
             <li class="sidebar-item">

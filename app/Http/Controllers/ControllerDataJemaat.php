@@ -50,4 +50,19 @@ class ControllerDataJemaat extends Controller
         return redirect()->route('data_jemaat.index')->with('success', 'Data Jemaat berhasil dihapus.');
     }
 
+    public function edit(Request $req){
+        $kategori = KategoriJemaat::all();
+
+      
+        $data = DataJemaat::find($req->idj);
+
+        
+       
+        return $data['nama'];
+        return view('html.edit_gereja', [
+            'datajemaat' => $data,
+            'datakategori' => $kategori
+        ]);
+    }
+
 }

@@ -55,15 +55,22 @@
                   <td>{{ $data->kategori_jemaat->kategori }}</td>
                   <td>{{ $data->created_at }}</td>
                   <td>{{ $data->updated_at }}</td>
-                  <td>
+                  <td class="d-flex">
                       <form action="{{ route('data_jemaat.destroy', $data->id_kjemaat) }}" method="POST">
                           @csrf
                           @method('DELETE')
                           <button type="submit" class="btn btn-danger">
                             <i class="ti ti-trash"></i>
-                            
                           </button>
                       </form>
+
+                      <form action="{{ route('data_jemaat.edit') }}" method="post">
+                        @csrf
+                        <input hidden name="idj" type="text" value="{{ $data->id_kjemaat }}">
+                        <button type="submit" class="btn btn-success search-button">
+                            <i class="ti ti-edit"></i>
+                        </button>
+                    </form>
                   </td>
               </tr>
             @empty
