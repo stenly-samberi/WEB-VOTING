@@ -36,12 +36,8 @@ class ControllerPeserta extends Controller
                 'phone'       => ['required|min:10|max:12', new MaxTwoPhone($request->phone)],
                 'kategori'    => ['required', 'integer', 'max:255', new MaxKategoryByJemaat($request->id_njemaat, $request->kategori)],
                 'laguWajib'   => 'required|string|max:255',
-                'laguPilihan' => 'required|integer|max:255',
-            ],
-            
-            ['id_njemaat.unique' => 'Nama Jemaat sudah terdaftar.',
-            'phone.unique'=>'Phone sudah terdaftar.'
-        ]);
+                'laguPilihan' => 'required|integer|max:255'
+            ]);
     
             // Jika validasi gagal
             if ($validator->fails()) {
