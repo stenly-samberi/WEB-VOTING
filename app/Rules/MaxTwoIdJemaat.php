@@ -2,24 +2,13 @@
 
 namespace App\Rules;
 
-use Closure;
-use Illuminate\Contracts\Validation\ValidationRule;
+use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
-class MaxTwoIdJemaat implements ValidationRule
+class MaxTwoIdJemaat implements Rule
 {
-
     protected $idJemaat;
-
-    /**
-     * Run the validation rule.
-     *
-     * @param  \Closure(string): \Illuminate\Translation\PotentiallyTranslatedString  $fail
-     */
-    public function validate(string $attribute, mixed $value, Closure $fail): void
-    {
-        
-    }
 
     public function __construct($idJemaat)
     {
@@ -28,10 +17,12 @@ class MaxTwoIdJemaat implements ValidationRule
 
     public function passes($attribute, $value)
     {
-        // Hitung jumlah entri dengan id_jemaat yang sama
+        // Hitung jumlah entri dengan id_njemaat yang sama
         $count = DB::table('tbl_register')
                     ->where('id_njemaat', $this->idJemaat)
                     ->count();
+
+        Log::info("Count for id_njemaat {$this->idJemaat}: {$count}");
 
         // Pastikan tidak lebih dari dua
         return $count < 2;
