@@ -33,6 +33,6 @@ class MaxKategoryByJemaat implements Rule
 
     public function message()
     {
-        return 'Nama Jemaat & Kategori Lomba sudah terdaftar.';
+        return 'Kategori dengan nama Jemaat yang dipilih sudah terdaftar.';
     }
 }
