@@ -31,9 +31,9 @@ class ControllerPeserta extends Controller
         try {
             // Validasi data
             $validator = Validator::make($request->all(), [
-                'id_njemaat'  => ['required', 'integer', 'max:255', new MaxTwoIdJemaat($request->id_njemaat)],
+                'id_njemaat'  => ['required','integer', 'max:255', new MaxTwoIdJemaat($request->id_njemaat)],
                 'kordinator'  => 'required|string|max:255',
-                'phone'       => ['required','min:10','max:12', new MaxTwoPhone($request->phone)],
+                'phone'       => ['required', 'unique:tbl_register', 'min:10', 'max:12'],
                 'kategori'    => ['required', 'integer', 'max:255', new MaxKategoryByJemaat($request->id_njemaat, $request->kategori)],
                 'laguWajib'   => 'required|string|max:255',
                 'laguPilihan' => 'required|integer|max:255'
