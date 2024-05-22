@@ -37,8 +37,8 @@ class ControllerPeserta extends Controller
                 'laguPilihan' => 'required|integer|max:255',
             ],
             
-            ['id_njemaat.unique' => 'Nama Jemaat had been registered.',
-            'phone.unique'=>'Phone had been registered.'
+            ['id_njemaat.unique' => 'Nama Jemaat sudah terdaftar.',
+            'phone.unique'=>'Phone sudah terdaftar.'
         ]);
     
             // Jika validasi gagal
