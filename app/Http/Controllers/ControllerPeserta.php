@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 use App\Rules\MaxTwoIdJemaat;
+use App\Rules\MaxTwoPhone;
 use App\Models\DataJemaat;
 use App\Models\GenreLagu;
 use App\Models\KategoriJemaat;
 use App\Models\Peserta;
+use App\Rules\MaxKategoryByJemaat;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -29,10 +31,10 @@ class ControllerPeserta extends Controller
         try {
             // Validasi data
             $validator = Validator::make($request->all(), [
-                'id_njemaat'  => ['required', 'integer', 'max:255', new MaxTwoIdJemaat($request->id_njemaat)],
+                'id_njemaat'  => ['required','integer','max:255', new MaxTwoIdJemaat($request->id_njemaat)],
                 'kordinator'  => 'required|string|max:255',
-                'phone'       => 'required|unique:tbl_register|min:10|max:12',
-                'kategori'    => 'required|integer|max:5',
+                'phone'       => ['required|min:10|max:12', new MaxTwoPhone($request->phone)],
+                'kategori'    => ['required','integer','max:255', new MaxKategoryByJemaat($request->id_njemaat, $request->kategori)],
                 'laguWajib'   => 'required|string|max:255',
                 'laguPilihan' => 'required|integer|max:255',
             ],
