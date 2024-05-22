@@ -39,6 +39,6 @@ class MaxTwoIdJemaat implements ValidationRule
 
     public function message()
     {
-        return 'Id Jemaat tidak boleh lebih dari dua entri yang sama.';
+        return 'Setiap Jemaat hanya dapat mendaftarkan 2 Kategori yang di lombahkan.';
     }
 }
