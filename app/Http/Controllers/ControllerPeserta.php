@@ -37,6 +37,10 @@ class ControllerPeserta extends Controller
                 'kategori'    => ['required', 'integer', 'max:255', new MaxKategoryByJemaat($request->id_njemaat, $request->kategori)],
                 'laguWajib'   => 'required|string|max:255',
                 'laguPilihan' => 'required|integer|max:255'
+            ], [
+                'phone.unique'      => 'Nomor telepon sudah terdaftar.',
+                'phone.min'         => 'Nomor telepon harus memiliki minimal 10 karakter.',
+                'phone.max'         => 'Nomor telepon harus memiliki maksimal 12 karakter.',
             ]);
     
             // Jika validasi gagal
