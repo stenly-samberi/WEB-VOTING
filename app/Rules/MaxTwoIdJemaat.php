@@ -30,7 +30,7 @@ class MaxTwoIdJemaat implements ValidationRule
     {
         // Hitung jumlah entri dengan id_jemaat yang sama
         $count = DB::table('tbl_register')
-                    ->where('id_jemaat', $this->idJemaat)
+                    ->where('id_njemaat', $this->idJemaat)
                     ->count();
 
         // Pastikan tidak lebih dari dua
