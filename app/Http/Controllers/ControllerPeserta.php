@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Rules\MaxTwoIdJemaat;
 use App\Models\DataJemaat;
 use App\Models\GenreLagu;
 use App\Models\KategoriJemaat;
@@ -29,7 +29,7 @@ class ControllerPeserta extends Controller
         try {
             // Validasi data
             $validator = Validator::make($request->all(), [
-                'id_njemaat'  => 'required|unique:tbl_register|integer|max:255',
+                'id_njemaat'  => ['required', 'integer', 'max:255', new MaxTwoIdJemaat($request->id_njemaat)],
                 'kordinator'  => 'required|string|max:255',
                 'phone'       => 'required|unique:tbl_register|min:10|max:12',
                 'kategori'    => 'required|integer|max:5',
