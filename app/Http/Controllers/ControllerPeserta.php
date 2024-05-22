@@ -32,7 +32,7 @@ class ControllerPeserta extends Controller
             // Validasi data
             $validator = Validator::make($request->all(), [
                 'id_njemaat'  => ['required','integer', 'max:255', new MaxTwoIdJemaat($request->id_njemaat)],
-                'kordinator'  => 'required|string|max:255',
+                'kordinator'  => ['required','string','max:255','unique:tbl_register'],
                 'phone'       => ['required', 'unique:tbl_register', 'min:10', 'max:12'],
                 'kategori'    => ['required', 'integer', 'max:255', new MaxKategoryByJemaat($request->id_njemaat, $request->kategori)],
                 'laguWajib'   => 'required|string|max:255',
@@ -41,6 +41,7 @@ class ControllerPeserta extends Controller
                 'phone.unique'      => 'Nomor telepon sudah terdaftar.',
                 'phone.min'         => 'Nomor telepon harus memiliki minimal 10 karakter.',
                 'phone.max'         => 'Nomor telepon harus memiliki maksimal 12 karakter.',
+                'kordinator.unique' => 'Nama Kordinator sudah terdaftar.'
             ]);
     
             // Jika validasi gagal
