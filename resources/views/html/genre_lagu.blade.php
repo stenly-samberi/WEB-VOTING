@@ -38,7 +38,8 @@
         </form>
       </div>
     </div>
-    <h5 class="card-title fw-semibold mb-4">Disabled forms</h5>
+    
+    
     <div class="card mb-0">
       <div class="card-body">
         <table class="table table-striped">

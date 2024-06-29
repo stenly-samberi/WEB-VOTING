@@ -48,6 +48,7 @@ return new class extends Migration
             $table->bigIncrements('id_register');
             $table->unsignedBigInteger('id_njemaat');
             $table->unsignedBigInteger('id_lagu');
+            $table->string('no_tampil', 3)->nullable();
             $table->string('lagu_wajib');
             $table->unsignedBigInteger('id_kategori_lomba');
             $table->string('kordinator');
@@ -59,6 +60,24 @@ return new class extends Migration
             $table->foreign('id_lagu')->references('id_lagu')->on('tbl_lagu');
             $table->foreign('id_kategori_lomba')->references('id_kategori_lomba')->on('tbl_kategori_lomba'); 
         });
+
+        Schema::create('tbl_penilaian',function(Blueprint $table){
+            $table->bigIncrements('id_penilaian');
+            $table->unsignedBigInteger('id_register');
+            $table->unsignedBigInteger('id_user');
+            $table->unsignedBigInteger('id_lagu');
+            $table->integer('intonasi');//INTONASI
+            $table->integer('vocal');//KUALITAS VOCAL
+            $table->integer('partitur');//KEPATUHAN PARTITUR
+            $table->integer('artitistik');//KESAN ARTITISTIK KESELURUHAN
+            $table->integer('nilai');
+            $table->timestamps();
+            $table->foreign('id_register')->references('id_register')->on('tbl_register');
+            $table->foreign('id_user')->references('id_user')->on('tbl_user');
+            $table->foreign('id_lagu')->references('id_lagu')->on('tbl_lagu');
+        });
+
+        
     }
 
     /**

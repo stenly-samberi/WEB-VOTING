@@ -17,17 +17,13 @@ class ControllerPeserta extends Controller
     public function index(){
 
         $registers = Peserta::with('data_jemaat', 'data_lagu', 'kategori_lomba')->get();
-
-        // return $registers;
-
         return view('html.data_peserta', [
             'peserta' => $registers
         ]);
     }
 
     public function store_data_register(Request $request){
-        // $data = json_decode($request->getContent(), true);
-
+      
         try {
             // Validasi data
             $validator = Validator::make($request->all(), [
@@ -63,12 +59,16 @@ class ControllerPeserta extends Controller
 
             // Berikan respons sukses
             // return response()->json('Pendaftaran Peserta Berhasil', 200);
-            return response()->json(['message' => 'Pendaftaran Peserta Berhasil', 'redirect_url' => 'https://register.viadolorosa.web.id'], 200);
+            
+            return response()->json(['message' => 'Pendaftaran Peserta Berhasil'], 200);
+           
+        
 
         } catch (\Exception $e) {
             // Tangani kesalahan
             return response()->json('Terjadi Kesalahan : ' . $e->getMessage(), 500);
         }
+        return redirect()->route('peserta.index')->with('success', 'Pendaftaran Peserta Berhasil');
     }
 
     public function display_data_register(){

@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('tbl_user', function (Blueprint $table) {
             $table->bigIncrements('id_user');
+            $table->string('username');
             $table->string('name');
             $table->string('role');
             $table->string('password')->nullable();

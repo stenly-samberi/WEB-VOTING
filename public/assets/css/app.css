@@ -2,3 +2,9 @@
     display: flex;
     gap: 5px;
 }
+
+.card-click.selected {
+    background-color: #d2ddf8; /* Warna hijau muda */
+    border-radius: 10px;
+    font-weight: 500;
+}

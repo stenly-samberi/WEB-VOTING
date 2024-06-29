@@ -5,9 +5,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Modernize Free</title>
-  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/favicon.png" />
-  <link rel="stylesheet" href="../assets/css/styles.min.css" />
-  <link rel="stylesheet" href="../assets/css/app.css" />
+  <link rel="shortcut icon" type="image/png" href="{{ asset('assets/images/logos/favicon.png') }}" />
+  <link rel="stylesheet" href="{{ asset('assets/css/styles.min.css') }}" />
+  <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}" />
   
 </head>
 
@@ -22,7 +22,7 @@
         <div class="brand-logo d-flex align-items-center justify-content-between">
           <a href="#" class="text-nowrap logo-img">
             {{-- <h3>Web Voting</h3> --}}
-            <img src="../assets/images/logos/dark-logo.svg" width="180" alt="" />
+            <img src="{{ asset('assets/images/logos/dark-logo.svg') }}" width="180" alt="" />
           </a>
           <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
             <i class="ti ti-x fs-8"></i>
@@ -36,7 +36,7 @@
               <span class="hide-menu">Home</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="dash" aria-expanded="false">
+              <a class="sidebar-link" href="{{ url('dash') }}" aria-expanded="false">
                 <span>
                   <i class="ti ti-layout-dashboard"></i>
                 </span>
@@ -48,7 +48,7 @@
               <span class="hide-menu">UI COMPONENTS</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="kategori_lomba" aria-expanded="false">
+              <a class="sidebar-link" href="{{ url('kategori_lomba') }}" aria-expanded="false">
                 <span>
                   <i class="ti ti-list"></i>
                 </span>
@@ -56,7 +56,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="peserta" aria-expanded="false">
+              <a class="sidebar-link" href="{{ url('peserta') }}" aria-expanded="false">
                 <span>
                   <i class="ti ti-users"></i>
                 </span>
@@ -64,7 +64,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="data_jemaat" aria-expanded="false">
+              <a class="sidebar-link" href="{{ url('data_jemaat') }}" aria-expanded="false">
                 <span>
                   <i class="ti ti-database"></i>
                 </span>
@@ -72,7 +72,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="kategori_jemaat" aria-expanded="false">
+              <a class="sidebar-link" href="{{ url('kategori_jemaat') }}" aria-expanded="false">
                 <span>
                   <i class="ti ti-file-description"></i>
                 </span>
@@ -80,7 +80,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="genre_lagu" aria-expanded="false">
+              <a class="sidebar-link" href="{{ url('genre_lagu') }}" aria-expanded="false">
                 <span>
                   <i class="ti ti-music"></i>
                 </span>
@@ -91,42 +91,44 @@
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
               <span class="hide-menu">AUTH</span>
             </li>
+            
             <li class="sidebar-item">
-              <a class="sidebar-link" href="login" aria-expanded="false">
-                <span>
-                  <i class="ti ti-login"></i>
-                </span>
-                <span class="hide-menu">Login</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="./authentication-register.html" aria-expanded="false">
+              <a class="sidebar-link" href="{{ url('register') }}" aria-expanded="false">
                 <span>
                   <i class="ti ti-user-plus"></i>
                 </span>
                 <span class="hide-menu">Register</span>
               </a>
             </li>
-            <li class="nav-small-cap">
-              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-              <span class="hide-menu">EXTRA</span>
-            </li>
+
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./icon-tabler.html" aria-expanded="false">
+              <a class="sidebar-link" href="{{ url('nomor_tampil') }}" aria-expanded="false">
                 <span>
-                  <i class="ti ti-mood-happy"></i>
+                  <i class="ti ti-settings"></i>
                 </span>
-                <span class="hide-menu">Icons</span>
+                <span class="hide-menu">Generated</span>
               </a>
             </li>
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+              <span class="hide-menu">Review</span>
+            </li>
             <li class="sidebar-item">
+              <a class="sidebar-link" href="{{ url('review') }}" aria-expanded="false">
+                <span>
+                  <i class="ti ti-edit"></i>
+                </span>
+                <span class="hide-menu">Rating Penilaian</span>
+              </a>
+            </li>
+            {{-- <li class="sidebar-item">
               <a class="sidebar-link" href="./sample-page.html" aria-expanded="false">
                 <span>
                   <i class="ti ti-aperture"></i>
                 </span>
                 <span class="hide-menu">Sample Page</span>
               </a>
-            </li>
+            </li> --}}
           </ul>
           <div class="unlimited-access hide-menu bg-light-primary position-relative mb-7 mt-5 rounded">
             <div class="d-flex">
@@ -200,8 +202,6 @@
           @yield('content')
       </main>
 
-
-
         <div class="py-6 px-6 text-center">
           <p class="mb-0 fs-4">Design and Developed by <a href="#" target="_blank" class="pe-1 text-primary text-decoration-underline">Team Multimedia</a></p>
         </div>
@@ -209,13 +209,17 @@
       
     </div>
   </div>
-  <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
-  <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="../assets/js/sidebarmenu.js"></script>
-  <script src="../assets/js/app.min.js"></script>
-  <script src="../assets/libs/apexcharts/dist/apexcharts.min.js"></script>
-  <script src="../assets/libs/simplebar/dist/simplebar.js"></script>
-  <script src="../assets/js/dashboard.js"></script>
+  <script src="{{ asset('assets/js/display.js') }}"></script>
+  <script src="{{ asset('assets/libs/jquery/dist/jquery.min.js') }}"></script>
+  <script src="{{ asset('assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ asset('assets/js/sidebarmenu.js') }}"></script>
+  <script src="{{ asset('assets/js/app.min.js') }}"></script>
+  <script src="{{ asset('assets/libs/apexcharts/dist/apexcharts.min.js') }}"></script>
+  <script src="{{ asset('assets/libs/simplebar/dist/simplebar.js') }}"></script>
+  <script src="{{ asset('assets/js/dashboard.js') }}"></script>
+  <script src="{{ asset('assets/js/voting.js') }}"></script>
+  <script>fetchData();</script>
+  
 </body>
 
 </html>

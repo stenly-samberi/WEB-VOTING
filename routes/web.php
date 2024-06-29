@@ -5,7 +5,10 @@ use App\Http\Controllers\ControllerDataJemaat;
 use App\Http\Controllers\ControllerGenreLagu;
 use App\Http\Controllers\ControllerKategoriJemaat;
 use App\Http\Controllers\ControllerKategoriLomba;
+use App\Http\Controllers\ControllerNomorTampil;
 use App\Http\Controllers\ControllerPeserta;
+use App\Http\Controllers\ControllerRegister;
+use App\Http\Controllers\ControllerReview;
 use App\Http\Controllers\ControllerUser;
 use Illuminate\Support\Facades\Route;
 
@@ -64,6 +67,27 @@ Route::prefix('genre_lagu')->name('genre_lagu.')->group(function () {
     Route::get('/', [ControllerGenreLagu::class, 'index'])->name('index')->middleware('auth');
     Route::post('/', [ControllerGenreLagu::class, 'store'])->name('store')->middleware('auth');
     Route::delete('/{id}', [ControllerGenreLagu::class, 'destroy'])->name('destroy')->middleware('auth');
+});
+
+Route::prefix('register')->name('register.')->group(function () {
+    Route::get('/', [ControllerRegister::class, 'index'])->name('index')->middleware('auth');
+    Route::post('/register', [ControllerRegister::class, 'store'])->name('store')->middleware('auth');
+    Route::get('/{id}/edit', [ControllerRegister::class, 'edit'])->name('edit')->middleware('auth');
+    Route::put('/{id}', [ControllerRegister::class, 'update'])->name('update')->middleware('auth');
+    Route::delete('/{id}', [ControllerRegister::class, 'destroy'])->name('destroy')->middleware('auth');
+});
+
+Route::prefix('nomor_tampil')->name('nomor_tampil.')->group(function () {
+    Route::get('/', [ControllerNomorTampil::class, 'index'])->name('index')->middleware('auth');
+    Route::post('/nomor_tampil', [ControllerNomorTampil::class, 'generateRandomOrder'])->name('generateRandomOrder')->middleware('auth');
+});
+
+Route::prefix('review')->name('review.')->group(function () {
+    Route::get('/', [ControllerReview::class, 'index'])->name('index')->middleware('auth');
+    Route::post('/register', [ControllerRegister::class, 'store'])->name('store')->middleware('auth');
+    Route::get('/{id}/edit', [ControllerRegister::class, 'edit'])->name('edit')->middleware('auth');
+    Route::put('/{id}', [ControllerRegister::class, 'update'])->name('update')->middleware('auth');
+    Route::delete('/{id}', [ControllerRegister::class, 'destroy'])->name('destroy')->middleware('auth');
 });
 
 

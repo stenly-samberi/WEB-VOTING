@@ -14,11 +14,11 @@ class ControllerUser extends Controller
 
         try {
             $request->validate([
-                'name' => 'required',
+                'username' => 'required',
                 'password' => 'required',
             ]);
         
-            $credentials = $request->only('name','password');
+            $credentials = $request->only('username','password');
         
             if (Auth::attempt($credentials)) {
                 $user = Auth::user();
@@ -28,7 +28,7 @@ class ControllerUser extends Controller
             }
         
             return back()->withErrors([
-                'error' => 'username atau password Anda salah.',
+                'error' => 'Username atau Password Anda salah.',
             ]);
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => 'Gagal login.'.$e->getMessage()]);

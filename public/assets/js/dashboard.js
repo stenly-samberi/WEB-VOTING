@@ -6,8 +6,9 @@ $(function () {
   // =====================================
   var chart = {
     series: [
-      { name: "Earnings this month:", data: [355, 390, 300, 350, 390, 180, 355, 390] },
-      { name: "Expense this month:", data: [280, 250, 325, 215, 250, 310, 280, 250] },
+      { name: "Intonasi", data: [67, 74, 90, 90, 89, 95, 78, 70] },
+      { name: "Partitur", data: [80, 50, 70, 80, 10, 40, 71, 92] },
+      { name: "Vocal", data: [80, 50, 70, 80, 10, 40, 71, 92] },
     ],
 
     chart: {
@@ -21,14 +22,14 @@ $(function () {
     },
 
 
-    colors: ["#5D87FF", "#49BEFF"],
+    colors: ["#5D87FF", "#49BEFF","#adb0bb"],
 
 
     plotOptions: {
       bar: {
         horizontal: false,
         columnWidth: "35%",
-        borderRadius: [6],
+        borderRadius: [1],
         borderRadiusApplication: 'end',
         borderRadiusWhenStacked: 'all'
       },
@@ -57,7 +58,7 @@ $(function () {
 
     xaxis: {
       type: "category",
-      categories: ["16/08", "17/08", "18/08", "19/08", "20/08", "21/08", "22/08", "23/08"],
+      categories: ["GKI Kalvari", "GKI Viadolorsa", "GKI Imanuel", "GKI Syalom", "Lacharoi", "Maratha", "GKI II", "GKI I"],
       labels: {
         style: { cssClass: "grey--text lighten-2--text fill-color" },
       },
@@ -67,7 +68,7 @@ $(function () {
     yaxis: {
       show: true,
       min: 0,
-      max: 400,
+      max: 100,
       tickAmount: 4,
       labels: {
         style: {

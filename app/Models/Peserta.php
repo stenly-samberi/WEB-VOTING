@@ -66,7 +66,7 @@ class Peserta extends Model
         return Peserta::join('tbl_lagu', 'tbl_lagu.id_lagu', '=', 'tbl_register.id_lagu')
                     ->join('tbl_kategori_lomba', 'tbl_kategori_lomba.id_kategori_lomba', '=', 'tbl_register.id_kategori_lomba')
                     ->join('tbl_njemaat', 'tbl_njemaat.id_njemaat', '=', 'tbl_register.id_njemaat')
-                    ->select('tbl_register.lagu_wajib', 'tbl_lagu.genre as jenis_lagu','tbl_njemaat.nama as nama_jemaat', 
+                    ->select('tbl_register.lagu_wajib','tbl_register.no_tampil', 'tbl_lagu.genre as jenis_lagu','tbl_njemaat.nama as nama_jemaat', 
                     'tbl_lagu.judul as judul_lagu', 'tbl_kategori_lomba.kategori_lomba','tbl_register.kordinator','tbl_register.phone',
                     'tbl_register.status','tbl_register.file','tbl_register.created_at','tbl_register.updated_at')
                     ->where('tbl_register.id_register', $id)
