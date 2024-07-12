@@ -14,10 +14,7 @@ class ControllerReview extends Controller
                             ->where('no_tampil', '!=', '')
                             ->get()
                             ->unique('id_njemaat')
-                            ->sortByDesc('no_tampil');
-
-        // return $registers;
-                            
+                            ->sortByDesc('no_tampil');    
         return view('html.voting', [
             'peserta' => $registers
         ]);

@@ -83,11 +83,17 @@ Route::prefix('nomor_tampil')->name('nomor_tampil.')->group(function () {
 });
 
 Route::prefix('review')->name('review.')->group(function () {
-    Route::get('/', [ControllerReview::class, 'index'])->name('index')->middleware('auth');
-    Route::post('/register', [ControllerRegister::class, 'store'])->name('store')->middleware('auth');
-    Route::get('/{id}/edit', [ControllerRegister::class, 'edit'])->name('edit')->middleware('auth');
-    Route::put('/{id}', [ControllerRegister::class, 'update'])->name('update')->middleware('auth');
-    Route::delete('/{id}', [ControllerRegister::class, 'destroy'])->name('destroy')->middleware('auth');
+    // Route::get('/', [ControllerReview::class, 'index'])->name('index')->middleware('auth');
+    // Route::post('/register', [ControllerRegister::class, 'store'])->name('store')->middleware('auth');
+    // Route::get('/{id}/edit', [ControllerRegister::class, 'edit'])->name('edit')->middleware('auth');
+    // Route::put('/{id}', [ControllerRegister::class, 'update'])->name('update')->middleware('auth');
+    // Route::delete('/{id}', [ControllerRegister::class, 'destroy'])->name('destroy')->middleware('auth');
+
+    Route::get('/', [ControllerReview::class, 'index'])->name('index');
+    Route::post('/register', [ControllerRegister::class, 'store'])->name('store');
+    Route::get('/{id}/edit', [ControllerRegister::class, 'edit'])->name('edit');
+    Route::put('/{id}', [ControllerRegister::class, 'update'])->name('update');
+    Route::delete('/{id}', [ControllerRegister::class, 'destroy'])->name('destroy');
 });
 
 
