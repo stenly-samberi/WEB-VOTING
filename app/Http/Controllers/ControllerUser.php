@@ -12,7 +12,7 @@ class ControllerUser extends Controller
 
     public function auth(Request $request){
 
-        try {
+        // try {
             $request->validate([
                 'username' => 'required',
                 'password' => 'required',
@@ -30,9 +30,9 @@ class ControllerUser extends Controller
             return back()->withErrors([
                 'error' => 'Username atau Password Anda salah.',
             ]);
-        } catch (\Exception $e) {
-            return redirect()->back()->withErrors(['error' => 'Gagal login.'.$e->getMessage()]);
-        }
+        // } catch (\Exception $e) {
+        //     return redirect()->back()->withErrors(['error' => 'Gagal login.'.$e->getMessage()]);
+        // }
         
     }
 
