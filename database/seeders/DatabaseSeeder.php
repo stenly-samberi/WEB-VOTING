@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             'username' =>'admin',
             'name' => 'Super User',
             'role' => 'admin',
+            'level' => 1,
             'password' => 'admin',
             'img_src' => "https://icons.veryicon.com/png/o/internet--web/prejudice/user-128.png"
         ]);

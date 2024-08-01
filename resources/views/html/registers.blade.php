@@ -17,18 +17,28 @@
                   <input name="nama" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                 </div>  
               </div>
-              <div class="col-lg-6">
+
+              <div class="col-lg-4">
                 <div class="mb-3">
                   <label for="username" class="form-label">Username</label>
                   <input name="username" type="text" class="form-control" id="username">
                 </div>
               </div>
-              <div class="col-lg-6">
+
+              <div class="col-lg-4">
                 <div class="mb-3">
                   <label for="password" class="form-label">Password</label>
                   <input name="password" type="password" class="form-control" id="password">
                 </div>
               </div>
+
+              <div class="col-lg-4">
+                <div class="mb-3">
+                  <label for="password" class="form-label">Level</label>
+                  <input name="level" type="number" class="form-control" id="password">
+                </div>
+              </div>
+
               <div class="col-lg-12">
                 <div class="mb-3">
                   <label for="role" class="form-label">Role</label>
@@ -52,8 +62,8 @@
                 <th scope="col">No</th>
                 <th scope="col">Nama</th>
                 <th scope="col">Username</th>
-                <th scope="col">Role</th>
-                <th scope="col">Created at</th>
+                <th scope="col">Type</th>
+                <th scope="col">Level</th>
                 <th scope="col">Updated at</th>
                 <th scope="col">Action</th>
               </tr>
@@ -65,7 +75,7 @@
                 <td>{{ $data->name }}</th>
                 <td>{{ $data->username }}</th>
                 <td>{{ $data->role }}</th>
-                <td>{{ $data->created_at }}</td>
+                <td>{{ $data->level }}</td>
                 <td>{{ $data->updated_at }}</td>
                 <td class="d-flex">
                   

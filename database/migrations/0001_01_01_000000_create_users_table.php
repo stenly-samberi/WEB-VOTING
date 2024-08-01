@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('username');
             $table->string('name');
             $table->string('role');
+            $table->integer('level');
             $table->string('password')->nullable();
             $table->string('img_src');
             $table->timestamps();

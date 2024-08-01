@@ -24,6 +24,7 @@ class ControllerRegister extends Controller
          'nama' => 'required|string|max:255',
          'username' => 'required|string|max:255|unique:tbl_user',
          'password' => 'required|string|min:8',
+         'level' => 'required|integer',
          'role' => 'required|string|in:admin,juri',
      ]);
 
@@ -31,6 +32,7 @@ class ControllerRegister extends Controller
          'username' => $request->username,
          'name'     => $request->nama,
          'password' => bcrypt($request->password),
+         'level'    => $request->level,
          'img_src'  => "https://icons.veryicon.com/png/o/internet--web/prejudice/user-128.png",
          'role'     => $request->role,
      ]);
