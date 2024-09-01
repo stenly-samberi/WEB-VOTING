@@ -22,7 +22,7 @@ class ControllerUser extends Controller
         
             if (Auth::attempt($credentials)) {
                 $user = Auth::user();
-                $userData = ['id_user' => $user->id, 'username' => $user->name];
+                $userData = ['id_user' => $user->id_user, 'username' => $user->name,'role'=>$user->role];
                 $request->session()->put('user_data', $userData);
                 return redirect()->intended('dash');
             }

@@ -58,7 +58,7 @@
         <div class="card-body">
           <table class="table table-striped">
             <thead>
-              <tr>
+              <tr class="text-uppercase">
                 <th scope="col">No</th>
                 <th scope="col">Nama</th>
                 <th scope="col">Username</th>

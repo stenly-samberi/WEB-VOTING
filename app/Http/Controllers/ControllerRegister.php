@@ -8,8 +8,10 @@ use Illuminate\Http\Request;
 class ControllerRegister extends Controller
 {
    public function index(){
-      $datajemaat = User::all();
-      return view('html.registers', compact('datajemaat'));
+    //   $datajemaat = User::all();
+    //   return view('html.registers', compact('datajemaat'));
+    $datajemaat = User::where('role', 'juri')->get();
+    return view('html.registers', compact('datajemaat'));
    }
 
    public function edit($id)

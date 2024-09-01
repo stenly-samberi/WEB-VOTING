@@ -2,7 +2,7 @@ on:
   push:
     branches:
       - main
-name: 🚀 Deploy website https://travel.iconnect.web.id/
+name: 🚀 Deploy website https://admin.viadolorosa.web.id/
 jobs:
   web-deploy:
     name: 🎉 Deploy

@@ -7,6 +7,7 @@
         <div class="card">
             <div class="card-body">
                 <h3>Selamat Datang, {{ session('user_data.username') }}</h3>
+                
             </div>
         </div>
     </div>
@@ -34,27 +35,61 @@
                             <tr>
                                 <th><h6 class="fw-semibold mb-0">No Tampil</h6></th>
                                 <th><h6 class="fw-semibold mb-0">Peserta</h6></th>
-                                <th><h6 class="fw-semibold mb-0">Lagu</h6></th>
+                                <!-- <th><h6 class="fw-semibold mb-0">Lagu</h6></th> -->
                                 <th><h6 class="fw-semibold mb-0">Medali</h6></th>
                                 <th><h6 class="fw-semibold mb-0">Nilai</h6></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td><h6 class="fw-semibold mb-0">1</h6></td>
+
+                        @forelse($data as $key => $view)
+
+                        <tr>
+                                <td><h6 class="fw-semibold mb-0">{{ $view['nomor_tampil'] }}</h6></td>
                                 <td>
-                                    <h6 class="fw-semibold mb-1">Sunil Joshi</h6>
-                                    <span class="fw-normal">Web Designer</span>
+                                    <h6 class="fw-semibold mb-1">{{ $view['jemaat'] }}</h6>
+                                    <!-- <span class="fw-normal">Web Designer</span> -->
                                 </td>
-                                <td><p class="mb-0 fw-normal">Elite Admin</p></td>
+                                <!-- <td><p class="mb-0 fw-normal">Elite Admin</p></td> -->
+
                                 <td>
-                                    <div class="d-flex align-items-center gap-2">
-                                        <span class="badge bg-primary rounded-3 fw-semibold">Gold</span>
-                                    </div>
-                                </td>
-                                <td><h6 class="fw-semibold mb-0 fs-4">95</h6></td>
+
+                                <div class="d-flex align-items-center gap-2">
+                                    @php
+                                        $medalClass = '';
+                                        switch ($view['medali']) {
+                                            case 'Gold':
+                                                $medalClass = 'bg-success';
+                                                break;
+                                            case 'Silver':
+                                                $medalClass = 'bg-secondary';
+                                                break;
+                                            case 'Bronze':
+                                                $medalClass = 'bg-danger';
+                                                break;
+                                            default:
+                                                $medalClass = 'bg-primary';
+                                                break;
+                                        }
+                                    @endphp
+                                    <span class="badge {{ $medalClass }} rounded-3 fw-semibold">{{ $view['medali'] }}</span>
+                                </div>
+                            </td>
+
+                                
+                                <td><h6 class="fw-semibold mb-0 fs-4">{{ $view['total_final'] }}</h6></td>
                             </tr>
-                            <tr>
+                            @empty
+                <tr>
+                    <td colspan="5" class="text-center">No data available</td>
+                </tr>
+
+                  
+                         @endforelse
+
+                           
+
+                            <!-- <tr>
                                 <td><h6 class="fw-semibold mb-0">2</h6></td>
                                 <td>
                                     <h6 class="fw-semibold mb-1">Andrew McDownland</h6>
@@ -95,7 +130,7 @@
                                     </div>
                                 </td>
                                 <td><h6 class="fw-semibold mb-0 fs-4">2.4</h6></td>
-                            </tr>
+                            </tr> -->
                         </tbody>
                     </table>
                 </div>

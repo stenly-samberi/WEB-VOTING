@@ -28,7 +28,7 @@ Route::prefix('login')->name('login.')->group(function () {
 });
 
 Route::prefix('dash')->name('dash.')->group(function () {
-    Route::get('/', [ControllerDashboard::class, 'index'])->name('index')->middleware('auth');
+    Route::get('/', [ControllerReview::class, 'reviews'])->name('index')->middleware('auth');
     Route::post('/', [ControllerDashboard::class, 'store'])->name('store')->middleware('auth');
     Route::delete('/{id}', [ControllerDashboard::class, 'destroy'])->name('destroy')->middleware('auth');
 });
@@ -84,10 +84,10 @@ Route::prefix('nomor_tampil')->name('nomor_tampil.')->group(function () {
 
 Route::prefix('review')->name('review.')->group(function () {
     Route::get('/', [ControllerReview::class, 'index'])->name('index')->middleware('auth');
-    Route::post('/register', [ControllerRegister::class, 'store'])->name('store')->middleware('auth');
-    Route::get('/{id}/edit', [ControllerRegister::class, 'edit'])->name('edit')->middleware('auth');
-    Route::put('/{id}', [ControllerRegister::class, 'update'])->name('update')->middleware('auth');
-    Route::delete('/{id}', [ControllerRegister::class, 'destroy'])->name('destroy')->middleware('auth');
+    Route::get('/lihat_review', [ControllerReview::class, 'lihat_Reviews'])->name('lihat_Reviews')->middleware('auth');
+    Route::get('/{id}/edit', [ControllerReview::class, 'edit'])->name('edit')->middleware('auth');
+    Route::put('/{id}', [ControllerReview::class, 'update'])->name('update')->middleware('auth');
+    Route::delete('/{id}', [ControllerReview::class, 'destroy'])->name('destroy')->middleware('auth');
 });
 
 

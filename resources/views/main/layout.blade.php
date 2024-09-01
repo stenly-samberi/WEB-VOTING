@@ -28,13 +28,23 @@
             <i class="ti ti-x fs-8"></i>
           </div>
         </div>
+
+
         <!-- Sidebar navigation-->
+
+        
+
         <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+
           <ul id="sidebarnav">
+
+          
+
             <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
               <span class="hide-menu">Home</span>
             </li>
+
             <li class="sidebar-item">
               <a class="sidebar-link" href="{{ url('dash') }}" aria-expanded="false">
                 <span>
@@ -43,6 +53,10 @@
                 <span class="hide-menu">Dashboard</span>
               </a>
             </li>
+
+            @if(session('user_data.role') == 'admin')
+
+          
             <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
               <span class="hide-menu">UI COMPONENTS</span>
@@ -109,6 +123,11 @@
                 <span class="hide-menu">Generated</span>
               </a>
             </li>
+
+          @endif
+            
+          @if(session('user_data.role') == 'juri')
+
             <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
               <span class="hide-menu">Review</span>
@@ -121,15 +140,22 @@
                 <span class="hide-menu">Rating Penilaian</span>
               </a>
             </li>
-            {{-- <li class="sidebar-item">
-              <a class="sidebar-link" href="./sample-page.html" aria-expanded="false">
+            <li class="sidebar-item">
+
+              <a class="sidebar-link" href="{{ url('review/lihat_review') }}" aria-expanded="false">
                 <span>
                   <i class="ti ti-aperture"></i>
                 </span>
-                <span class="hide-menu">Sample Page</span>
+                <span class="hide-menu">Review</span>
               </a>
-            </li> --}}
+            </li>
+         
+            @endif
+
           </ul>
+
+
+
           <div class="unlimited-access hide-menu bg-light-primary position-relative mb-7 mt-5 rounded">
             <div class="d-flex">
               <div class="unlimited-access-title me-3">
@@ -178,6 +204,9 @@
                     <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
                       <i class="ti ti-user fs-6"></i>
                       <p class="mb-0 fs-3">{{ session('user_data.username') }}</p>
+                     
+                      <input id="id_user" hidden type="text" value="{{session('user_data.id_user')}}">
+
                     </a>
                     <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
                       <i class="ti ti-mail fs-6"></i>
@@ -203,7 +232,7 @@
       </main>
 
         <div class="py-6 px-6 text-center">
-          <p class="mb-0 fs-4">Design and Developed by <a href="#" target="_blank" class="pe-1 text-primary text-decoration-underline">Team Multimedia</a></p>
+          <p class="mb-0 fs-4">Developed by <a href="#" target="_blank" class="pe-1 text-primary text-decoration-underline">Stenly On Behalf of Multimedia</a></p>
         </div>
       </div>
       

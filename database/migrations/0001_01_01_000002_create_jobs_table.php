@@ -63,18 +63,22 @@ return new class extends Migration
 
         Schema::create('tbl_penilaian',function(Blueprint $table){
             $table->bigIncrements('id_penilaian');
-            $table->unsignedBigInteger('id_register');
+            $table->unsignedBigInteger('id_njemaat');
             $table->unsignedBigInteger('id_user');
-            $table->unsignedBigInteger('id_lagu');
+            $table->unsignedBigInteger('id_kategori_lomba');
+            $table->string('no_tampil');
+            $table->string('judul_lagu');
+            $table->string('genre_lagu');
             $table->integer('intonasi');//INTONASI
             $table->integer('vocal');//KUALITAS VOCAL
             $table->integer('partitur');//KEPATUHAN PARTITUR
             $table->integer('artitistik');//KESAN ARTITISTIK KESELURUHAN
-            $table->integer('nilai');
+            $table->double('nilai');
             $table->timestamps();
-            $table->foreign('id_register')->references('id_register')->on('tbl_register');
+            $table->foreign('id_njemaat')->references('id_njemaat')->on('tbl_njemaat');
+            $table->foreign('id_kategori_lomba')->references('id_kategori_lomba')->on('tbl_kategori_lomba');
             $table->foreign('id_user')->references('id_user')->on('tbl_user');
-            $table->foreign('id_lagu')->references('id_lagu')->on('tbl_lagu');
+            
         });
 
         

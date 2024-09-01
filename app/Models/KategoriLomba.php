@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Review;
 
 class KategoriLomba extends Model
 {
@@ -16,5 +17,10 @@ class KategoriLomba extends Model
     protected $fillable = [
         'kategori_lomba',
     ];
+
+    public function review()
+    {
+        return $this->hasOne(Review::class);
+    }
 
 }
