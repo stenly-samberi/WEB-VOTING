@@ -31,11 +31,11 @@
                         <td>
 
                                 <a class ="primary btn btn-primary btn-sm" href="">Edit</a>
-                                <form action="" method="POST" style="display:inline;">
+                                <!-- <form action="#" method="POST" style="display:inline;">
                                     @csrf
                                     @method('DELETE')
                                     <button class="primary btn btn-danger btn-sm" type="submit">Delete</button>
-                                </form>
+                                </form> -->
                         </td>
                     </tr>
               @endforeach
