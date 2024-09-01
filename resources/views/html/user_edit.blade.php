@@ -34,7 +34,7 @@
                 <div class="mb-3">
                   <label for="role" class="form-label">Role</label>
                   <select name="role" class="form-control" id="role">
-                    <option value="admin" {{ $data->role == 'admin' ? 'selected' : '' }}>Admin</option>
+                    <!-- <option value="admin" {{ $data->role == 'admin' ? 'selected' : '' }}>Admin</option> -->
                     <option value="juri" {{ $data->role == 'juri' ? 'selected' : '' }}>Juri</option>
                   </select>
                 </div>
