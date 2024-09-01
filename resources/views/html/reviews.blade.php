@@ -20,8 +20,6 @@
                         <input id="lagu_wajib" type="text" value="{{ $p->lagu_wajib }}" hidden>
                         <input id="id_lagu_wajib" type="text" value="{{ $p->lagu_wajib }}" hidden>
                         <input id="lagu_pilihan" type="text" value="{{ $p->data_lagu->judul }}" hidden>
-                     
-                       
                     </div>
                 </div>
             </div>

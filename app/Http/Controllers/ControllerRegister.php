@@ -26,7 +26,7 @@ class ControllerRegister extends Controller
          'nama' => 'required|string|max:255',
          'username' => 'required|string|max:255|unique:tbl_user',
          'password' => 'required|string|min:8',
-         'level' => 'required|integer',
+         'level' => 'required|integer|unique:tbl_user',
          'role' => 'required|string|in:admin,juri',
      ]);
 
