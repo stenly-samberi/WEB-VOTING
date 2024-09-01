@@ -11,8 +11,6 @@ document.addEventListener('DOMContentLoaded', function() {
             id_kategori_lomba = this.querySelector('#id_kategori_lomba').textContent;
             no_tampil = this.querySelector('#no_tampil').textContent;
 
-           
-
             //Set Value
             document.getElementById("lagu-wajib-value").innerHTML = this.querySelector('#lagu_wajib').value;
             document.getElementById("lagu-pilihan-value").innerHTML = this.querySelector('#lagu_pilihan').value;
@@ -66,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 };
     
                 let xhr = new XMLHttpRequest();
-                xhr.open("POST", "https://8000-idx-web-voting-1720763927432.cluster-qpa6grkipzc64wfjrbr3hsdma2.cloudworkstations.dev/api/penilaian", true);
+                xhr.open("POST", "https://admin.viadolorosa.web.id/api/penilaian", true);
                 xhr.setRequestHeader("Content-Type", "application/json");
           
                 xhr.onreadystatechange = function() {
