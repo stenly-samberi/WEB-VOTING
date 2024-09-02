@@ -122,7 +122,7 @@ class ControllerReview extends Controller
         
         $groupedReviews = $groupedReviews->map(function ($userReviews) {
         $totalFinal = 0;
-        $nilai_akhir = 0;
+        double $nilai_akhir = 0;
         $medali = "";
         
         $mappedReviews = $userReviews->map(function ($reviews) use (&$totalFinal) {
