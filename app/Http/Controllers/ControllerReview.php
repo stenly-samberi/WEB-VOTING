@@ -153,7 +153,7 @@ class ControllerReview extends Controller
                 'medali'  => $medali,
                 'nomor_tampil' => $mappedReviews->first()['data']->first()->no_tampil,
                 'jemaat'  => $mappedReviews->first()['data']->first()->jemaat->nama,
-                'total_final' => ($totalFinal/2)/3];
+                'total_final' => round(($totalFinal/2)/3,2)];
         });
 
         $sortedReviews = $groupedReviews->sortByDesc('total_final');
