@@ -122,7 +122,7 @@ class ControllerReview extends Controller
         
         $groupedReviews = $groupedReviews->map(function ($userReviews) {
         $totalFinal = 0;
-        $nilai_akhir = (double) 0;
+        $nilai_akhir = 0;
         $medali = "";
         
         $mappedReviews = $userReviews->map(function ($reviews) use (&$totalFinal) {
@@ -137,7 +137,7 @@ class ControllerReview extends Controller
                     'total_nilai' => $totalNilai / 2];
         });
         
-        $nilai_akhir = ($totalFinal / 2) / 3;
+        $nilai_akhir = (double) ($totalFinal / 2) / 3;
 
         if ($nilai_akhir >= 60 && $nilai_akhir <= 75) {
             $medali = "Bronze";
