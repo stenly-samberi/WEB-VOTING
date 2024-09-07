@@ -19,6 +19,7 @@ class Peserta extends Model
         'id_njemaat',
         'id_lagu',
         'lagu_wajib',
+        'no_tampil',
         'id_kategori_lomba',
         'kordinator',
         'phone',

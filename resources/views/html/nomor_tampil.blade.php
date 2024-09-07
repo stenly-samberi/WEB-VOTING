@@ -21,8 +21,12 @@
                 <div class="card">
                     <div class="card-body">
                         <h3 class="card-title text-center">{{ $p->data_jemaat->nama }}</h3>
-                        {{-- <p class="card-text">Jemaat: {{ $p->jemaat }}</p> --}}
+                        <p class="card-text text-center">{{ $p->kategori_lomba->kategori_lomba }}</p>
                         <h1 class="card-text text-center">{{ $p->no_tampil }}</h1>
+                        <div class="form-check text-center">
+                          <input class="form-check-input" type="checkbox" value="" id="checklist{{ $p->id }}">
+                          
+                        </div>
                     </div>
                 </div>
             </div>

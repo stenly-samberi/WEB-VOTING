@@ -116,7 +116,9 @@ class ControllerReview extends Controller
 
     public function reviews() {
         //tampilkan data ke dashboard
-        $reviews = Review::with('user:name,id_user,level as juri_level','jemaat:nama,id_njemaat','kategori_lomba:id_kategori_lomba,kategori_lomba')->get();
+        $reviews = Review::with('user:name,id_user,level as juri_level',
+        'jemaat:nama,id_njemaat',
+        'kategori_lomba:id_kategori_lomba,kategori_lomba')->get();
         
         $groupedReviews = $reviews->groupBy(['no_tampil', 'id_user']);
         
@@ -134,7 +136,8 @@ class ControllerReview extends Controller
     
         return ['data' => $reviews,
                     'nilai_keseluruan' => $totalNilai,
-                    'total_nilai' => $totalNilai / 2];
+                    'total_nilai' => $totalNilai / 2
+                ];
         });
         
         $nilai_akhir =  round( ($totalFinal / 2) / 3, 2);//melakukan pembulatan menjadi 2 decimal
@@ -158,9 +161,6 @@ class ControllerReview extends Controller
         });
 
         $sortedReviews = $groupedReviews->sortByDesc('total_final');
-
-        //return $sortedReviews;
-
         return view('html.dash', ['data' => $sortedReviews]);
         
     }

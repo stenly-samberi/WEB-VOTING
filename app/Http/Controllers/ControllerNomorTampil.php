@@ -11,8 +11,9 @@ class ControllerNomorTampil extends Controller
         $registers = Peserta::with('data_jemaat', 'data_lagu', 'kategori_lomba')
                             ->whereNotNull('no_tampil')
                             ->where('no_tampil', '!=', '')
-                            ->get()
-                            ->unique('id_njemaat');
+                            ->orderBy('id_kategori_lomba') // Mengurutkan berdasarkan kategori lomba
+                            ->orderBy('no_tampil') // Mengurutkan berdasarkan nomor tampil dalam setiap kategori
+                            ->get(); // Pastikan ini sesuai dengan kebutuhan Anda
     
         return view('html.nomor_tampil', [
             'peserta' => $registers
@@ -20,17 +21,42 @@ class ControllerNomorTampil extends Controller
     }
     
     
+    
+    
 
-    public function generateRandomOrder(){
-        $peserta = Peserta::all()->unique('id_njemaat');
-        $pesertaIds = $peserta->pluck('id_njemaat')->toArray();
-        shuffle($pesertaIds);
+    public function generateRandomOrder()
+{
+    // Mengambil semua peserta dan mengelompokkan berdasarkan id_kategori_lomba
+    $pesertaGroupedByKategori = Peserta::all()->groupBy('id_kategori_lomba');
 
-        foreach ($pesertaIds as $index => $pesertaId) {
-            $noUrut = str_pad($index + 1, 3, '0', STR_PAD_LEFT);
-            Peserta::where('id_njemaat', $pesertaId)->update(['no_tampil' => $noUrut]);
+    foreach ($pesertaGroupedByKategori as $idKategori => $pesertaGroup) {
+        // Mengacak urutan peserta
+        $pesertaGroup = $pesertaGroup->shuffle();
+
+        // Mengupdate no_tampil untuk setiap peserta dalam kategori
+        foreach ($pesertaGroup as $index => $peserta) {
+            $noUrut = str_pad($index + 1, 2, '0', STR_PAD_LEFT);
+            $peserta->update(['no_tampil' => $noUrut]);
         }
+    }
 
-        return redirect()->route('nomor_tampil.index')->with('success', 'Nomor urut peserta berhasil dibuat');
-        }
+    return redirect()->route('nomor_tampil.index')->with('success', 'Nomor urut peserta berhasil dibuat');
+}
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
