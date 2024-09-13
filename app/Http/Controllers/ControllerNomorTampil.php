@@ -14,16 +14,33 @@ class ControllerNomorTampil extends Controller
                             ->orderBy('id_kategori_lomba') // Mengurutkan berdasarkan kategori lomba
                             ->orderBy('no_tampil') // Mengurutkan berdasarkan nomor tampil dalam setiap kategori
                             ->get(); // Pastikan ini sesuai dengan kebutuhan Anda
+
+        //return $registers;
     
         return view('html.nomor_tampil', [
             'peserta' => $registers
         ]);
     }
-    
-    
-    
-    
 
+    public function updated_status(Request $request)
+    { 
+       
+        $id = $request->input('id');
+        $statusValue = $request->input('status') === 'true';
+
+       
+
+        $peserta = Peserta::where('id_register', $id)->firstOrFail();
+        $peserta->status = $statusValue;
+        $peserta->save();
+
+        return response()->json(['message' => 'Status updated successfully']);
+
+      
+       
+    }
+    
+    
     public function generateRandomOrder()
 {
     // Mengambil semua peserta dan mengelompokkan berdasarkan id_kategori_lomba

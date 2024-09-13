@@ -24,8 +24,7 @@
                         <p class="card-text text-center">{{ $p->kategori_lomba->kategori_lomba }}</p>
                         <h1 class="card-text text-center">{{ $p->no_tampil }}</h1>
                         <div class="form-check text-center">
-                          <input class="form-check-input" type="checkbox" value="" id="checklist{{ $p->id }}">
-                          
+                        <input class="form-check-input" type="checkbox" value="" id="checklist{{ $p->id_register }}" onchange="updateStatus({{ $p->id_register }}, this.checked)">
                         </div>
                     </div>
                 </div>
@@ -43,5 +42,9 @@
    
   </div>
 </div>
+
+
 @endsection
+
+
 
