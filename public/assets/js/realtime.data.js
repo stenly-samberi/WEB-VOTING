@@ -184,7 +184,6 @@ $(document).ready(function() {
                     let xhr = new XMLHttpRequest();
                     xhr.open("POST", "https://admin.viadolorosa.web.id/api/penilaian", true);
                     xhr.setRequestHeader("Content-Type", "application/json");
-              
                     xhr.onreadystatechange = function() {
                         if (xhr.readyState === XMLHttpRequest.DONE) {
                             if (xhr.status === 200) {
