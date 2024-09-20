@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 };
     
                 let xhr = new XMLHttpRequest();
-                xhr.open("POST", baseUrl + "/api/penilaian", true);
+                xhr.open("POST", "https://admin.viadolorosa.web.id/api/penilaian", true);
                 xhr.setRequestHeader("Content-Type", "application/json");
           
                 xhr.onreadystatechange = function() {
