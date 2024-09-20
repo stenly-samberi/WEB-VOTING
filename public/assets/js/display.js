@@ -1,4 +1,4 @@
-let baseUrl = "https://admin.viadolorosa.web.id/";
+
 
 function displayJemaat(jemaatData){
     var jemaatselect = document.getElementById('jemaat-select');
@@ -72,6 +72,7 @@ function laguBykategori(data){
 
 
 function fetchData() {
+    let baseUrl = "https://admin.viadolorosa.web.id/";
     // Membuat objek XMLHttpRequest
     var xhr = new XMLHttpRequest();
     // Menentukan metode, URL, dan asynchronousnya
@@ -102,9 +103,7 @@ function fetchData() {
 
 //simpan data keserver menggunakan form
 document.getElementById('btn-daftar').addEventListener('click', function() {
-   
-   
-
+    let baseUrl = "https://admin.viadolorosa.web.id/";
     var jemaat = document.getElementById('jemaat-select').value;
     var kordinator = document.getElementById('kordinator-input').value;
     var phone = document.getElementById('phone-input').value;
