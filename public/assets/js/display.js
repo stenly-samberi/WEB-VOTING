@@ -1,5 +1,4 @@
 
-
 function displayJemaat(jemaatData){
     var jemaatselect = document.getElementById('jemaat-select');
     jemaatData.forEach(function(jemaat){
@@ -72,11 +71,10 @@ function laguBykategori(data){
 
 
 function fetchData() {
-    let baseUrl = "https://admin.viadolorosa.web.id";
     // Membuat objek XMLHttpRequest
     var xhr = new XMLHttpRequest();
     // Menentukan metode, URL, dan asynchronousnya
-    xhr.open('GET', baseUrl+'/api/register', true);
+    xhr.open('GET', 'https://admin.viadolorosa.web.id/api/register', true);
     // Mengatur tindakan yang dilakukan saat permintaan selesai
     xhr.onload = function() {
         if (xhr.status >= 200 && xhr.status < 300) {
@@ -103,7 +101,7 @@ function fetchData() {
 
 //simpan data keserver menggunakan form
 document.getElementById('btn-daftar').addEventListener('click', function() {
-    let baseUrl = "https://admin.viadolorosa.web.id";
+   
     var jemaat = document.getElementById('jemaat-select').value;
     var kordinator = document.getElementById('kordinator-input').value;
     var phone = document.getElementById('phone-input').value;
@@ -129,7 +127,7 @@ document.getElementById('btn-daftar').addEventListener('click', function() {
 
     // Kirim data ke Laravel menggunakan AJAX
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', baseUrl+'/api/register', true);
+    xhr.open('POST', 'https://admin.viadolorosa.web.id/api/register', true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onload = function () {
         if (xhr.status >= 200 && xhr.status < 300) {
