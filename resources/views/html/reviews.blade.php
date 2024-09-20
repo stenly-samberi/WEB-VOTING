@@ -5,31 +5,8 @@
   <div class="card-body">
     <h5 class="card-title fw-semibold mb-4">Form Penilaian</h5>
     
-    
-
-    <div class="row">
-        @forelse ($peserta as $p)
-            <div class="col-md-4 mb-1">
-                <div class="card card-click" id="card-{{ $loop->iteration }}">
-                    <div class="card-body">
-                        <label hidden id="id_register" for="">{{ $p->data_jemaat->id_njemaat }}</label>
-                        <h3 class="card-title text-center">{{ $p->data_jemaat->nama }}</h3>
-                        <h6 class="text-center" for="">{{ $p->kategori_lomba->kategori_lomba }}</h6>
-                        <h6 hidden class="text-center" id="id_kategori_lomba" for="">{{ $p->kategori_lomba->id_kategori_lomba }}</h6> 
-                        <h1 id="no_tampil" class="card-text text-center">{{ $p->no_tampil }}</h1>
-                        <input id="lagu_wajib" type="text" value="{{ $p->lagu_wajib }}" hidden>
-                        <input id="id_lagu_wajib" type="text" value="{{ $p->lagu_wajib }}" hidden>
-                        <input id="lagu_pilihan" type="text" value="{{ $p->data_lagu->judul }}" hidden>
-                    </div>
-                </div>
-            </div>
-        @empty
-            <div class="col-12">
-                <div class="alert alert-info" role="alert">
-                    Daftar peserta tidak tersedia.
-                </div>
-            </div>
-        @endforelse
+    <div class="row" id="review-container">
+       
     </div>
 
 

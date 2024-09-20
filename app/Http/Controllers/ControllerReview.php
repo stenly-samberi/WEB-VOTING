@@ -10,17 +10,33 @@ use Illuminate\Support\Facades\Validator;
 class ControllerReview extends Controller
 {
     public function index() {
+        return view('html.reviews');
+    }
+
+
+    public function getData() {
+
+        // $registers = Peserta::with('data_jemaat:id_njemaat,nama', 'data_lagu:id_lagu,judul,genre', 'kategori_lomba:kategori_lomba,id_kategori_lomba')
+        // ->whereNotNull('no_tampil')
+        // ->where('no_tampil', '!=', '')
+        // ->where('status',1)
+        // ->orderBy('id_kategori_lomba') // Mengurutkan berdasarkan kategori lomba
+        // ->orderBy('no_tampil')
+        // ->get();
+
+
+        // return response()->json($registers);
+
         $registers = Peserta::with('data_jemaat:id_njemaat,nama', 'data_lagu:id_lagu,judul,genre', 'kategori_lomba:kategori_lomba,id_kategori_lomba')
                             ->whereNotNull('no_tampil')
                             ->where('no_tampil', '!=', '')
                             ->where('status',1)
                             ->orderBy('id_kategori_lomba') // Mengurutkan berdasarkan kategori lomba
-                            ->orderBy('no_tampil')
-                            ->get();
-                            
-        return view('html.reviews', [
-            'peserta' => $registers
-        ]);
+                            ->orderBy('no_tampil') // Mengurutkan berdasarkan nomor tampil dalam setiap kategori
+                            ->get(); // Pastikan ini sesuai dengan kebutuhan Anda
+
+        return response()->json($registers);
+
     }
 
     
@@ -114,6 +130,15 @@ class ControllerReview extends Controller
 
     }
 
+
+    public function viewdash(){
+
+    
+
+        return view('html.dash');
+    }
+
+
     public function reviews() {
         //tampilkan data ke dashboard
         $reviews = Review::with('user:name,id_user,level as juri_level',
@@ -161,7 +186,8 @@ class ControllerReview extends Controller
         });
 
         $sortedReviews = $groupedReviews->sortByDesc('total_final');
-        return view('html.dash', ['data' => $sortedReviews]);
+
+        return response()->json(['data' => $sortedReviews]);
         
     }
 

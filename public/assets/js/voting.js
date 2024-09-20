@@ -1,15 +1,21 @@
 document.addEventListener('DOMContentLoaded', function() {
+
+    let baseUrl = "https://admin.viadolorosa.web.id/";
+
     const cards = document.querySelectorAll('.card-click');
 
     let id_register, id_lagu, id_kategori_lomba,no_tampil = null;
 
+
     cards.forEach(card => {
         card.addEventListener('click', function() {
+          
             cards.forEach(c => c.classList.remove('selected'));
             this.classList.add('selected');
             id_register = this.querySelector('#id_register').textContent;
             id_kategori_lomba = this.querySelector('#id_kategori_lomba').textContent;
             no_tampil = this.querySelector('#no_tampil').textContent;
+
 
             //Set Value
             document.getElementById("lagu-wajib-value").innerHTML = this.querySelector('#lagu_wajib').value;
@@ -20,7 +26,8 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById("btn-submit").onclick = function() {
         if (id_register) {
 
-           
+            alert (id_register);
+
             let id_user = document.getElementById("id_user").value;
 
             let title_lagu_wajib = document.getElementById("title_lagu_wajib").innerHTML;
@@ -64,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 };
     
                 let xhr = new XMLHttpRequest();
-                xhr.open("POST", "https://8000-idx-web-voting-1720763927432.cluster-qpa6grkipzc64wfjrbr3hsdma2.cloudworkstations.dev/api/penilaian", true);
+                xhr.open("POST", baseUrl + "/api/penilaian", true);
                 xhr.setRequestHeader("Content-Type", "application/json");
           
                 xhr.onreadystatechange = function() {

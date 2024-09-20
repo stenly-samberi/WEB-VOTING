@@ -4,7 +4,7 @@
 <div class="container-fluid">
   <div class="card">
     <div class="card-body">
-      <h5 class="card-title fw-semibold mb-4">Hasil Perolehan</h5>
+      <h5 class="card-title fw-semibold mb-4">Log</h5>
 
       <div class="card mb-0">
         <div class="card-body">
@@ -17,7 +17,6 @@
                   <th scope="col">Jemaat</th>
                   <th scope="col">Nilai</th>
                   <th scope="col">Medali</th>
-                  <th scope="col">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -27,16 +26,6 @@
                         <td>{{ $view['jemaat'] }}</td>
                         <td>{{ $view['total_final'] }}</td>
                         <td>{{ $view['medali'] }}</td>
-
-                        <td>
-
-                                <a class ="primary btn btn-primary btn-sm" href="">Edit</a>
-                                <!-- <form action="#" method="POST" style="display:inline;">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="primary btn btn-danger btn-sm" type="submit">Delete</button>
-                                </form> -->
-                        </td>
                     </tr>
               @endforeach
               </tbody>

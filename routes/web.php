@@ -28,7 +28,8 @@ Route::prefix('login')->name('login.')->group(function () {
 });
 
 Route::prefix('dash')->name('dash.')->group(function () {
-    Route::get('/', [ControllerReview::class, 'reviews'])->name('index')->middleware('auth');
+    Route::get('/', [ControllerReview::class, 'viewdash'])->name('index')->middleware('auth');
+    Route::get('/data', [ControllerReview::class, 'reviews'])->name('index')->middleware('auth');
     Route::post('/', [ControllerDashboard::class, 'store'])->name('store')->middleware('auth');
     Route::delete('/{id}', [ControllerDashboard::class, 'destroy'])->name('destroy')->middleware('auth');
 });
@@ -79,11 +80,13 @@ Route::prefix('register')->name('register.')->group(function () {
 
 Route::prefix('nomor_tampil')->name('nomor_tampil.')->group(function () {
     Route::get('/', [ControllerNomorTampil::class, 'index'])->name('index')->middleware('auth');
+    Route::get('/data', [ControllerNomorTampil::class, 'getData'])->name('data')->middleware('auth');
     Route::post('/nomor_tampil', [ControllerNomorTampil::class, 'generateRandomOrder'])->name('generateRandomOrder')->middleware('auth');
 });
 
 Route::prefix('review')->name('review.')->group(function () {
     Route::get('/', [ControllerReview::class, 'index'])->name('index')->middleware('auth');
+    Route::get('/data', [ControllerReview::class, 'getData'])->name('datas')->middleware('auth');
     Route::get('/lihat_review', [ControllerReview::class, 'lihat_Reviews'])->name('lihat_Reviews')->middleware('auth');
     Route::get('/{id}/edit', [ControllerReview::class, 'edit'])->name('edit')->middleware('auth');
     Route::put('/{id}', [ControllerReview::class, 'update'])->name('update')->middleware('auth');

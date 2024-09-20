@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Modernize Free</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <link rel="shortcut icon" type="image/png" href="{{ asset('assets/images/logos/favicon.png') }}" />
   <link rel="stylesheet" href="{{ asset('assets/css/styles.min.css') }}" />
   <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}" />
@@ -149,6 +150,8 @@
                 <span class="hide-menu">Review</span>
               </a>
             </li>
+
+           
          
             @endif
 
@@ -250,8 +253,8 @@
   <script src="{{ asset('assets/libs/apexcharts/dist/apexcharts.min.js') }}"></script>
   <script src="{{ asset('assets/libs/simplebar/dist/simplebar.js') }}"></script>
   <script src="{{ asset('assets/js/dashboard.js') }}"></script>
-  <script src="{{ asset('assets/js/voting.js') }}"></script>
-  <script src="{{ asset('assets/js/tampil.js') }}"></script>
+  <script src="{{ asset('assets/js/realtime.data.js') }}"></script>
+  <!-- <script src="{{ asset('assets/js/voting.js') }}"></script> -->
  
   <script>fetchData();</script>
 

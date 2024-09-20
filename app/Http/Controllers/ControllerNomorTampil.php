@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 class ControllerNomorTampil extends Controller
 {
     public function index() {
+       
+        return view('html.nomor_tampil');
+
+    }
+
+    public function getData(){
         $registers = Peserta::with('data_jemaat', 'data_lagu', 'kategori_lomba')
                             ->whereNotNull('no_tampil')
                             ->where('no_tampil', '!=', '')
@@ -15,11 +21,7 @@ class ControllerNomorTampil extends Controller
                             ->orderBy('no_tampil') // Mengurutkan berdasarkan nomor tampil dalam setiap kategori
                             ->get(); // Pastikan ini sesuai dengan kebutuhan Anda
 
-        //return $registers;
-    
-        return view('html.nomor_tampil', [
-            'peserta' => $registers
-        ]);
+        return response()->json($registers);
     }
 
     public function updated_status(Request $request)

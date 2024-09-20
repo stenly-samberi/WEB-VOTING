@@ -30,7 +30,7 @@
             <div class="card-body p-4">
                 <h5 class="card-title fw-semibold mb-4">Top 10 Ranking</h5>
                 <div class="table-responsive">
-                    <table class="table text-nowrap mb-0 align-middle">
+                    <table id="data-table" class="table text-nowrap mb-0 align-middle">
                         <thead class="text-dark fs-4">
                             <tr>
                                 <th><h6 class="fw-semibold mb-0">No Tampil</h6></th>
@@ -40,97 +40,11 @@
                                 <th><h6 class="fw-semibold mb-0">Nilai</h6></th>
                             </tr>
                         </thead>
+                        
                         <tbody>
 
-                        @forelse($data as $key => $view)
+                        
 
-                        <tr>
-                                <td><h6 class="fw-semibold mb-0">{{ $view['nomor_tampil'] }}</h6></td>
-                                <td>
-                                    <h6 class="fw-semibold mb-1">{{ $view['jemaat'] }}</h6>
-                                    <!-- <span class="fw-normal">Web Designer</span> -->
-                                </td>
-                                <!-- <td><p class="mb-0 fw-normal">Elite Admin</p></td> -->
-
-                                <td>
-
-                                <div class="d-flex align-items-center gap-2">
-                                    @php
-                                        $medalClass = '';
-                                        switch ($view['medali']) {
-                                            case 'Gold':
-                                                $medalClass = 'bg-success';
-                                                break;
-                                            case 'Silver':
-                                                $medalClass = 'bg-secondary';
-                                                break;
-                                            case 'Bronze':
-                                                $medalClass = 'bg-danger';
-                                                break;
-                                            default:
-                                                $medalClass = 'bg-primary';
-                                                break;
-                                        }
-                                    @endphp
-                                    <span class="badge {{ $medalClass }} rounded-3 fw-semibold">{{ $view['medali'] }}</span>
-                                </div>
-                            </td>
-
-                                
-                                <td><h6 class="fw-semibold mb-0 fs-4">{{ $view['total_final'] }}</h6></td>
-                            </tr>
-                            @empty
-                <tr>
-                    <td colspan="5" class="text-center">No data available</td>
-                </tr>
-
-                  
-                         @endforelse
-
-                           
-
-                            <!-- <tr>
-                                <td><h6 class="fw-semibold mb-0">2</h6></td>
-                                <td>
-                                    <h6 class="fw-semibold mb-1">Andrew McDownland</h6>
-                                    <span class="fw-normal">Project Manager</span>
-                                </td>
-                                <td><p class="mb-0 fw-normal">Real Homes WP Theme</p></td>
-                                <td>
-                                    <div class="d-flex align-items-center gap-2">
-                                        <span class="badge bg-secondary rounded-3 fw-semibold">Silver</span>
-                                    </div>
-                                </td>
-                                <td><h6 class="fw-semibold mb-0 fs-4">90</h6></td>
-                            </tr>
-                            <tr>
-                                <td><h6 class="fw-semibold mb-0">3</h6></td>
-                                <td>
-                                    <h6 class="fw-semibold mb-1">Christopher Jamil</h6>
-                                    <span class="fw-normal">Project Manager</span>
-                                </td>
-                                <td><p class="mb-0 fw-normal">MedicalPro WP Theme</p></td>
-                                <td>
-                                    <div class="d-flex align-items-center gap-2">
-                                        <span class="badge bg-danger rounded-3 fw-semibold">Browns</span>
-                                    </div>
-                                </td>
-                                <td><h6 class="fw-semibold mb-0 fs-4">12.8</h6></td>
-                            </tr>
-                            <tr>
-                                <td><h6 class="fw-semibold mb-0">4</h6></td>
-                                <td>
-                                    <h6 class="fw-semibold mb-1">Nirav Joshi</h6>
-                                    <span class="fw-normal">Frontend Engineer</span>
-                                </td>
-                                <td><p class="mb-0 fw-normal">Hosting Press HTML</p></td>
-                                <td>
-                                    <div class="d-flex align-items-center gap-2">
-                                        <span class="badge bg-success rounded-3 fw-semibold">Browns</span>
-                                    </div>
-                                </td>
-                                <td><h6 class="fw-semibold mb-0 fs-4">2.4</h6></td>
-                            </tr> -->
                         </tbody>
                     </table>
                 </div>
