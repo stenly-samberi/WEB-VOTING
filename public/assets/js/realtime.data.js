@@ -130,7 +130,6 @@ $(document).ready(function() {
                         id_kategori_lomba = this.querySelector('#id_kategori_lomba').textContent;
                         no_tampil = this.querySelector('#no_tampil').textContent;
 
-
                         // Set Value
                         document.getElementById("lagu-wajib-value").innerHTML = this.querySelector('#lagu_wajib').value;
                         document.getElementById("lagu-pilihan-value").innerHTML = this.querySelector('#lagu_pilihan').value;
@@ -141,14 +140,7 @@ $(document).ready(function() {
 
         document.getElementById("btn-submit").onclick = function() {
             if (id_register) {
-
-                console.log(id_register);
-                console.log(id_kategori_lomba);
-                console.log(no_tampil);
-
-        
                 let id_user = document.getElementById("id_user").value;
-        
                 let title_lagu_wajib = document.getElementById("title_lagu_wajib").innerHTML;
                 let title_lagu_pilihan = document.getElementById("title_lagu_pilihan").innerHTML;
         
