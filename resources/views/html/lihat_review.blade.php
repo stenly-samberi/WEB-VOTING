@@ -14,7 +14,7 @@
               <thead>
                 <tr class="text-uppercase">
                   <th scope="col">No Urut</th>
-                  <th scope="col">Judul</th>
+                 
                   <th scope="col">Jemaat</th>
                   <th scope="col">Nilai</th>
                   <th scope="col">Medali</th>
@@ -22,15 +22,15 @@
               </thead>
               <tbody>
               @foreach($data as $key1 => $view)
-                  @foreach($view['data'] as $key2 => $v)
+                 
                       <tr>
                           <td>{{ $view['nomor_tampil'] }}</td>
-                          <td>{{ $v['judul_lagu'] }}</td>
+                         
                           <td>{{ $view['jemaat'] }}</td>
                           <td>{{ $view['total_final'] }}</td>
                           <td>{{ $view['medali'] }}</td>
                       </tr>
-                  @endforeach
+                  
               @endforeach
 
               </tbody>
