@@ -233,7 +233,7 @@ class ControllerReview extends Controller
 
         $sortedReviews = $groupedReviews->sortByDesc('total_final');
 
-        //return $sortedReviews;
+        return ['data' => 	$sortedReviews];
         
 
         return view('html.lihat_review', ['data' => $sortedReviews]);
