@@ -147,7 +147,7 @@
                 <span>
                   <i class="ti ti-aperture"></i>
                 </span>
-                <span class="hide-menu">Review</span>
+                <span class="hide-menu">Log</span>
               </a>
             </li>
 

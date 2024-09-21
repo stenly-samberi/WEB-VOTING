@@ -135,6 +135,18 @@ $(document).ready(function() {
                         document.getElementById("lagu-pilihan-value").innerHTML = this.querySelector('#lagu_pilihan').value;
                     });
                 });
+
+                if (cards.length > 0) {
+                    cards[0].classList.add('selected');
+                    const firstCard = cards[0];
+                    id_register = firstCard.querySelector('#id_register').textContent;
+                    id_kategori_lomba = firstCard.querySelector('#id_kategori_lomba').textContent;
+                    no_tampil = firstCard.querySelector('#no_tampil').textContent;
+            
+                    // Set Value
+                    document.getElementById("lagu-wajib-value").innerHTML = firstCard.querySelector('#lagu_wajib').value;
+                    document.getElementById("lagu-pilihan-value").innerHTML = firstCard.querySelector('#lagu_pilihan').value;
+
             }
         });
 
