@@ -15,6 +15,7 @@
                 <tr class="text-uppercase">
                   <th scope="col">No Urut</th>
                   <th scope="col">Jemaat</th>
+                  <th scope="col">Judul</th>
                   <th scope="col">Nilai</th>
                   <th scope="col">Medali</th>
                 </tr>
@@ -24,6 +25,7 @@
                     <tr>
                         <td>{{ $view['nomor_tampil'] }}</td>
                         <td>{{ $view['jemaat'] }}</td>
+                        <td>{{ $view['judul_lagu'] }}</td>
                         <td>{{ $view['total_final'] }}</td>
                         <td>{{ $view['medali'] }}</td>
                     </tr>
