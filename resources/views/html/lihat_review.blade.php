@@ -21,8 +21,8 @@
                 </tr>
               </thead>
               <tbody>
-              @foreach($data as $key => $view)
-                  @foreach($view['data'] as $key => $v)
+              @foreach($data as $key1 => $view)
+                  @foreach($view['data'] as $key2 => $v)
                     <tr>
                         <td>{{ $view['nomor_tampil'] }}</td>
                         <td>{{ $v['judul_lagu'] }}</td>
