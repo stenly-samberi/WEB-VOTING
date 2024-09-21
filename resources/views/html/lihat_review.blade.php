@@ -23,15 +23,16 @@
               <tbody>
               @foreach($data as $key1 => $view)
                   @foreach($view['data'] as $key2 => $v)
-                    <tr>
-                        <td>{{ $view['nomor_tampil'] }}</td>
-                        <td>{{ $v['judul_lagu'] }}</td>
-                        <td>{{ $view['jemaat'] }}</td>
-                        <td>{{ $view['total_final'] }}</td>
-                        <td>{{ $view['medali'] }}</td>
-                    </tr>
+                      <tr>
+                          <td>{{ $view['nomor_tampil'] }}</td>
+                          <td>{{ $v['judul_lagu'] }}</td>
+                          <td>{{ $view['jemaat'] }}</td>
+                          <td>{{ $view['total_final'] }}</td>
+                          <td>{{ $view['medali'] }}</td>
+                      </tr>
                   @endforeach
               @endforeach
+
               </tbody>
             </table>
           </div>
