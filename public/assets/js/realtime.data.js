@@ -146,7 +146,7 @@ $(document).ready(function() {
                     // Set Value
                     document.getElementById("lagu-wajib-value").innerHTML = firstCard.querySelector('#lagu_wajib').value;
                     document.getElementById("lagu-pilihan-value").innerHTML = firstCard.querySelector('#lagu_pilihan').value;
-
+                }
             }
         });
 
