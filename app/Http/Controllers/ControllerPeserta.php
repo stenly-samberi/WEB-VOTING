@@ -84,9 +84,7 @@ class ControllerPeserta extends Controller
 
     public function peserta_detail(Request $request){
         $model = new Peserta();
-
         //return $model->detail_peserta($request->idP);
-
         return view('html.detail_peserta', [
             'peserta' => $model->detail_peserta($request->idP)
         ]);
