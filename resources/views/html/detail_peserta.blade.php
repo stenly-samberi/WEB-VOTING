@@ -8,7 +8,7 @@
       <div class="card">
         <div class="card-body">
           @include('alert.message')
-          <form action="{{ route('data_jemaat.update', $peserta[0]->id) }}" method="POST">
+          <form action="{{ route('data_jemaat.update', $peserta[0]->idr) }}" method="POST">
             @csrf
             @method('PUT')
               <div class="mb-3 col-3">
