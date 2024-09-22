@@ -8,15 +8,9 @@
       <div class="card">
         <div class="card-body">
           @include('alert.message')
-          <form action="{{ route('peserta.updated') }}" method="PUT">
+          <form action="{{ route('data_jemaat.update', $peserta[0]->id) }}" method="POST">
             @csrf
-            <div class="horizontal">
-              <div class="mb-3 col-6">
-                <label for="exampleInputEmail1" class="form-label">Nama Jemaat</label>
-                <input name="nama_jemaat" type="text" value="{{ $peserta[0]->nama_jemaat }}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                {{-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> --}}
-              </div>
-  
+            @method('PUT')
               <div class="mb-3 col-3">
                 <label for="exampleInputEmail1" class="form-label">Kordinator</label>
                 <input name="kordinator" type="text" value="{{ $peserta[0]->kordinator }}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -59,7 +53,7 @@
   
               <div class="mb-3 col-3">
                 <label for="exampleInputEmail1" class="form-label">Nomor Tampil</label>
-                <input name="nomor_tampil" type="text" value="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input name="nomor_tampil" type="text" value="{{$peserta[0]->no_tampil}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
               </div>
 
               <!-- <div class="mb-3 col-3">
