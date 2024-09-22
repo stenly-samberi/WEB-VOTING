@@ -8,7 +8,7 @@
       <div class="card">
         <div class="card-body">
           @include('alert.message')
-          <form action="{{ route('data_jemaat.updated') }}" method="PUT">
+          <form action="{{ route('peserta.updated') }}" method="PUT">
             @csrf
             <div class="horizontal">
               <div class="mb-3 col-6">

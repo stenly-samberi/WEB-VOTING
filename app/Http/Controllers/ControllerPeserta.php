@@ -85,7 +85,7 @@ class ControllerPeserta extends Controller
     public function peserta_detail(Request $request){
         $model = new Peserta();
 
-        // return $model->detail_peserta($request->idP);
+        return $model->detail_peserta($request->idP);
 
         return view('html.detail_peserta', [
             'peserta' => $model->detail_peserta($request->idP)
@@ -97,5 +97,9 @@ class ControllerPeserta extends Controller
         $kategori = Peserta::findOrFail($id);
         $kategori->delete();
         return redirect()->route('peserta.index')->with('success', 'Data has been deleted.');
+    }
+
+    public function updated(){
+        return "Data Updated";
     }
 }
