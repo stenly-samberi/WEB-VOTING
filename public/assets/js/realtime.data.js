@@ -5,6 +5,12 @@ function formatNomorTampil(nomor) {
     return nomor < 10 ? '0' + nomor : nomor;
 }
 
+function showErrorModal(message) {
+    document.getElementById('errorMessages').innerHTML = message;
+    let errorModal = new bootstrap.Modal(document.getElementById('errorModal'));
+    errorModal.show();
+}
+
 
     function fetchHasil() {
         $.ajax({
@@ -176,7 +182,8 @@ function formatNomorTampil(nomor) {
         
                 if (!intonasi_lagu_wajib || !no_tampil || !id_kategori_lomba  || !title_lagu_pilihan|| !title_lagu_wajib|| !lagu_wajib_value|| !lagu_pilihan_value|| !vocal_lagu_wajib || !partitur_lagu_wajib || !kesan_artistik_lagu_wajib ||
                     !intonasi_lagu_pilihan || !vocal_lagu_pilihan || !partitur_lagu_pilihan || !artitistik_lagu_pilihan) {
-                    alert('Silakan masukan nilai.');
+                    showErrorModal('Silakan masukan hasil penilaian');
+                    return;
                 } else {
                     let data = {
                         title_lagu_wajib: title_lagu_wajib,
@@ -211,9 +218,9 @@ function formatNomorTampil(nomor) {
                                 let response = JSON.parse(xhr.responseText);
                                 let errors = response.errors;
                                 let errorMessages = Object.values(errors).map(errorArray => errorArray.join(', ')).join('\n');
-                                alert('Validation errors:\n' + errorMessages);
+                                showErrorModal('Validation errors:\n' + errorMessages);
                             } else {
-                                console.error('Error:', xhr.statusText);
+                                showErrorModal('Error: ' + xhr.statusText);
                             }
                         }
                     };
@@ -221,7 +228,7 @@ function formatNomorTampil(nomor) {
                     xhr.send(JSON.stringify(data));
                 }
             } else {
-                alert('Silakan Pilih Peserta lomba');
+                showErrorModal('Silakan Pilih Peserta lomba');
             }
         };
 
