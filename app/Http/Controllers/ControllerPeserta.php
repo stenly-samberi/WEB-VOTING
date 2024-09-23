@@ -104,7 +104,7 @@ class ControllerPeserta extends Controller
         //return $request->input('id_kategori_lomba');
 
         $request->validate([
-            'nomor_tampil' => ['required','integer','min:1','max:3',
+            'no_tampil' => ['required','integer','min:1','max:3',
                 Rule::unique('tbl_register')->where(function ($query) use ($request) {
                     return $query->where('id_kategori_lomba', $request->input('id_kategori_lomba'));
                 }),
