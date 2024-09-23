@@ -100,7 +100,7 @@ class ControllerPeserta extends Controller
     public function updated(Request $request, $id){
      
             $request->validate([
-                'nomor_tampil' => 'required|integer|min:2',
+                'nomor_tampil' => 'required|integer|min:1|max:2',
             ]);
 
             // Temukan peserta berdasarkan ID
