@@ -36,8 +36,8 @@ class ControllerPeserta extends Controller
                 'laguPilihan' => 'required|integer|max:255'
             ], [
                 'phone.unique'      => 'Nomor telepon sudah terdaftar.',
-                'phone.min'         => 'Nomor telepon harus memiliki minimal 10 karakter.',
-                'phone.max'         => 'Nomor telepon harus memiliki maksimal 12 karakter.',
+                'phone.min'         => 'Nomor telepon harus memiliki minimal 10 digit.',
+                'phone.max'         => 'Nomor telepon harus memiliki maksimal 12 digit.',
                 'kordinator.unique' => 'Nama Kordinator sudah terdaftar.'
             ]);
     
@@ -99,9 +99,8 @@ class ControllerPeserta extends Controller
     }
 
     public function updated(Request $request, $id){
-     
-        $request->validate([
 
+        $request->validate([
             'nomor_tampil' => ['required','integer','min:1','max:3',
                 Rule::unique('tbl_register')->where(function ($query) use ($request) {
                     return $query->where('id_kategori_lomba', $request->input('id_kategori_lomba'));
@@ -110,11 +109,9 @@ class ControllerPeserta extends Controller
 
         ]);
 
-            $peserta = Peserta::findOrFail($id);
-
-            $peserta->no_tampil = $request->input('nomor_tampil');
-            $peserta->save();
-
-            return redirect()->route('peserta.index')->with('success', 'Nomor tampil berhasil diupdate');
+        $peserta = Peserta::findOrFail($id);
+        $peserta->no_tampil = $request->input('nomor_tampil');
+        $peserta->save();
+        return redirect()->route('peserta.index')->with('success', 'Nomor tampil berhasil diupdate');
     }
 }
