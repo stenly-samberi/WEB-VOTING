@@ -100,14 +100,14 @@ class ControllerPeserta extends Controller
     public function updated(Request $request, $id){
      
             $request->validate([
-                'nomor_tampil' => 'required|integer|min:1',
+                'nomor_tampil' => 'required|integer|min:2',
             ]);
 
             // Temukan peserta berdasarkan ID
             $peserta = Peserta::findOrFail($id);
 
             // Update nomor tampil
-            $peserta->nomor_tampil = $request->input('nomor_tampil');
+            $peserta->no_tampil = $request->input('nomor_tampil');
             $peserta->save();
 
             // Redirect atau response sesuai kebutuhan
