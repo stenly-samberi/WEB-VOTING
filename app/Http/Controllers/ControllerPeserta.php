@@ -55,6 +55,7 @@ class ControllerPeserta extends Controller
                 'kordinator'         => $request->kordinator,
                 'phone'              => $request->phone,
                 'status'             => 0,
+                'no_tampil'          => 0,	
                 'file'               => 'empty.pdf',
             ]);
 
