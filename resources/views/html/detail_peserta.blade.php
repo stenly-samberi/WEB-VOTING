@@ -12,10 +12,8 @@
 <form action="{{ route('peserta.updated_peserta', $peserta[0]->idr) }}" method="POST">
     @csrf
     @method('PUT')
+    <input name="id_kategori_lomba" type="number" value="{{ $peserta[0]->idk }}" class="form-control">
     <div class="horizontal">
-
-        <input name="id_kategori_lomba" type="number" value="{{ $peserta[0]->idk }}" class="form-control">
-
         <div class="mb-3 col-6">
             <label for="exampleInputEmail1" class="form-label">Nama Jemaat</label>
             <input name="nama_jemaat" type="text" value="{{ $peserta[0]->nama_jemaat }}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
