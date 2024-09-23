@@ -29,17 +29,10 @@ class ControllerNomorTampil extends Controller
        
         $id = $request->input('id');
         $statusValue = $request->input('status') === 'true';
-
-       
-
         $peserta = Peserta::where('id_register', $id)->firstOrFail();
         $peserta->status = $statusValue;
         $peserta->save();
-
         return response()->json(['message' => 'Status updated successfully']);
-
-      
-       
     }
     
     

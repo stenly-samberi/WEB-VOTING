@@ -1,6 +1,11 @@
 $(document).ready(function() {
 
 
+function formatNomorTampil(nomor) {
+    return nomor < 10 ? '0' + nomor : nomor;
+}
+
+
     function fetchHasil() {
         $.ajax({
             url: '/dash/data', // URL endpoint untuk mengambil data
@@ -70,7 +75,7 @@ $(document).ready(function() {
                                 '<div class="card-body">' +
                                     '<h3 class="card-title text-center">' + p.data_jemaat.nama + '</h3>' +
                                     '<p class="card-text text-center">' + p.kategori_lomba.kategori_lomba + '</p>' +
-                                    '<h1 class="card-text text-center">' + p.no_tampil + '</h1>' +
+                                    '<h1 class="card-text text-center">' + formatNomorTampil(p.no_tampil) + '</h1>' +
                                     '<div class="form-check text-center">' +
                                         '<input class="form-check-input" type="checkbox" value="" id="checklist' + p.id_register + '" ' 
                                         + (p.status == 1 ? 'checked' : '') 
