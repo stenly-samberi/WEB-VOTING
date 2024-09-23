@@ -97,7 +97,20 @@ class ControllerPeserta extends Controller
         return redirect()->route('peserta.index')->with('success', 'Data has been deleted.');
     }
 
-    public function updated($id){
-        return $id;
-    }
+    public function updated(Request $request, $id){
+     
+            $request->validate([
+                'nomor_tampil' => 'required|integer|min:1',
+            ]);
+
+            // Temukan peserta berdasarkan ID
+            $peserta = Peserta::findOrFail($id);
+
+            // Update nomor tampil
+            $peserta->nomor_tampil = $request->input('nomor_tampil');
+            $peserta->save();
+
+            // Redirect atau response sesuai kebutuhan
+            return redirect()->route('peserta.index')->with('success', 'Nomor tampil berhasil diupdate');
+            }
 }
