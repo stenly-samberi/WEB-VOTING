@@ -38,7 +38,7 @@ Route::prefix('peserta')->name('peserta.')->group(function () {
     Route::get('/', [ControllerPeserta::class, 'index'])->name('index')->middleware('auth');
     Route::post('/', [ControllerPeserta::class, 'store'])->name('store')->middleware('auth');
     Route::post('/', [ControllerPeserta::class, 'peserta_detail'])->name('detail')->middleware('auth');
-    Route::put('/', [ControllerPeserta::class, 'updated'])->name('updated_peserta')->middleware('auth');
+    Route::put('/{id}', [ControllerPeserta::class, 'updated'])->name('updated_peserta')->middleware('auth');
     Route::delete('/{id}', [ControllerPeserta::class, 'destroy'])->name('destroy')->middleware('auth');
 });
 
