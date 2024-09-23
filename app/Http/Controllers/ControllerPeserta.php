@@ -100,6 +100,8 @@ class ControllerPeserta extends Controller
 
     public function updated(Request $request, $id){
 
+        return $request->input('id_kategori_lomba');
+
         $request->validate([
             'nomor_tampil' => ['required','integer','min:1','max:3',
                 Rule::unique('tbl_register')->where(function ($query) use ($request) {
