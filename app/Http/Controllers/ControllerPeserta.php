@@ -97,7 +97,7 @@ class ControllerPeserta extends Controller
         return redirect()->route('peserta.index')->with('success', 'Data has been deleted.');
     }
 
-    public function updated(){
-        return "Data Updated";
+    public function updated($id){
+        return $id;
     }
 }
