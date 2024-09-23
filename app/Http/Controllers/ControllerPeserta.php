@@ -113,7 +113,7 @@ class ControllerPeserta extends Controller
         ]);
 
         $peserta = Peserta::findOrFail($id);
-        $peserta->no_tampil = $request->input('nomor_tampil');
+        $peserta->no_tampil = $request->input('no_tampil');
         $peserta->save();
         return redirect()->route('peserta.index')->with('success', 'Nomor tampil berhasil diupdate');
     }
