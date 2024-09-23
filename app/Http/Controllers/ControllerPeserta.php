@@ -100,17 +100,16 @@ class ControllerPeserta extends Controller
     public function updated(Request $request, $id){
      
             $request->validate([
-                'nomor_tampil' => 'required|integer|min:1|max:2',
+                'nomor_tampil' => 'required|integer|min:1|max:3', Rule::unique(tbl_register) -> Where(function($query) use ($request){
+                    return $query->where('id_kategori_lomba', $request->input('id_kategori_lomba'));
+                }),
             ]);
 
-            // Temukan peserta berdasarkan ID
             $peserta = Peserta::findOrFail($id);
 
-            // Update nomor tampil
             $peserta->no_tampil = $request->input('nomor_tampil');
             $peserta->save();
 
-            // Redirect atau response sesuai kebutuhan
             return redirect()->route('peserta.index')->with('success', 'Nomor tampil berhasil diupdate');
             }
 }
