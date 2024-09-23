@@ -11,6 +11,7 @@ use App\Rules\MaxKategoryByJemaat;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class ControllerPeserta extends Controller
 {
@@ -115,5 +116,5 @@ class ControllerPeserta extends Controller
             $peserta->save();
 
             return redirect()->route('peserta.index')->with('success', 'Nomor tampil berhasil diupdate');
-            }
+    }
 }
