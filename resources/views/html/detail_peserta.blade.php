@@ -54,9 +54,11 @@
 
         <div class="mb-3 col-3">
             <label for="exampleInputEmail1" class="form-label">Nomor Tampil</label>
-            <input name="nomor_tampil" type="text" value="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input name="nomor_tampil" type="text" value="{{$peserta[0]->nomor_tampil}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
         </div>
     </div>
+
+    <button type="submit" class="btn btn-primary">Simpan</button>
 </form>
 
         </div>
