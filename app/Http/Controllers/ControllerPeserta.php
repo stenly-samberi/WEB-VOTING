@@ -100,14 +100,13 @@ class ControllerPeserta extends Controller
     public function updated(Request $request, $id){
      
         $request->validate([
-            'nomor_tampil' => [
-                'required',
-                'integer',
-                'min:1','max:3',
-                Rule::unique('tbl_peserta')->where(function ($query) use ($request) {
+
+            'nomor_tampil' => ['required','integer','min:1','max:3',
+                Rule::unique('tbl_register')->where(function ($query) use ($request) {
                     return $query->where('id_kategori_lomba', $request->input('id_kategori_lomba'));
                 }),
             ],
+
         ]);
 
             $peserta = Peserta::findOrFail($id);
