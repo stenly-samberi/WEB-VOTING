@@ -55,7 +55,7 @@
 
         <div class="mb-3 col-3">
             <label for="exampleInputEmail1" class="form-label">Nomor Tampil</label>
-            <input name="nomor_tampil" type="number" value="{{$peserta[0]->no_tampil}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input name="no_tampil" type="number" value="{{$peserta[0]->no_tampil}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
         </div>
     </div>
 
