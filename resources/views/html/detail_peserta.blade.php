@@ -14,7 +14,7 @@
     @method('PUT')
     <div class="horizontal">
 
-        <input name="id_kategori_lomba" type="text" value="{{ $peserta[0]->idk }}" class="form-control">
+        <input name="id_kategori_lomba" type="number" value="{{ $peserta[0]->idk }}" class="form-control">
 
         <div class="mb-3 col-6">
             <label for="exampleInputEmail1" class="form-label">Nama Jemaat</label>
