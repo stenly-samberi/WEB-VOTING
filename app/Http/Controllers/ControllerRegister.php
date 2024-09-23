@@ -7,12 +7,13 @@ use Illuminate\Http\Request;
 
 class ControllerRegister extends Controller
 {
-   public function index(){
-    //   $datajemaat = User::all();
-    //   return view('html.registers', compact('datajemaat'));
-    $datajemaat = User::where('role', 'juri')->get();
-    return view('html.registers', compact('datajemaat'));
-   }
+    public function index(){
+        $datajemaat = User::where('role', 'juri')
+                          ->orderBy('level', 'asc') // Mengurutkan berdasarkan level dari rendah ke tinggi
+                          ->get();
+        return view('html.registers', compact('datajemaat'));
+    }
+    
 
    public function edit($id)
     {
