@@ -58,7 +58,7 @@ function showErrorModal(message) {
                 }
             },
             error: function() {
-                alert('Failed to fetch data.');
+                showErrorModal('Failed to fetch data.');
             }
         });
     }
