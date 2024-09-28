@@ -39,25 +39,17 @@ function showErrorModal(message) {
                             break;
                     }
     
-                    var row = '<tr>'
-                            '<td><h6 class="fw-semibold mb-0">${view.nomor_tampil}</h6></td>'
-                            '<td><h6 class="fw-semibold mb-1">${view.jemaat}</h6></td>'
-                            '<td>'
-                                '<div class="d-flex align-items-center gap-2">'
-                                '<span class="badge ${medalClass} rounded-3 fw-semibold">${view.medali}</span>'
-                                '</div>'
-                                '</td>'
-                                '<td><h6 class="fw-semibold mb-0 fs-4">${view.total_final}</h6></td>'
-                                '</tr>'
-                                '<tr>'
-                                '<td colspan="4">'
-                                '<div class="d-flex justify-content-start">'
-                                '<img src="https://i.pinimg.com/564x/cd/f7/43/cdf7439fdd0415945f7de1f1c1dce0d4.jpg" alt="Foto Jemaat" class="img-thumbnail" style="width: 100px; height: 100px; margin-right: 10px;">'
-                                '</div>'
-                            '</td>'
-                            '</tr>';
-                tbody.append(row);
-                
+                    var row = `<tr>
+                        <td><h6 class="fw-semibold mb-0">${view.nomor_tampil}</h6></td>
+                        <td><h6 class="fw-semibold mb-1">${view.jemaat}</h6></td>
+                        <td>
+                            <div class="d-flex align-items-center gap-2">
+                                <span class="badge ${medalClass} rounded-3 fw-semibold">${view.medali}</span>
+                            </div>
+                        </td>
+                        <td><h6 class="fw-semibold mb-0 fs-4">${view.total_final}</h6></td>
+                    </tr>`;
+                    tbody.append(row);
                 });
     
                 // Jika tidak ada data, tampilkan pesan "No data available"
