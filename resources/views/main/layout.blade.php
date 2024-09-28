@@ -254,13 +254,7 @@
   <script src="{{ asset('assets/libs/simplebar/dist/simplebar.js') }}"></script>
   <script src="{{ asset('assets/js/dashboard.js') }}"></script>
   <script src="{{ asset('assets/js/realtime.data.js') }}"></script>
-  <!-- <script src="{{ asset('assets/js/voting.js') }}"></script> -->
- 
   <script>fetchData();</script>
-
-
-
-  
 </body>
 
 </html>

@@ -35,7 +35,7 @@
                             <tr>
                                 <th><h6 class="fw-semibold mb-0">No Tampil</h6></th>
                                 <th><h6 class="fw-semibold mb-0">Peserta</h6></th>
-                                <!-- <th><h6 class="fw-semibold mb-0">Lagu</h6></th> -->
+                                <th><h6 class="fw-semibold mb-0">Foto 1 Foto 2 Foto 3</h6></th>
                                 <th><h6 class="fw-semibold mb-0">Medali</h6></th>
                                 <th><h6 class="fw-semibold mb-0">Nilai</h6></th>
                             </tr>
