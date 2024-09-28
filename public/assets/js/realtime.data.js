@@ -182,7 +182,7 @@ function showErrorModal(message) {
         
                 if (!intonasi_lagu_wajib || !no_tampil || !id_kategori_lomba  || !title_lagu_pilihan|| !title_lagu_wajib|| !lagu_wajib_value|| !lagu_pilihan_value|| !vocal_lagu_wajib || !partitur_lagu_wajib || !kesan_artistik_lagu_wajib ||
                     !intonasi_lagu_pilihan || !vocal_lagu_pilihan || !partitur_lagu_pilihan || !artitistik_lagu_pilihan) {
-                    showErrorModal('Silakan masukan hasil penilaian');
+                    showErrorModal('Anda belum lengkapi semua data penilaian');
                     return;
                 } else {
                     let data = {
@@ -229,7 +229,7 @@ function showErrorModal(message) {
                     xhr.send(JSON.stringify(data));
                 }
             } else {
-                showErrorModal('Silakan Pilih Peserta lomba');
+                showErrorModal('Anda belum memilih peserta untuk penilaian.');
             }
         };
 
