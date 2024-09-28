@@ -25,7 +25,6 @@
         </div>
     </div> --}}
 
-    
     <div class="col-lg-12 mt-4">
         <div class="card">
             <div class="card-body p-4">
@@ -36,15 +35,12 @@
                             <tr>
                                 <th><h6 class="fw-semibold mb-0">No Tampil</h6></th>
                                 <th><h6 class="fw-semibold mb-0">Peserta</h6></th>
-                                <th><h6 class="fw-semibold mb-0">Foto 1 Foto 2 Foto 3</h6></th>
                                 <th><h6 class="fw-semibold mb-0">Medali</h6></th>
                                 <th><h6 class="fw-semibold mb-0">Nilai</h6></th>
                             </tr>
                         </thead>
                         
                         <tbody>
-
-                        
 
                         </tbody>
                     </table>

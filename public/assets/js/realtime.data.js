@@ -48,8 +48,16 @@ function showErrorModal(message) {
                             </div>
                         </td>
                         <td><h6 class="fw-semibold mb-0 fs-4">${view.total_final}</h6></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <div class="d-flex justify-content-start">
+                                ${view.foto.map(foto => `<img src="${foto}" alt="Foto Jemaat" class="img-thumbnail" style="width: 100px; height: 100px; margin-right: 10px;">`).join('')}
+                            </div>
+                        </td>
                     </tr>`;
-                    tbody.append(row);
+                tbody.append(row);
+
                 });
     
                 // Jika tidak ada data, tampilkan pesan "No data available"
@@ -58,7 +66,7 @@ function showErrorModal(message) {
                 }
             },
             error: function() {
-                showErrorModal('Failed to fetch data.');
+                showErrorModal('Koneksi ke server gagal.');
             }
         });
     }
