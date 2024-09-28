@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Peserta;
+use App\Models\Review;
 use Illuminate\Http\Request;
 
 class ControllerNomorTampil extends Controller
