@@ -52,7 +52,7 @@ function showErrorModal(message) {
                     <tr>
                         <td colspan="4">
                             <div class="d-flex justify-content-start">
-                                ${view.foto.map(foto => `<img src="${foto}" alt="Foto Jemaat" class="img-thumbnail" style="width: 100px; height: 100px; margin-right: 10px;">`).join('')}
+                                <img src="https://i.pinimg.com/564x/cd/f7/43/cdf7439fdd0415945f7de1f1c1dce0d4.jpg" alt="Foto Jemaat" class="img-thumbnail" style="width: 100px; height: 100px; margin-right: 10px;
                             </div>
                         </td>
                     </tr>`;
