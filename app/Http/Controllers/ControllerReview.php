@@ -73,7 +73,7 @@ class ControllerReview extends Controller
                                 ->exists();
     
             if ($exists) {
-                $validator->errors()->add('id_register', 'User sudah menginput parameter untuk id_register ini.');
+                $validator->errors()->add('id_register', 'Anda hanya dapat memberikan satu penilaian untuk peserta ini');
             }
         });
 

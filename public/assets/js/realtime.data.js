@@ -213,14 +213,15 @@ function showErrorModal(message) {
                             if (xhr.status === 200) {
                                 let response = JSON.parse(xhr.responseText);
                                 alert(response.message);
+                                showErrorModal(response.message);
                                 console.log(response.message);
                             } else if (xhr.status === 422) {
                                 let response = JSON.parse(xhr.responseText);
                                 let errors = response.errors;
                                 let errorMessages = Object.values(errors).map(errorArray => errorArray.join(', ')).join('\n');
-                                showErrorModal('Validation errors:\n' + errorMessages);
+                                showErrorModal(errorMessages);
                             } else {
-                                showErrorModal('Error: ' + xhr.statusText);
+                                showErrorModal(xhr.statusText);
                             }
                         }
                     };
