@@ -56,15 +56,15 @@ class ControllerReview extends Controller
             'lagu_wajib_value' => 'required',
             'lagu_pilihan_value' => 'required',
 
-            'intonasi_wajib' => 'required|numeric|max:100',
-            'vocal_wajib' => 'required|numeric|max:100',
-            'partitur_wajib' => 'required|numeric|max:100',
-            'artitistik_wajib' => 'required|numeric|max:100',
+            'intonasi_wajib' => 'required|integer|max:100',
+            'vocal_wajib' => 'required|integer|max:100',
+            'partitur_wajib' => 'required|integer|max:100',
+            'artitistik_wajib' => 'required|integer|max:100',
             
-            'intonasi_pilihan' => 'required|numeric|max:100',
-            'vocal_pilihan' => 'required|numeric|max:100',
-            'partitur_pilihan' => 'required|numeric|max:100',
-            'artitistik_pilihan' => 'required|numeric|max:100',
+            'intonasi_pilihan' => 'required|integer|max:100',
+            'vocal_pilihan' => 'required|integer|max:100',
+            'partitur_pilihan' => 'required|integer|max:100',
+            'artitistik_pilihan' => 'required|integer|max:100',
         ]);
 
         $validator->after(function ($validator) use ($request) {
