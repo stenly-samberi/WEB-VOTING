@@ -164,15 +164,13 @@ class ControllerReview extends Controller
         
         $nilai_akhir =  round( ($totalFinal / 2) / 3, 2);//melakukan pembulatan menjadi 2 decimal
 
-        if ($nilai_akhir >= 60 && $nilai_akhir <= 75) {
+        if ($nilai_akhir <= 75) {
             $medali = "Bronze";
         } else if ($nilai_akhir >= 76 && $nilai_akhir <= 85) {
             $medali = "Silver";
         } else if ($nilai_akhir >= 86 && $nilai_akhir <= 100) {
             $medali = "Gold";
-        } else {
-            $medali = "Tidak ada medali";
-        }
+        } 
 
         return ['reviews' => $mappedReviews,
                 'medali'  => $medali,
