@@ -48,7 +48,7 @@ class ControllerRegister extends Controller
     
         $request->validate([
             'nama' => 'required|string|max:255',
-            'username' => 'required|string|max:255|unique:tbl_user,username',
+            'username' => 'required|string|max:255',
             'password' => 'nullable|string|min:8',
             'role' => 'required|string|in:admin,juri',
         ]);

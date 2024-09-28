@@ -9,7 +9,7 @@
         @include('alert.message')
         <form action="{{ route('nomor_tampil.generateRandomOrder') }}" method="POST">
           @csrf
-          <button disabled type="submit" class="btn btn-primary">Auto Generated</button>
+          <button type="submit" class="btn btn-primary">Auto Generated</button>
         </form>
       </div>
     </div>

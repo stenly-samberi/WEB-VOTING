@@ -52,6 +52,8 @@ class ControllerNomorTampil extends Controller
         }
     }
 
+    Review::query()->delete();
+
     return redirect()->route('nomor_tampil.index')->with('success', 'Nomor urut peserta berhasil dibuat');
 }
 
