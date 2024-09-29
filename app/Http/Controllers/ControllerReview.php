@@ -211,7 +211,9 @@ class ControllerReview extends Controller
         });
         
         $nilai_akhir = ($totalFinal / 2) / 3;
-        $nilai_akhir =  number_format($nilai_akhir, 2);
+        $nilai_akhir =  number_format ($nilai_akhir, 2);
+
+        $nilai_akhir = (float) $nilai_akhir;
 
         if ($nilai_akhir <= 75) {
             $medali = "Bronze";
