@@ -102,9 +102,10 @@
                 <span class="hide-menu">Daftar Lagu</span>
               </a>
             </li>
+
             <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-              <span class="hide-menu">AUTH</span>
+              <span class="hide-menu">CONFIG</span>
             </li>
             
             <li class="sidebar-item">
@@ -125,6 +126,15 @@
               </a>
             </li>
 
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="{{ url('review/lihat_review') }}" aria-expanded="false">
+                <span>
+                  <i class="ti ti-aperture"></i>
+                </span>
+                <span class="hide-menu">log</span>
+              </a>
+            </li>
+
           @endif
             
           @if(session('user_data.role') == 'juri')
@@ -142,14 +152,7 @@
               </a>
             </li>
 
-            <!-- <li class="sidebar-item">
-              <a class="sidebar-link" href="{{ url('review/lihat_review') }}" aria-expanded="false">
-                <span>
-                  <i class="ti ti-aperture"></i>
-                </span>
-                <span class="hide-menu">Log</span>
-              </a>
-            </li> -->
+      
 
            
          

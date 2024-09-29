@@ -212,7 +212,6 @@ function showErrorModal(message) {
                         if (xhr.readyState === XMLHttpRequest.DONE) {
                             if (xhr.status === 200) {
                                 let response = JSON.parse(xhr.responseText);
-                        
                                 showErrorModal(response.message);
                                 console.log(response.message);
                             } else if (xhr.status === 422) {
