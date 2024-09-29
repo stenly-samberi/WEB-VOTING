@@ -125,7 +125,7 @@ class ControllerReview extends Controller
             $lagu->save();
         }
 
-        return response()->json(['message' => 'Penilaian berhasil disimpan!']);
+         return response()->json(['message' => 'Penilaian Berhasil']);
 
 
     }
