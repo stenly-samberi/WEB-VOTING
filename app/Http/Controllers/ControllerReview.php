@@ -210,7 +210,8 @@ class ControllerReview extends Controller
                     'total_nilai' => $totalNilai / 2];
         });
         
-        $nilai_akhir = ($totalFinal / 2) / 3;
+        //$nilai_akhir = ($totalFinal / 2) / 3;
+        $nilai_akhir =  round( ($totalFinal / 2) / 3, 2);//melakukan pembulatan menjadi 2 decimal
 
         if ($nilai_akhir <= 75) {
             $medali = "Bronze";
