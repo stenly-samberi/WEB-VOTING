@@ -141,15 +141,15 @@
                 <span class="hide-menu">Rating Penilaian</span>
               </a>
             </li>
-            <li class="sidebar-item">
 
+            <!-- <li class="sidebar-item">
               <a class="sidebar-link" href="{{ url('review/lihat_review') }}" aria-expanded="false">
                 <span>
                   <i class="ti ti-aperture"></i>
                 </span>
                 <span class="hide-menu">Log</span>
               </a>
-            </li>
+            </li> -->
 
            
          
