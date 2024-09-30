@@ -127,10 +127,9 @@ class ControllerReview extends Controller
 
     public function reviews() {
         //tampilkan data ke dashboard
-        $reviews = Review::with([
-        'user:name,id_user,level',
+        $reviews = Review::with('user:name,id_user,level as juri_level',
         'jemaat:nama,id_njemaat',
-        'kategori_lomba:id_kategori_lomba,kategori_lomba'])->get();
+        'kategori_lomba:id_kategori_lomba,kategori_lomba')->get();
         
         $groupedReviews = $reviews->groupBy(['no_tampil', 'id_user']);
         
