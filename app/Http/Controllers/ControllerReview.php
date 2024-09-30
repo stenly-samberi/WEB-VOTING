@@ -131,6 +131,7 @@ class ControllerReview extends Controller
         'jemaat:nama,id_njemaat',
         'kategori_lomba:id_kategori_lomba,kategori_lomba')->get();
         
+        
         $groupedReviews = $reviews->groupBy(['no_tampil', 'id_user']);
         
         $groupedReviews = $groupedReviews->map(function ($userReviews) {
