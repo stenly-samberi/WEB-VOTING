@@ -66,7 +66,7 @@ class ControllerRegister extends Controller
         if ($request->hasFile('foto')) {
             $foto = $request->file('foto');
             $namaFoto = time() . '.' . $foto->getClientOriginalExtension();
-            $foto->move(public_path('images'), $namaFoto);
+            $foto->move(public_path('images/profile/'), $namaFoto);
             $register->img_src = $namaFoto; // Simpan nama file foto ke database
         }
 
