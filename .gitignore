@@ -5,7 +5,7 @@
 /public/storage
 /storage/*.key
 /vendor
-/idx
+/.idx
 .env
 .idx/.data/mysql/ib_logfile0
 .env.backup
