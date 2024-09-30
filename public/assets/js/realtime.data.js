@@ -41,7 +41,11 @@ function showErrorModal(message) {
     
                     var row = `<tr>
                         <td><h6 class="fw-semibold mb-0">${view.nomor_tampil}</h6></td>
-                        <td><h6 class="fw-semibold mb-1">${view.jemaat}</h6> <span class="fw-normal">${view.juri}</span></td>
+                        <td><h6 class="fw-semibold mb-1">${view.jemaat}</h6> 
+                        <div class="d-flex align-items-center gap-2">
+                            ${view.juri.map(juri => `<img src="${asset('images/profile/' + juri.foto_juri)}" alt="${juri.name}" class="rounded-circle" width="30" height="30">`).join(' ')}
+                        </div>
+                        </td>
                         <td>
                             <div class="d-flex align-items-center gap-2">
                                 <span class="badge ${medalClass} rounded-3 fw-semibold">${view.medali}</span>

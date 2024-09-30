@@ -146,7 +146,10 @@ class ControllerReview extends Controller
         
         $totalFinal += $totalNilai;
 
-        $juriNames[] = $reviews->first()->user->foto_juri; //new
+        $juriData[] = [
+            'name' => $reviews->first()->user->name,
+            'photo_url' => $reviews->first()->user->foto_juri
+        ];
     
         return ['data' => $reviews,
                     'nilai_keseluruan' => $totalNilai,
