@@ -43,7 +43,7 @@ function showErrorModal(message) {
                         <td><h6 class="fw-semibold mb-0">${view.nomor_tampil}</h6></td>
                         <td><h6 class="fw-semibold mb-1">${view.jemaat}</h6> 
                         <div class="d-flex align-items-center gap-2">
-                            ${view.juri.map(juri => `<img src="${assetUrl}/${juri.photo_url}" alt="${juri.name}" class="rounded-circle" width="30" height="30">`).join(' ')}
+                             ${view.juri.map(juri => `<img src="${assetUrl}/${juri.photo_url}" alt="${juri.name}" class="rounded-circle" width="30" height="30">`).join(' ')}
                         </div>
                         </td>
                         <td>
