@@ -127,7 +127,7 @@ class ControllerReview extends Controller
 
     public function reviews() {
         //tampilkan data ke dashboard
-        $reviews = Review::with('user:name,id_user,level as juri_level,img_src',
+        $reviews = Review::with('user:name,id_user,level,img_src',
         'jemaat:nama,id_njemaat',
         'kategori_lomba:id_kategori_lomba,kategori_lomba')->get();
         
