@@ -124,14 +124,12 @@ class ControllerReview extends Controller
         return view('html.dash');
     }
 
-
     public function reviews() {
         //tampilkan data ke dashboard
         $reviews = Review::with('user:name,id_user,level as juri_level',
         'jemaat:nama,id_njemaat',
         'kategori_lomba:id_kategori_lomba,kategori_lomba')->get();
-        
-        
+
         $groupedReviews = $reviews->groupBy(['no_tampil', 'id_user']);
         
         $groupedReviews = $groupedReviews->map(function ($userReviews) {
@@ -154,11 +152,11 @@ class ControllerReview extends Controller
         
         $nilai_akhir =  round( ($totalFinal / 2) / 3, 2);//melakukan pembulatan menjadi 2 decimal
 
-        if ($nilai_akhir <= 75) {
+        if ($nilai_akhir < 60) {
             $medali = "Bronze";
-        } else if ($nilai_akhir >= 76 && $nilai_akhir <= 85) {
+        } else if ($nilai_akhir >= 60 && $nilai_akhir < 80) {
             $medali = "Silver";
-        } else if ($nilai_akhir >= 86 && $nilai_akhir <= 100) {
+        } else if ($nilai_akhir >= 80 && $nilai_akhir <= 100) {
             $medali = "Gold";
         } 
 
