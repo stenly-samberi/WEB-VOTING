@@ -43,14 +43,14 @@ class ControllerRegister extends Controller
      return redirect()->back()->with('success', 'Register berhasil disimpan');
    }
 
-   public function update(Request $request, $id)
-    {
+   public function update(Request $request, $id){
     
         $request->validate([
             'nama' => 'required|string|max:255',
             'username' => 'required|string|max:255',
             'password' => 'nullable|string|min:8',
             'role' => 'required|string|in:admin,juri',
+            'foto' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
         $register = User::findOrFail($id);
@@ -61,6 +61,13 @@ class ControllerRegister extends Controller
 
         if ($request->password) {
             $register->password = bcrypt($request->password);
+        }
+
+        if ($request->hasFile('foto')) {
+            $foto = $request->file('foto');
+            $namaFoto = time() . '.' . $foto->getClientOriginalExtension();
+            $foto->move(public_path('images/profile'), $namaFoto);
+            $register->img_src = $namaFoto; // Simpan nama file foto ke database
         }
 
         $register->save();

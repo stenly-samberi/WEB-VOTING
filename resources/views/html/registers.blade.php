@@ -8,7 +8,7 @@
       <div class="card">
         <div class="card-body">
           @include('alert.message')
-          <form action="{{ route('register.store') }}" method="POST">
+          <form action="{{ route('register.store') }}" method="POST" >
             @csrf
             <div class="row">
               <div class="col-lg-12">
@@ -39,15 +39,22 @@
                 </div>
               </div>
 
-              <div class="col-lg-12">
+              <div class="col-lg-6">
                 <div class="mb-3">
                   <label for="role" class="form-label">Role</label>
                   <select name="role" class="form-control" id="role">
-                    <!-- <option value="admin">Admin</option> -->
                     <option value="juri">Juri</option>
                   </select>
                 </div>
               </div>
+
+              <!-- <div class="col-lg-6">
+                <div class="mb-3">
+                  <label for="role" class="form-label">Foto Profil</label>
+                  <input type="file" id="foto" name="foto" accept="image/*">
+                </div>
+              </div> -->
+
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
@@ -60,6 +67,7 @@
             <thead>
               <tr class="text-uppercase">
                 <th scope="col">No</th>
+                <th scope="col">Foto</th>
                 <th scope="col">Nama</th>
                 <th scope="col">Username</th>
                 <th scope="col">Type</th>
@@ -72,9 +80,17 @@
               @forelse ($datajemaat as $key => $data)
               <tr>
                 <th scope="row">{{ $key + 1 }}</th>
-                <td>{{ $data->name }}</th>
-                <td>{{ $data->username }}</th>
-                <td>{{ $data->role }}</th>
+                <td>
+                    @if($data->img_src)
+                        <img src="{{ asset('images/profile' . $data->img_src) }}" alt="Foto Profil" width="50" height="50">
+                    @else
+                        Tidak ada foto
+                    @endif
+                </td>
+
+                <td>{{ $data->name }}</td>
+                <td>{{ $data->username }}</td>
+                <td>{{ $data->role }}</td>
                 <td>{{ $data->level }}</td>
                 <td>{{ $data->updated_at }}</td>
                 <td class="d-flex">

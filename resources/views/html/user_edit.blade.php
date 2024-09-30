@@ -4,11 +4,11 @@
 <div class="container-fluid">
   <div class="card">
     <div class="card-body">
-      <h5 class="card-title fw-semibold mb-4">Edit Register</h5>
+      <h5 class="card-title fw-semibold mb-4">Edit Data Juri</h5>
       <div class="card">
         <div class="card-body">
           @include('alert.message')
-          <form action="{{ route('register.update', $data->id_user) }}" method="POST">
+          <form action="{{ route('register.update', $data->id_user) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="row">
@@ -30,15 +30,23 @@
                   <input name="password" type="password" class="form-control" id="password">
                 </div>
               </div>
-              <div class="col-lg-12">
+
+              <div class="col-lg-6">
                 <div class="mb-3">
                   <label for="role" class="form-label">Role</label>
                   <select name="role" class="form-control" id="role">
-                    <!-- <option value="admin" {{ $data->role == 'admin' ? 'selected' : '' }}>Admin</option> -->
                     <option value="juri" {{ $data->role == 'juri' ? 'selected' : '' }}>Juri</option>
                   </select>
                 </div>
               </div>
+
+              <div class="col-lg-6">
+                <div class="mb-3">
+                  <label for="role" class="form-label">Foto</label>
+                  <input type="file" id="foto" name="foto" accept="image/*">
+                </div>
+              </div>
+
             </div>
             <button type="submit" class="btn btn-primary">Update</button>
           </form>
