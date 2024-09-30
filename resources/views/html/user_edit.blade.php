@@ -43,7 +43,7 @@
               <div class="col-lg-6">
                 <div class="mb-3">
                   <label for="role" class="form-label">Foto</label>
-                  <input type="file" id="foto" name="foto" accept="image/*">
+                  <input class="form-control" type="file" id="foto" name="foto" accept="image/*">
                 </div>
               </div>
 
