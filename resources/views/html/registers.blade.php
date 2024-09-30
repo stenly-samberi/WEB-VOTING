@@ -82,7 +82,7 @@
                 <th scope="row">{{ $key + 1 }}</th>
                 <td>
                     @if($data->img_src)
-                        <img src="{{ asset('images/profile/' . $data->img_src) }}" alt="Foto Profil" width="40" height="40" class="rounded-circle">
+                        <img src="{{ asset('images/profile/' . $data->img_src) }}" alt="Foto Profil" width="50" height="50" class="rounded-circle">
                     @else
                         Tidak ada foto
                     @endif
