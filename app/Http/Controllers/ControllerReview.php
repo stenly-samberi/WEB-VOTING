@@ -144,13 +144,15 @@ class ControllerReview extends Controller
         $totalNilai = $totalNilaiWajib + $totalNilaiPilihan;
         
         $totalFinal += $totalNilai;
-        $juriNames[] = $reviews->first()['data']->user->name; //new
+       
     
         return ['data' => $reviews,
                     'nilai_keseluruan' => $totalNilai,
                     'total_nilai' => $totalNilai / 2
                 ];
         });
+
+        $juriNames[] = $reviews->first()['data']->user->name; //new
         
         $nilai_akhir =  round( ($totalFinal / 2) / 3, 2);//melakukan pembulatan menjadi 2 decimal
 
