@@ -137,17 +137,19 @@ class ControllerReview extends Controller
         $totalFinal = 0;
         $nilai_akhir = 0;
         $medali = "";
-        $juriNames = []; //new
+        $juriData = []; //new
         
-        $mappedReviews = $userReviews->map(function ($reviews) use (&$totalFinal, &$juriNames) {
+        $mappedReviews = $userReviews->map(function ($reviews) use (&$totalFinal, &$juriData) {
         $totalNilaiWajib = $reviews->where('genre_lagu', 'LAGU WAJIB')->sum('nilai');
         $totalNilaiPilihan = $reviews->where('genre_lagu', 'LAGU PILIHAN')->sum('nilai');
         $totalNilai = $totalNilaiWajib + $totalNilaiPilihan;
         
         $totalFinal += $totalNilai;
 
-        $juriNames[] =  $reviews->first()->user->foto_juri;
- 
+        $juriData[] = [
+            'name' => $reviews->first()->user->name,
+            'photo_url' => $reviews->first()->user->foto_juri
+        ];
     
         return ['data' => $reviews,
                     'nilai_keseluruan' => $totalNilai,
@@ -170,7 +172,7 @@ class ControllerReview extends Controller
                 'nomor_tampil' => $mappedReviews->first()['data']->first()->no_tampil,
                 'jemaat'  => $mappedReviews->first()['data']->first()->jemaat->nama,
                 'total_final' => $nilai_akhir,
-                'juri'  => $juriNames
+                'juri'  => $juriData
             ];
         });
 
