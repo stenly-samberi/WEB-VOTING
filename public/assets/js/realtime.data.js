@@ -252,7 +252,6 @@ function updateStatus(id,isChecked) {
     var url = '/api/updateStatus'; // Sesuaikan dengan route yang Anda definisikan
 
     var params = 'id=' + id + '&status=' + (isChecked ? 'true' : 'false');
-
     xhr.open('POST', url, true);
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     
