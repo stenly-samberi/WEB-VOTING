@@ -16,17 +16,6 @@ class ControllerReview extends Controller
 
     public function getData() {
 
-        // $registers = Peserta::with('data_jemaat:id_njemaat,nama', 'data_lagu:id_lagu,judul,genre', 'kategori_lomba:kategori_lomba,id_kategori_lomba')
-        // ->whereNotNull('no_tampil')
-        // ->where('no_tampil', '!=', '')
-        // ->where('status',1)
-        // ->orderBy('id_kategori_lomba') // Mengurutkan berdasarkan kategori lomba
-        // ->orderBy('no_tampil')
-        // ->get();
-
-
-        // return response()->json($registers);
-
         $registers = Peserta::with('data_jemaat:id_njemaat,nama', 'data_lagu:id_lagu,judul,genre', 'kategori_lomba:kategori_lomba,id_kategori_lomba')
                             ->whereNotNull('no_tampil')
                             ->where('no_tampil', '!=', '')
@@ -138,7 +127,7 @@ class ControllerReview extends Controller
 
     public function reviews() {
         //tampilkan data ke dashboard
-        $reviews = Review::with('user:name,id_user,level as juri_level',
+        $reviews = Review::with('user:name,id_user,level as juri_level,img_src as foto',
         'jemaat:nama,id_njemaat',
         'kategori_lomba:id_kategori_lomba,kategori_lomba')->get();
         
