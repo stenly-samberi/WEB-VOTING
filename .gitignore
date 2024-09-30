@@ -5,6 +5,7 @@
 /public/storage
 /storage/*.key
 /vendor
+/idx
 .env
 .idx/.data/mysql/ib_logfile0
 .env.backup
@@ -18,5 +19,3 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
-idx/
-
