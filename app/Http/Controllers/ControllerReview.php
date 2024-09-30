@@ -148,7 +148,7 @@ class ControllerReview extends Controller
 
         $juriData [] = [
             'name' => $reviews->first()->user->name,
-            'photo_url' => $reviews->first()->user->foto_juri
+            'photo_url' => asset('images/profile/' . $reviews->first()->user->foto_juri)
         ];
     
         return ['data' => $reviews,
