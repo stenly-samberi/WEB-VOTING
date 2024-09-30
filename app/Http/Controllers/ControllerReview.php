@@ -130,6 +130,7 @@ class ControllerReview extends Controller
         'jemaat:nama,id_njemaat',
         'kategori_lomba:id_kategori_lomba,kategori_lomba')->get();
 
+        //$groupedReviews = $reviews->groupBy(['no_tampil', 'id_user']);
         $groupedReviews = $reviews->groupBy(['no_tampil', 'id_user']);
         
         $groupedReviews = $groupedReviews->map(function ($userReviews) {
@@ -138,21 +139,20 @@ class ControllerReview extends Controller
         $medali = "";
         $juriNames = []; //new
         
-        $mappedReviews = $userReviews->map(function ($reviews) use (&$totalFinal) {
+        $mappedReviews = $userReviews->map(function ($reviews) use (&$totalFinal, &$juriNames) {
         $totalNilaiWajib = $reviews->where('genre_lagu', 'LAGU WAJIB')->sum('nilai');
         $totalNilaiPilihan = $reviews->where('genre_lagu', 'LAGU PILIHAN')->sum('nilai');
         $totalNilai = $totalNilaiWajib + $totalNilaiPilihan;
         
         $totalFinal += $totalNilai;
-       
-        $juriNames[] =  $mappedReviews->first()['data']->user->name; //new
+
+        $juriNames[] = $reviews->first()['data']->user->name; //new
     
         return ['data' => $reviews,
                     'nilai_keseluruan' => $totalNilai,
                     'total_nilai' => $totalNilai / 2
                 ];
         });
-
         
         $nilai_akhir =  round( ($totalFinal / 2) / 3, 2);//melakukan pembulatan menjadi 2 decimal
 
