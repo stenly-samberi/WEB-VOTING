@@ -145,6 +145,7 @@ class ControllerReview extends Controller
         
         $totalFinal += $totalNilai;
        
+        $juriNames[] =  $mappedReviews->first()['data']->user->name; //new
     
         return ['data' => $reviews,
                     'nilai_keseluruan' => $totalNilai,
@@ -152,7 +153,6 @@ class ControllerReview extends Controller
                 ];
         });
 
-        $juriNames[] = $reviews->first()['data']->user->name; //new
         
         $nilai_akhir =  round( ($totalFinal / 2) / 3, 2);//melakukan pembulatan menjadi 2 decimal
 
