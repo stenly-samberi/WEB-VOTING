@@ -46,7 +46,7 @@ function showErrorModal(message) {
                         <h6 class="fw-semibold mb-1">${view.jemaat}</h6>
 
                         <div class="d-flex align-items-center gap-2">
-                            ${view.juri.map(juri => `<img src="{{ asset('images/profile/${juri.photo_url}') }}" alt="${juri.name}" class="rounded-circle" width="30" height="30">`).join(' ')}
+                            ${view.juri.map(juri => `<img src="${juri.photo_url}" alt="${juri.name}" class="rounded-circle" width="30" height="30">`).join(' ')}
                         </div>
                             
                         </td>
