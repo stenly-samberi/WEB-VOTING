@@ -163,14 +163,13 @@ class ControllerReview extends Controller
         return ['reviews' => $mappedReviews,
                 'medali'  => $medali,
                 'nomor_tampil' => $mappedReviews->first()['data']->first()->no_tampil,
-                'juri'  => $mappedReviews->first()['data']->first()->user->name,
+                'jemaat'  => $mappedReviews->first()['data']->first()->jemaat->nama,
                 'total_final' => $nilai_akhir,
-                'jemaat'  => [$mappedReviews->first()['data']->first()->jemaat->nama]
+                'juri'  => [$mappedReviews->first()['data']->first()->user->name]
             ];
         });
 
         $sortedReviews = $groupedReviews->sortByDesc('total_final');
-
         return response()->json(['data' => $sortedReviews]);
         
     }
