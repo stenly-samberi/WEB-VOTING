@@ -249,7 +249,6 @@ function showErrorModal(message) {
 function updateStatus(id,isChecked) {
     var xhr = new XMLHttpRequest();
     var url = '/api/updateStatus'; // Sesuaikan dengan route yang Anda definisikan
-
     var params = 'id=' + id + '&status=' + (isChecked ? 'true' : 'false');
     xhr.open('POST', url, true);
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -298,8 +297,11 @@ dash_setting_view();
 setInterval(dash_setting_view, 5000);
 
 function UpdateStatusViewDash(id, status) {
-    alert("ddkdksd");
+
+    alert(id + ' ' + status);
+  
     $.ajax({
+
         url: '/setting/update/' + id,
         method: 'PUT',
         data: {
