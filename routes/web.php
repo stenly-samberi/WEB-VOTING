@@ -32,7 +32,7 @@ Route::prefix('dash')->name('dash.')->group(function () {
     Route::get('/data', [ControllerReview::class, 'reviews'])->name('index')->middleware('auth');
 
     
-    Route::get('/Setting', [ControllerReview::class, 'dash_setting_view'])->name('dash_setting_view')->middleware('auth');
+    Route::get('/setting', [ControllerReview::class, 'dash_setting_view'])->name('dash_setting_view')->middleware('auth');
     //Route::get('/setting', [ControllerReview::class, 'dash_setting'])->name('dash_setting')->middleware('auth');
     Route::put('/{id}', [ControllerReview::class, 'dash_updated'])->name('dash_updated')->middleware('auth');
 
