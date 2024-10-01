@@ -20,7 +20,7 @@
                 <th scope="row">{{ $key + 1 }}</th>
                 <td>{{ $lagu->kategori_lomba }}</td>
                 <td>
-                    <form action="{{ route('kategori_lomba.destroy', $lagu->id_kategori_lomba) }}" method="POST">
+                    <form action="" method="POST">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">

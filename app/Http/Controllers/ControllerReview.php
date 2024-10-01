@@ -239,9 +239,9 @@ class ControllerReview extends Controller
     }
 
     public function dash_setting(){
-            $lomba = KategoriLomba::all();
-            return view('html.dash_setting', [
-                'lomba' => $lomba
-            ]);
+        $lomba = KategoriLomba::all();
+        return view('html.dash_setting', [
+            'lomba' => $lomba
+        ]);
     }
 }
