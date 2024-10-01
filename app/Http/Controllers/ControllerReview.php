@@ -247,8 +247,16 @@ class ControllerReview extends Controller
         return response()->json($category);
     }
 
-    public function dash_setting_updated($id){
-        Review::where('id_kategori_lomba', $id)->update(['view_dashboard' => true]);
-        return response()->json(['message' => 'Update successful']);
+    public function dash_setting_updated(Request $request, $id){
+        // Validasi data
+        $request->validate([
+            'status' => 'required|boolean',
+        ]);
+    
+        // Perbarui status
+        KategoriLomba::where('id_kategori_lomba', $id)->update(['status' => $request->status]);
+    
+        return response()->json(['message' => 'Update successful', 'status' => $request->status]);
     }
+    
 }

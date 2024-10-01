@@ -31,6 +31,7 @@ return new class extends Migration
         Schema::create('tbl_kategori_lomba', function (Blueprint $table) {
             $table->bigIncrements('id_kategori_lomba');
             $table->string('kategori_lomba');
+            $table->boolean('status');
             $table->timestamps();
         });
         

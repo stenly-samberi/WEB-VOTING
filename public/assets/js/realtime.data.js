@@ -299,21 +299,21 @@ setInterval(dash_setting_view, 5000);
 
 function updateStatus(id, status) {
     $.ajax({
-        url: '/dash/setting/update-status',
-        method: 'POST',
+        url: '/setting/update/' + id,
+        method: 'PUT',
         data: {
-            id: id,
             status: status ? 1 : 0,
             _token: '{{ csrf_token() }}' // Pastikan Anda menyertakan token CSRF jika menggunakan Laravel
         },
         success: function(response) {
-            console.log('Status updated successfully:', response);
+            showErrorModal('Status updated successfully:', response)
         },
         error: function(xhr, status, error) {
             console.error('Error updating status:', error);
         }
     });
 }
+
 
 
 
