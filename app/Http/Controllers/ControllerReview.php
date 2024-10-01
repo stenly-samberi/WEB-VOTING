@@ -245,4 +245,8 @@ class ControllerReview extends Controller
         ]);
 
     }
+
+    public function dash_updated($id){
+        return $id;
+    }
 }

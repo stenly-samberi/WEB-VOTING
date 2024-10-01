@@ -20,7 +20,7 @@
                 <th scope="row">{{ $key + 1 }}</th>
                 <td>{{ $lagu->kategori_lomba }}</td>
                 <td>
-                    <form action="" method="POST">
+                    <form action="{{ route('dash.dash_updated', $lagu->id_lagu) }}" method="POST">
                         @csrf
                         @method('PUT')
                         <button type="submit" class="btn btn-success">

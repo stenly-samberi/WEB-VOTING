@@ -30,9 +30,13 @@ Route::prefix('login')->name('login.')->group(function () {
 Route::prefix('dash')->name('dash.')->group(function () {
     Route::get('/', [ControllerReview::class, 'viewdash'])->name('index')->middleware('auth');
     Route::get('/data', [ControllerReview::class, 'reviews'])->name('index')->middleware('auth');
+    Route::get('/setting', [ControllerReview::class, 'dash_setting'])->name('setting')->middleware('auth');
+    Route::put('/{id}', [ControllerReview::class, 'dash_updated'])->name('dash_updated')->middleware('auth');
+
+
     Route::post('/', [ControllerDashboard::class, 'store'])->name('store')->middleware('auth');
     Route::delete('/{id}', [ControllerDashboard::class, 'destroy'])->name('destroy')->middleware('auth');
-    Route::get('/setting', [ControllerReview::class, 'dash_setting'])->name('setting')->middleware('auth');
+    
 });
 
 Route::prefix('peserta')->name('peserta.')->group(function () {
