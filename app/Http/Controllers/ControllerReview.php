@@ -242,17 +242,10 @@ class ControllerReview extends Controller
         return view('html.dash_setting');
     }
 
-    // public function dash_setting(){
-
-    //     $lomba = KategoriLomba::all();
-
-    //     return response()->json($lomba);
-
-    //     return view('html.dash_setting', [
-    //         'lomba' => $lomba
-    //     ]);
-
-    // }
+    public function dash_setting_data(){
+        $lomba = KategoriLomba::all();
+        return response()->json($lomba);
+    }
 
     public function dash_updated($id){
         Review::where('id_kategori_lomba', $id)->update(['view_dashboard' => true]);

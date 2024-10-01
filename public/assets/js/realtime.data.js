@@ -267,7 +267,7 @@ function updateStatus(id,isChecked) {
 
 function dash_setting_view() {
     $.ajax({
-        url: '/dash/setting',
+        url: '/dash/setting/data',
         method: 'GET',
         success: function(data) {
             $('#category-container').empty();

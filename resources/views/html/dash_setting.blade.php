@@ -7,7 +7,6 @@
     <div class="card mb-0">
       <div class="card-body">
         
-
         <div class="row" id="category-container">
       
         </div>
