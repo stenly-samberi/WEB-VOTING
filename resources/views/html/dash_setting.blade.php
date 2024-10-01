@@ -6,6 +6,7 @@
     <h5 class="card-title fw-semibold mb-4">Dash Setting</h5>
     <div class="card mb-0">
       <div class="card-body">
+        
         <!-- <table class="table table-striped">
           <thead>
             <tr>
