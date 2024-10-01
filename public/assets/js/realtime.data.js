@@ -308,7 +308,8 @@ function UpdateStatusViewDash(id, status) {
             showErrorModal('Status updated successfully:', response)
         },
         error: function(xhr, status, error) {
-            console.error('Error updating status:', error);
+            showErrorModal('Error updating status:', error)
+          
         }
     });
 }
