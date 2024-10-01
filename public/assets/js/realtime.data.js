@@ -304,13 +304,13 @@ function UpdateStatusViewDash(id, status) {
             status: status ? 1 : 0,
             _token: '{{ csrf_token() }}' // Pastikan Anda menyertakan token CSRF jika menggunakan Laravel
         },
-        
+
         success: function(response) {
-            showErrorModal('Status updated successfully:', response)
+            showErrorModal(response)
         },
 
         error: function(xhr, status, error) {
-            showErrorModal('Error updating status:', error)
+            showErrorModal(error)
           
         }
     });
