@@ -16,6 +16,7 @@ class KategoriLomba extends Model
 
     protected $fillable = [
         'kategori_lomba',
+        'status'	
     ];
 
     public function review()
