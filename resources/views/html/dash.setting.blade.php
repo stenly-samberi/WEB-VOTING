@@ -9,21 +9,21 @@
         <table class="table table-striped">
           <thead>
             <tr>
-              <th scope="col">NO</th>
+              <th scope="col">No</th>
               <th scope="col">Judul</th>
               <th scope="col">Aksi</th>
             </tr>
           </thead>
           <tbody>
-            @forelse ($lomba as $key => $lagu)
+            <!-- @forelse ($lomba as $key => $lagu)
             <tr>
                 <th scope="row">{{ $key + 1 }}</th>
                 <td>{{ $lagu->kategori_lomba }}</td>
                 <td>
                     <form action="" method="POST">
                         @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger">
+                        @method('PUT')
+                        <button type="submit" class="btn btn-success">
                           <i class="ti ti-trash"></i>
                         </button>
                     </form>
@@ -33,9 +33,9 @@
               <tr>
                   <td colspan="5" class="text-center">Tidak ada data</td>
               </tr>
-          @endforelse
+          @endforelse -->
           </tbody>
-           {{-- {{ $genre->links() }} --}}
+          
         </table>
        
       </div>
