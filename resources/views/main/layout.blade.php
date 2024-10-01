@@ -135,6 +135,15 @@
               </a>
             </li>
 
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="{{ url('review/lihat_review') }}" aria-expanded="false">
+                <span>
+                  <i class="ti ti-phone"></i>
+                </span>
+                <span class="hide-menu">Display Setting</span>
+              </a>
+            </li>
+
           @endif
             
           @if(session('user_data.role') == 'juri')
