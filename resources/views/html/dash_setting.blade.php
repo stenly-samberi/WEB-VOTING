@@ -15,7 +15,7 @@
             </tr>
           </thead>
           <tbody>
-            <!-- @forelse ($lomba as $key => $lagu)
+            @forelse ($lomba as $key => $lagu)
             <tr>
                 <th scope="row">{{ $key + 1 }}</th>
                 <td>{{ $lagu->kategori_lomba }}</td>
@@ -33,7 +33,7 @@
               <tr>
                   <td colspan="5" class="text-center">Tidak ada data</td>
               </tr>
-          @endforelse -->
+          @endforelse
           </tbody>
           
         </table>
