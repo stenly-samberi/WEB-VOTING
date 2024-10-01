@@ -32,6 +32,7 @@ Route::prefix('dash')->name('dash.')->group(function () {
     Route::get('/data', [ControllerReview::class, 'reviews'])->name('index')->middleware('auth');
     Route::post('/', [ControllerDashboard::class, 'store'])->name('store')->middleware('auth');
     Route::delete('/{id}', [ControllerDashboard::class, 'destroy'])->name('destroy')->middleware('auth');
+    Route::get('/setting', [ControllerReview::class, 'dash_setting'])->name('setting')->middleware('auth');
 });
 
 Route::prefix('peserta')->name('peserta.')->group(function () {

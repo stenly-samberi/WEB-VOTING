@@ -237,6 +237,10 @@ class ControllerReview extends Controller
        
     }
 
+    public function dash_setting(){
+        return('html.dash_setting');
+    }
+
   
     
 }
