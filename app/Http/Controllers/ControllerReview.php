@@ -243,8 +243,10 @@ class ControllerReview extends Controller
     }
 
     public function dash_setting_data(){
+
         $lomba = KategoriLomba::all();
         return response()->json($lomba);
+        
     }
 
     public function dash_updated($id){
