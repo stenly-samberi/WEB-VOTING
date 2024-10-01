@@ -30,7 +30,10 @@ Route::prefix('login')->name('login.')->group(function () {
 Route::prefix('dash')->name('dash.')->group(function () {
     Route::get('/', [ControllerReview::class, 'viewdash'])->name('index')->middleware('auth');
     Route::get('/data', [ControllerReview::class, 'reviews'])->name('index')->middleware('auth');
-    Route::get('/setting', [ControllerReview::class, 'dash_setting'])->name('setting')->middleware('auth');
+
+    
+    Route::get('/Setting', [ControllerReview::class, 'dash_setting_view'])->name('dash_setting_view')->middleware('auth');
+    //Route::get('/setting', [ControllerReview::class, 'dash_setting'])->name('dash_setting')->middleware('auth');
     Route::put('/{id}', [ControllerReview::class, 'dash_updated'])->name('dash_updated')->middleware('auth');
 
 
