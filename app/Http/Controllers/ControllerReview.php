@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Peserta;
 use App\Models\Review;
+use App\Models\KategoriLomba;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -238,9 +239,9 @@ class ControllerReview extends Controller
     }
 
     public function dash_setting(){
-        return('html.dash_setting');
+            $lomba = KategoriLomba::all();
+            return view('html.dash_setting', [
+                'lomba' => $lomba
+            ]);
     }
-
-  
-    
 }
