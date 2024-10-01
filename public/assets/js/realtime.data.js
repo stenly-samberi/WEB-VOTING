@@ -299,7 +299,7 @@ function UpdateStatusViewDash(id, status) {
         method: 'PUT',
         data: {
             status: status ? 1 : 0,
-            _token: '{{ csrf_token() }}' // Pastikan Anda menyertakan token CSRF jika menggunakan Laravel
+            _token: '{{ csrf_token() }}'
         },
 
         success: function(response) {
@@ -307,7 +307,7 @@ function UpdateStatusViewDash(id, status) {
         },
 
         error: function(xhr, status, error) {
-            showErrorModal(error)
+            console.log(error);
           
         }
     });
