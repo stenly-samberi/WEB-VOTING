@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
         foreach ($kategoriLomba as $key) {
             KategoriLomba::create([
                 'kategori_lomba' => $key,
-                'status' => false
+                'status' => 0
             ]);
         }
 
