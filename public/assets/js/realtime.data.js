@@ -298,7 +298,7 @@ setInterval(dash_setting_view, 5000);
 
 function UpdateStatusViewDash(id, status) {
     $.ajax({
-        url: '/setting/update/' + id,
+        url: '/dash/setting/update/' + id,
         method: 'PUT',
         data: {
             status: status ? 1 : 0,
