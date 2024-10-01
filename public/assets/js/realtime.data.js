@@ -280,7 +280,7 @@ function dash_setting_view() {
                                 '<div class="form-check text-center">' +
                                     '<input class="form-check-input" type="checkbox" value="" id="checklist' + p.id_kategori_lomba + '" ' 
                                     + (p.status == 1 ? 'checked' : '') 
-                                    + ' onchange="updateStatus(' + p.id_kategori_lomba + ', this.checked)"/>' +
+                                    + ' onchange="UpdateStatusViewDash(' + p.id_kategori_lomba + ', this.checked)"/>' +
                                 '</div>' +
                             '</div>' +
                         '</div>' +
@@ -297,7 +297,8 @@ function dash_setting_view() {
 dash_setting_view();
 setInterval(dash_setting_view, 5000);
 
-function updateStatus(id, status) {
+function UpdateStatusViewDash(id, status) {
+    alert("ddkdksd");
     $.ajax({
         url: '/setting/update/' + id,
         method: 'PUT',
