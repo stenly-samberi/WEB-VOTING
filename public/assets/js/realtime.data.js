@@ -82,7 +82,6 @@ function showErrorModal(message) {
             success: function(data) {
                 $('#peserta-container').empty();
                 $.each(data, function(index, p) {
-                  
                     $('#peserta-container').append(
                         '<div class="col-md-4 mb-1">' +
                             '<div class="card">' +
@@ -263,4 +262,38 @@ function updateStatus(id,isChecked) {
     };
     xhr.send(params);
 }
+
+
+
+function dash_setting_view() {
+    $.ajax({
+        url: '/dash/setting',
+        method: 'GET',
+        success: function(data) {
+            $('#category-container').empty();
+            $.each(data, function(index, p) {
+                $('#category-container').append(
+                    '<div class="col-md-4 mb-1">' +
+                        '<div class="card">' +
+                            '<div class="card-body">' +
+                                '<h3 class="card-title text-center">' + p.data_jemaat.nama + '</h3>' +
+                                '<p class="card-text text-center">' + p.kategori_lomba.kategori_lomba + '</p>' +
+                                '<h1 class="card-text text-center">' + formatNomorTampil(p.no_tampil) + '</h1>' +
+                                '<div class="form-check text-center">' +
+                                    '<input class="form-check-input" type="checkbox" value="" id="checklist' + p.id_register + '" ' 
+                                    + (p.status == 1 ? 'checked' : '') 
+                                    + ' onchange="updateStatus(' + p.id_register + ', this.checked)"/>' +
+                                '</div>' +
+                            '</div>' +
+                        '</div>' +
+                    '</div>'
+                );
+                
+            });
+        }
+    });
+}
+
+dash_setting_view();
+setInterval(dash_setting_view, 5000);
 

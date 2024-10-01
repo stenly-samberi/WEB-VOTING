@@ -37,6 +37,10 @@
           </tbody>
           
         </table>
+
+        <div class="row" id="category-container">
+      
+        </div>
        
       </div>
      
