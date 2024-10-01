@@ -244,12 +244,12 @@ class ControllerReview extends Controller
 
     public function dash_setting_data(){
 
-        $lomba = KategoriLomba::all();
-        return response()->json($lomba);
-        
+        $category = KategoriLomba::all();
+        return response()->json($category);
+
     }
 
-    public function dash_updated($id){
+    public function dash_setting_updated($id){
         Review::where('id_kategori_lomba', $id)->update(['view_dashboard' => true]);
         return response()->json(['message' => 'Update successful']);
     }
