@@ -276,24 +276,44 @@ function dash_setting_view() {
                     '<div class="col-md-4 mb-1">' +
                         '<div class="card">' +
                             '<div class="card-body">' +
-                                '<h3 class="card-title text-center">' + p.data_jemaat.nama + '</h3>' +
-                                '<p class="card-text text-center">' + p.kategori_lomba.kategori_lomba + '</p>' +
-                                '<h1 class="card-text text-center">' + formatNomorTampil(p.no_tampil) + '</h1>' +
+                                '<h3 class="card-title text-center">' + p.kategori_lomba + '</h3>' +
                                 '<div class="form-check text-center">' +
-                                    '<input class="form-check-input" type="checkbox" value="" id="checklist' + p.id_register + '" ' 
+                                    '<input class="form-check-input" type="checkbox" value="" id="checklist' + p.id_kategori_lomba + '" ' 
                                     + (p.status == 1 ? 'checked' : '') 
-                                    + ' onchange="updateStatus(' + p.id_register + ', this.checked)"/>' +
+                                    + ' onchange="updateStatus(' + p.id_kategori_lomba + ', this.checked)"/>' +
                                 '</div>' +
                             '</div>' +
                         '</div>' +
                     '</div>'
                 );
-                
             });
+        },
+        error: function(xhr, status, error) {
+            showErrorModal(error)
         }
     });
 }
 
 dash_setting_view();
 setInterval(dash_setting_view, 5000);
+
+function updateStatus(id, status) {
+    $.ajax({
+        url: '/dash/setting/update-status',
+        method: 'POST',
+        data: {
+            id: id,
+            status: status ? 1 : 0,
+            _token: '{{ csrf_token() }}' // Pastikan Anda menyertakan token CSRF jika menggunakan Laravel
+        },
+        success: function(response) {
+            console.log('Status updated successfully:', response);
+        },
+        error: function(xhr, status, error) {
+            console.error('Error updating status:', error);
+        }
+    });
+}
+
+
 

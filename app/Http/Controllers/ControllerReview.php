@@ -243,10 +243,8 @@ class ControllerReview extends Controller
     }
 
     public function dash_setting_data(){
-
         $category = KategoriLomba::all();
         return response()->json($category);
-
     }
 
     public function dash_setting_updated($id){
