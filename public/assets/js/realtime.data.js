@@ -296,7 +296,6 @@ function updateStatus(id,isChecked) {
 }
 
 function UpdateStatusViewDash(id, status) {
-
     var xhr = new XMLHttpRequest();
     var url = '{{ route("dash.dash_setting_updated") }}'; // Sesuaikan dengan route yang Anda definisikan
     var params = 'id=' + id + '&status=' + (status ? 'true' : 'false');
@@ -312,7 +311,6 @@ function UpdateStatusViewDash(id, status) {
             }
         }
     };
-    
     xhr.send(params);
     
 }
