@@ -270,6 +270,7 @@ function dash_setting_view() {
                 );
             });
         },
+        
         error: function(xhr, status, error) {
             showErrorModal(error)
         }
@@ -304,7 +305,7 @@ function UpdateStatusViewDash(id, status) {
             id: id,
             status: status
         },
-        
+
         success: function(response) {
             console.log(response.success);
             // Tambahkan logika untuk menampilkan modal atau pesan sukses
