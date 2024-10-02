@@ -312,6 +312,7 @@ function UpdateStatusViewDash(id, status) {
             }
         }
     };
+    
     xhr.send(params);
     
 }
