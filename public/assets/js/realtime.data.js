@@ -297,7 +297,7 @@ function updateStatus(id,isChecked) {
 function UpdateStatusViewDash(id, status) {
 
     $.ajax({
-        url: '{{ route("dash_setting_updated") }}',
+        url: '{{ route("dash.dash_setting_updated") }}',
         type: 'PUT',
         data: {
             _token: '{{ csrf_token() }}',
