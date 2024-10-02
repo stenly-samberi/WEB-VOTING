@@ -148,10 +148,10 @@ $groupedReviews = $groupedReviews->map(function ($userReviews) {
 
         $totalFinal += $totalNilai;
 
-        $juriData [] = [
-            'name' => $reviews->first()->user->name,
-            'photo_url' => asset('images/profile/' . $reviews->first()->user->foto_juri)
-        ];
+        // $juriData [] = [
+        //     'name' => $reviews->first()->user->name,
+        //     'photo_url' => asset('images/profile/' . $reviews->first()->user->foto_juri)
+        // ];
 
         return ['data' => $reviews,
                 'nilai_keseluruan' => $totalNilai,
@@ -169,13 +169,13 @@ $groupedReviews = $groupedReviews->map(function ($userReviews) {
         $medali = "Gold";
     }
 
-    return ['reviews' => $mappedReviews,
-            'medali'  => $medali,
-            'nomor_tampil' => $mappedReviews->first()['data']->first()->no_tampil,
-            'jemaat'  => $mappedReviews->first()['data']->first()->jemaat->nama,
-            'total_final' => $nilai_akhir,
-            'juri'  => $juriData
-        ];
+    // return ['reviews' => $mappedReviews,
+    //         'medali'  => $medali,
+    //         'nomor_tampil' => $mappedReviews->first()['data']->first()->no_tampil,
+    //         'jemaat'  => $mappedReviews->first()['data']->first()->jemaat->nama,
+    //         'total_final' => $nilai_akhir,
+    //         'juri'  => $juriData
+    //     ];
 });
 
 $sortedReviews = $groupedReviews->sortByDesc('total_final');
