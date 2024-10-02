@@ -244,39 +244,40 @@ function fetchPeserta_tampil_to_juri() {
     fetchPeserta_tampil_to_juri();
     setInterval(fetchPeserta_tampil_to_juri, 5000);
 
+
+});
+
 function dash_setting_view() {
-        $.ajax({
-            url: '/dash/setting/data',
-            method: 'GET',
-            success: function(data) {
-                $('#category-container').empty();
-                $.each(data, function(index, p) {
-                    $('#category-container').append(
-                        '<div class="col-md-4 mb-1">' +
-                            '<div class="card">' +
-                                '<div class="card-body">' +
-                                    '<h3 class="card-title text-center">' + p.kategori_lomba + '</h3>' +
-                                    '<div class="form-check text-center">' +
-                                        '<input class="form-check-input" type="checkbox" value="" id="checklist' + p.id_kategori_lomba + '" ' 
-                                        + (p.status == 1 ? 'checked' : '') 
-                                        + ' onchange="UpdateStatusViewDash(' + p.id_kategori_lomba + ', this.checked)"/>' +
-                                    '</div>' +
+    $.ajax({
+        url: '/dash/setting/data',
+        method: 'GET',
+        success: function(data) {
+            $('#category-container').empty();
+            $.each(data, function(index, p) {
+                $('#category-container').append(
+                    '<div class="col-md-4 mb-1">' +
+                        '<div class="card">' +
+                            '<div class="card-body">' +
+                                '<h3 class="card-title text-center">' + p.kategori_lomba + '</h3>' +
+                                '<div class="form-check text-center">' +
+                                    '<input class="form-check-input" type="checkbox" value="" id="checklist' + p.id_kategori_lomba + '" ' 
+                                    + (p.status == 1 ? 'checked' : '') 
+                                    + ' onchange="UpdateStatusViewDash(' + p.id_kategori_lomba + ', this.checked)"/>' +
                                 '</div>' +
                             '</div>' +
-                        '</div>'
-                    );
-                });
-            },
-            error: function(xhr, status, error) {
-                showErrorModal(error)
-            }
-        });
-    }
-    
-    dash_setting_view();
-    setInterval(dash_setting_view, 5000);
-   
-});
+                        '</div>' +
+                    '</div>'
+                );
+            });
+        },
+        error: function(xhr, status, error) {
+            showErrorModal(error)
+        }
+    });
+}
+
+dash_setting_view();
+setInterval(dash_setting_view, 5000);
 
 function updateStatus(id,isChecked) {
     var xhr = new XMLHttpRequest();
