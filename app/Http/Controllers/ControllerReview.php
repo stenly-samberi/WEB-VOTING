@@ -247,9 +247,9 @@ class ControllerReview extends Controller
         return response()->json($category);
     }
 
-    public function dash_setting_updated(Request $request, $id){
+    public function dash_setting_updated(Request $request){
 
-        return response()-json(['message' => 'Update successful']);
+        return response()->json(['success' => 'Status updated successfully']);
 
         $request->validate([
             'status' => 'required|boolean',

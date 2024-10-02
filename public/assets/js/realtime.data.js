@@ -296,27 +296,23 @@ function updateStatus(id,isChecked) {
 
 function UpdateStatusViewDash(id, status) {
 
-    
-    console.log(id);
-    console.log(status);
-
-    // $.ajax({
-    //     url: '/dash/setting/update/' + id,
-    //     method: 'PUT',
-    //     data: {
-    //         status: status ? 1 : 0,
-    //         _token: '{{ csrf_token() }}'
-    //     },
-
-    //     success: function(response) {
-    //         showErrorModal(response)
-    //     },
-
-    //     error: function(xhr, status, error) {
-    //         console.log(error);
-          
-    //     }
-    // });
+    $.ajax({
+        url: '{{ route("dash_setting_updated") }}',
+        type: 'PUT',
+        data: {
+            _token: '{{ csrf_token() }}',
+            id: id,
+            status: status
+        },
+        success: function(response) {
+            console.log(response.success);
+            // Tambahkan logika untuk menampilkan modal atau pesan sukses
+        },
+        error: function(xhr) {
+            console.error(xhr.responseText);
+            // Tambahkan logika untuk menampilkan modal atau pesan error
+        }
+    });
 }
 
 
