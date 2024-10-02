@@ -251,12 +251,12 @@ class ControllerReview extends Controller
 
         return response()->json(['success' => 'Status updated successfully']);
 
-        $request->validate([
-            'status' => 'required|boolean',
-        ]);
+        // $request->validate([
+        //     'status' => 'required|boolean',
+        // ]);
 
-        KategoriLomba::where('id_kategori_lomba', $id)->update(['status' => $request->status]);
-        return response()->json(['message' => 'Update successful', 'status' => $request->status]);
+        // KategoriLomba::where('id_kategori_lomba', $id)->update(['status' => $request->status]);
+        // return response()->json(['message' => 'Update successful', 'status' => $request->status]);
     }
     
 }
