@@ -304,6 +304,7 @@ function UpdateStatusViewDash(id, status) {
             id: id,
             status: status
         },
+        
         success: function(response) {
             console.log(response.success);
             // Tambahkan logika untuk menampilkan modal atau pesan sukses
