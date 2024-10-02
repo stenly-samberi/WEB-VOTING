@@ -302,7 +302,7 @@ function UpdateStatusViewDash(id, status) {
         type: 'PUT',
         data: {
             id: id,
-            status: status
+            status: status ? 1 : 0 // Konversi status ke 1 atau 0
         },
 
         success: function(response) {
@@ -310,7 +310,7 @@ function UpdateStatusViewDash(id, status) {
             // Tambahkan logika untuk menampilkan modal atau pesan sukses
         },
         error: function(xhr) {
-            console.error(xhr.responseText);
+            console.log(xhr.responseText);
             // Tambahkan logika untuk menampilkan modal atau pesan error
         }
     });
