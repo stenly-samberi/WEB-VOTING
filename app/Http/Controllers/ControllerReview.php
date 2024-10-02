@@ -133,7 +133,8 @@ class ControllerReview extends Controller
         'kategori_lomba:id_kategori_lomba,kategori_lomba')->get();
 
         //$groupedReviews = $reviews->groupBy(['no_tampil', 'id_user']);
-        $groupedReviews = $reviews->groupBy(['no_tampil', 'id_user','id_kategori_lomba']);
+        //$groupedReviews = $reviews->groupBy(['no_tampil', 'id_user']);
+        $groupedReviews = $reviews->groupBy(['id_user','id_kaegori_lomba']);
         
         $groupedReviews = $groupedReviews->map(function ($userReviews) {
         $totalFinal = 0;
