@@ -250,11 +250,12 @@ class ControllerReview extends Controller
 
     public function dash_setting_updated(Request $request){
 
-        $kategory = KategoriLomba::find($request->id);
-        $kategory->status = $request->status;
-        return response()->json(['success' => 'status updated successfully']);
-        $kategory->save();
-
+        $id = $request->input('id');
+        $statusValue = $request->input('status') === 'true';
+        $peserta = KategoriLomba::where('id_kategori_lomba', $id)->firstOrFail();
+        $peserta->status = $statusValue;
+        $peserta->save();
+        return response()->json(['message' => 'Status updated successfully']);
        
        
     }
