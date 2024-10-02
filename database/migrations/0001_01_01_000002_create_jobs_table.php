@@ -75,7 +75,6 @@ return new class extends Migration
             $table->integer('partitur');//KEPATUHAN PARTITUR
             $table->integer('artitistik');//KESAN ARTITISTIK KESELURUHAN
             $table->double('nilai');
-            $table->boolean('view_dashboard');
             $table->timestamps();
             $table->foreign('id_njemaat')->references('id_njemaat')->on('tbl_njemaat');
             $table->foreign('id_kategori_lomba')->references('id_kategori_lomba')->on('tbl_kategori_lomba');

@@ -248,20 +248,26 @@ class ControllerReview extends Controller
     }
 
     public function dash_setting_updated(Request $request){
-
         $validator = Validator::make($request->all(), [
             'status' => 'required|boolean',
             'id' => 'required|integer'
         ]);
-
+    
         if ($validator->fails()) {
             return response()->json([
                 'errors' => $validator->errors()
             ], 422);
         }
-
-        KategoriLomba::where('id_kategori_lomba', $request->id)->update(['status' => $request->status]);
-        return response()->json(['success' => 'Status updated successfully']);
+    
+        $updateResult = KategoriLomba::where('id_kategori_lomba', $request->id)
+                                      ->update(['status' => $request->status]);
+    
+        if ($updateResult) {
+            return response()->json(['success' => 'Status updated successfully']);
+        } else {
+            return response()->json(['error' => 'Failed to update status'], 500);
+        }
     }
+    
     
 }
