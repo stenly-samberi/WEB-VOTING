@@ -172,8 +172,8 @@ class ControllerReview extends Controller
         return ['reviews' => $mappedReviews,
                 'medali'  => $medali,
                 // 'nomor_tampil' => $mappedReviews->first()['data']->first()->no_tampil,
-                'jemaat'  => $mappedReviews->first()['data']->first()->jemaat->nama,
-                'total_final' => $nilai_akhir
+                // 'jemaat'  => $mappedReviews->first()['data']->first()->jemaat->nama,
+                // 'total_final' => $nilai_akhir
                 // 'juri'  => $juriData
             ];
         });
