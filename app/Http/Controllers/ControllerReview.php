@@ -133,8 +133,7 @@ class ControllerReview extends Controller
         'kategori_lomba:id_kategori_lomba,kategori_lomba')->get();
 
         //$groupedReviews = $reviews->groupBy(['no_tampil', 'id_user']);
-        //$groupedReviews = $reviews->groupBy(['no_tampil', 'id_user']);
-        $groupedReviews = $reviews->groupBy(['id_user','id_kaegori_lomba']);
+        $groupedReviews = $reviews->groupBy(['no_tampil', 'id_user']);
         
         $groupedReviews = $groupedReviews->map(function ($userReviews) {
         $totalFinal = 0;
@@ -149,10 +148,10 @@ class ControllerReview extends Controller
         
         $totalFinal += $totalNilai;
 
-        // $juriData [] = [
-        //     'name' => $reviews->first()->user->name,
-        //     'photo_url' => asset('images/profile/' . $reviews->first()->user->foto_juri)
-        // ];
+        $juriData [] = [
+            'name' => $reviews->first()->user->name,
+            'photo_url' => asset('images/profile/' . $reviews->first()->user->foto_juri)
+        ];
     
         return ['data' => $reviews,
                     'nilai_keseluruan' => $totalNilai,
@@ -172,10 +171,10 @@ class ControllerReview extends Controller
 
         return ['reviews' => $mappedReviews,
                 'medali'  => $medali,
-                // 'nomor_tampil' => $mappedReviews->first()['data']->first()->no_tampil,
-                // 'jemaat'  => $mappedReviews->first()['data']->first()->jemaat->nama,
-                // 'total_final' => $nilai_akhir
-                // 'juri'  => $juriData
+                'nomor_tampil' => $mappedReviews->first()['data']->first()->no_tampil,
+                'jemaat'  => $mappedReviews->first()['data']->first()->jemaat->nama,
+                'total_final' => $nilai_akhir,
+                'juri'  => $juriData
             ];
         });
 
