@@ -296,6 +296,7 @@ function updateStatus(id,isChecked) {
 
 function UpdateStatusViewDash(id, status) {
 
+    
     console.log(id, status);
 
     // $.ajax({
