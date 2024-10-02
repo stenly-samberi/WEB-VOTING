@@ -249,6 +249,13 @@ class ControllerReview extends Controller
 
     public function dash_setting_updated(Request $request){
 
+        $validatedData = $request->validate([
+            'id' => 'required|integer',
+            'status' => 'required|boolean',
+        ]);
+    
+        // Lakukan sesuatu dengan data yang divalidasi
+    
         return response()->json(['success' => 'Status updated successfully']);
 
         // $request->validate([

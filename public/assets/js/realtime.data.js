@@ -297,23 +297,23 @@ function updateStatus(id,isChecked) {
 
 function UpdateStatusViewDash(id, status) {
 
-    $.ajax({
-        url: '{{ route("dash.dash_setting_updated") }}',
-        type: 'POST', // Menggunakan POST dan menambahkan _method untuk PUT
-        data: {
-            _method: 'PUT',
-            id: id,
-            status: status ? 1 : 0 // Konversi status ke 1 atau 0
-        },
-        success: function(response) {
-            console.log(response.success);
-            // Tambahkan logika untuk menampilkan modal atau pesan sukses
-        },
-        error: function(xhr) {
-            console.log(xhr.responseText);
-            // Tambahkan logika untuk menampilkan modal atau pesan error
+    var xhr = new XMLHttpRequest();
+    var url = '{{ route("dash.dash_setting_updated") }}'; // Sesuaikan dengan route yang Anda definisikan
+    var params = 'id=' + id + '&status=' + (status ? 'true' : 'false');
+    xhr.open('POST', url, true);
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4) {
+            if (xhr.status == 200) {
+                console.log(xhr.responseText);
+            } else {
+                console.error('Error: ' + xhr.status);
+            }
         }
-    });
+    };
+    xhr.send(params);
+    
 }
 
 
