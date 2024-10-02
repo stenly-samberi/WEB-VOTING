@@ -296,25 +296,8 @@ function updateStatus(id,isChecked) {
 
 function UpdateStatusViewDash(id, status) {
 
-    showErrorModal(id, status)
+    showErrorModal(id, status);
 
-    // $.ajax({
-    //     url: '/dash/setting/update/' + id,
-    //     method: 'PUT',
-    //     data: {
-    //         status: status ? 1 : 0,
-    //         _token: '{{ csrf_token() }}'
-    //     },
-
-    //     success: function(response) {
-    //         showErrorModal(response)
-    //     },
-
-    //     error: function(xhr, status, error) {
-    //         console.log(error);
-          
-    //     }
-    // });
 }
 
 
