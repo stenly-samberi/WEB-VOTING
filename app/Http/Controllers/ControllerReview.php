@@ -248,6 +248,9 @@ class ControllerReview extends Controller
     }
 
     public function dash_setting_updated(Request $request){
+
+        return response()->json(['success' => 'Status updated successfully', 'Status' => $request->status, 'ID' => $request->id]);
+
         $validator = Validator::make($request->all(), [
             'status' => 'required|boolean',
             'id' => 'required|integer'
@@ -255,7 +258,7 @@ class ControllerReview extends Controller
     
         if ($validator->fails()) {
             return response()->json([
-                'errors' => $validator->errors()
+                'error' => $validator->errors()
             ], 422);
         }
     
