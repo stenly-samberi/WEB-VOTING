@@ -60,6 +60,7 @@ class ControllerReview extends Controller
         $validator->after(function ($validator) use ($request) {
             $exists = Review::where('id_njemaat', $request->id_register)
                                 ->where('id_user', $request->id_user)
+                                ->where('id_kategori_lomba', $request->id_kategori_lomba)
                                 ->exists();
     
             if ($exists) {
