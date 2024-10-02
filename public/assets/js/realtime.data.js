@@ -270,7 +270,7 @@ function dash_setting_view() {
                 );
             });
         },
-        
+
         error: function(xhr, status, error) {
             showErrorModal(error)
         }
@@ -301,7 +301,6 @@ function UpdateStatusViewDash(id, status) {
         url: '{{ route("dash.dash_setting_updated") }}',
         type: 'PUT',
         data: {
-            _token: '{{ csrf_token() }}',
             id: id,
             status: status
         },
