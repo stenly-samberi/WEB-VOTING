@@ -24,3 +24,7 @@ Route::prefix('updateStatus')->name('updateStatus.')->group(function(){
     Route::post('/', [ControllerNomorTampil::class, 'updated_status'])->name('updateStatus');
 });
 
+Route::prefix('updateDash')->name('updateDash.')->group(function(){
+    Route::post('/', [ControllerReview::class, 'dash_setting_updated'])->name('dash_setting_updated');
+});
+

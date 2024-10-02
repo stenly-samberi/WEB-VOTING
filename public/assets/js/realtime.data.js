@@ -297,9 +297,10 @@ function updateStatus(id,isChecked) {
 
 function UpdateStatusViewDash(id, status) {
     var xhr = new XMLHttpRequest();
-    var url = 'dash/setting/updated'; // Sesuaikan dengan route yang Anda definisikan
+    var url = '/api/updateDash'; // Sesuaikan dengan route yang Anda definisikan
     var params = 'id=' + id + '&status=' + (status ? 'true' : 'false');
     xhr.open('POST', url, true);
+
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     
     xhr.onreadystatechange = function() {
