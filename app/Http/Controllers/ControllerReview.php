@@ -248,18 +248,7 @@ class ControllerReview extends Controller
     }
 
     public function dash_setting_updated(Request $request){
-
         return response()->json(['success' => 'Status updated successfully']);
-
-      
-    
-        // Lakukan sesuatu dengan data yang divalidasi
-        // $request->validate([
-        //     'status' => 'required|boolean',
-        // ]);
-
-        // KategoriLomba::where('id_kategori_lomba', $id)->update(['status' => $request->status]);
-        // return response()->json(['message' => 'Update successful', 'status' => $request->status]);
     }
     
 }
