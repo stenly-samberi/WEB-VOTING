@@ -299,12 +299,12 @@ function UpdateStatusViewDash(id, status) {
 
     $.ajax({
         url: '{{ route("dash.dash_setting_updated") }}',
-        type: 'PUT',
+        type: 'POST', // Menggunakan POST dan menambahkan _method untuk PUT
         data: {
+            _method: 'PUT',
             id: id,
             status: status ? 1 : 0 // Konversi status ke 1 atau 0
         },
-
         success: function(response) {
             console.log(response.success);
             // Tambahkan logika untuk menampilkan modal atau pesan sukses
