@@ -133,7 +133,7 @@ class ControllerReview extends Controller
     'kategori_lomba:id_kategori_lomba,kategori_lomba')->get();
 
     // Mengelompokkan ulasan berdasarkan no_tampil, id_user, dan kategori_lomba
-    $groupedReviews = $reviews->groupBy(['no_tampil', 'id_user', 'kategori_lomba']);
+    $groupedReviews = $reviews->groupBy(['id_user', 'kategori_lomba']);
 
     return response()->json(['data' => $groupedReviews]);
 
