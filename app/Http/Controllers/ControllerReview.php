@@ -135,8 +135,6 @@ class ControllerReview extends Controller
     // Mengelompokkan ulasan berdasarkan no_tampil, id_user, dan kategori_lomba
     $groupedReviews = $reviews->groupBy('kategori_lomba');
 
-    return response()->json(['data' => $groupedReviews]);
-
     $groupedReviews = $groupedReviews->map(function ($userReviews) {
         $totalFinal = 0;
         $nilai_akhir = 0;
@@ -179,6 +177,8 @@ class ControllerReview extends Controller
         //         'juri'  => $juriData
         //     ];
     });
+
+    return response()->json(['data' => $groupedReviews]);
 
     $sortedReviews = $groupedReviews->sortByDesc('total_final');
     return response()->json(['data' => $sortedReviews]);
