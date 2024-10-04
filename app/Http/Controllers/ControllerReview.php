@@ -253,6 +253,7 @@ return response()->json(['data' => $groupedReviews]);
 
         $groupedReviews = $reviews->groupBy('kategori_lomba','id_user');
         
+        
         $groupedReviews = $groupedReviews->map(function ($userReviews) {
         $totalFinal = 0;
         $nilai_akhir = 0;
