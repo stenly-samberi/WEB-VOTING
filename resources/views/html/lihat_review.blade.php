@@ -9,7 +9,7 @@
       <!-- Formulir Filter -->
       <div class="row mb-4">
         <div class="col-12">
-          <form method="GET" action="{{ route('your_route_name') }}">
+          <form method="GET" action="">
             <div class="row">
               <div class="col-md-3">
                 <label for="kategori" class="form-label">Kategori</label>
