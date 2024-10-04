@@ -148,6 +148,11 @@ $groupedReviews = $groupedReviews->map(function ($userReviews) {
 
         $totalFinal += $totalNilai;
 
+        $juriData [] = [
+            'name' => $reviews->first()->user->name,
+            'photo_url' => asset('images/profile/' . $reviews->first()->user->foto_juri)
+        ];
+
         return [
             'data' => $reviews,
             'nilai_keseluruan' => $totalNilai,
