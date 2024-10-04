@@ -13,7 +13,7 @@ function showErrorModal(message) {
 
 
 function fetchHasil() {
-    let rowNumber = 0;
+    let rowNumber = 1;
         $.ajax({
             url: '/dash/data', // URL endpoint untuk mengambil data
             method: 'GET',

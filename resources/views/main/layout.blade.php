@@ -138,7 +138,7 @@
             <li class="sidebar-item">
               <a class="sidebar-link" href="{{ url('dash/setting') }}" aria-expanded="false">
                 <span>
-                  <i class="ti ti-phone"></i>
+                  <i class="ti ti-home"></i>
                 </span>
                 <span class="hide-menu">Setting</span>
               </a>
