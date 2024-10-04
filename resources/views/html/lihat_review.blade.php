@@ -54,7 +54,7 @@
                 </tr>
               </thead>
               <tbody>
-              @foreach($data as $key1 => $view)
+              <!-- @foreach($data as $key1 => $view)
                       <tr>
                           <td>{{ $view['nomor_tampil'] }}</td>
                           <td>{{ $view['jemaat'] }}</td>
@@ -64,7 +64,7 @@
                               <a href="#"><i class="ti ti-download"></i></a>
                           </td>
                       </tr>
-              @endforeach
+              @endforeach -->
               </tbody>
             </table>
           </div>
