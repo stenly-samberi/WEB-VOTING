@@ -8,35 +8,36 @@
 
       <!-- Formulir Filter -->
       <div class="row mb-4">
+        <div class="col-12 border border-1">
           <form class="border border-1"  method="GET" action="">
 
-              <div class="col-lg-2">
-                <select class="form-select" id="kategori" name="kategori">
+            <div class="row">
+              <div class="col-md-2">
+                <select class="form-control" id="kategori" name="kategori">
                   <option value="">Pilih Kategori</option>
                   <!-- Tambahkan opsi kategori di sini -->
                 </select>
               </div>
-
-              <div class="col-lg-4">
-                <select class="form-select" id="juri" name="juri">
+              
+              <div class="col-md-4">
+                <select class="form-control" id="juri" name="juri">
                   <option value="">Pilih Juri</option>
                   <!-- Tambahkan opsi juri di sini -->
                 </select>
               </div>
-
-              <div class="col-lg-4"> 
-                <select class="form-select" id="jemaat" name="jemaat">
+              <div class="col-md-4">
+               
+                <select class="form-control" id="jemaat" name="jemaat">
                   <option value="">Pilih Jemaat</option>
                   <!-- Tambahkan opsi jemaat di sini -->
                 </select>
               </div>
-
-              <div class="col-lg-2">
+              <div class="col-md-2">
                 <button type="submit" class="btn btn-primary">Filter</button>
               </div>
-
+            </div>
           </form>
-      
+        </div>
       </div>
 
       <div class="card mb-0">
