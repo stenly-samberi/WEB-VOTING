@@ -288,12 +288,10 @@ class ControllerReview extends Controller
             $medali = "Gold";
         } 
 
-       
-
         return ['reviews' => $mappedReviews,
                 'medali'  => $medali,
-                'nomor_tampil' => $mappedReviews->first()['data']->first()->no_tampil,
-                'jemaat'  => $mappedReviews->first()['data']->first()->jemaat->nama,
+                'nomor_tampil' => $mappedReviews->first()->no_tampil,
+                'jemaat'  => $mappedReviews->first()->jemaat->nama,
                 'total_final' => $nilai_akhir
             ];
         });
