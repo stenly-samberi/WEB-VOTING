@@ -126,7 +126,7 @@ class ControllerReview extends Controller
         return view('html.dash');
     }
 
-    public function reviews() {
+    public function reviews_stop() {
         $reviews = Review::with(['user:name,id_user,level as juri_level,img_src as foto_juri',
     'jemaat:nama,id_njemaat',
     'kategori_lomba:id_kategori_lomba,kategori_lomba'])->get();
@@ -241,7 +241,7 @@ return response()->json(['data' => $groupedReviews]);
 }
     
 
-    public function reviews_stop() {
+    public function reviews() {
 
         //tampilkan data ke dashboard
         $reviews = Review::with('user:name,id_user,level as juri_level,img_src as foto_juri',
@@ -249,7 +249,9 @@ return response()->json(['data' => $groupedReviews]);
         'kategori_lomba:id_kategori_lomba,kategori_lomba')->get();
 
         //$groupedReviews = $reviews->groupBy(['no_tampil', 'id_user']);
-        $groupedReviews = $reviews->groupBy(['no_tampil', 'id_user']);
+        //$groupedReviews = $reviews->groupBy(['no_tampil', 'id_user']);
+
+        $groupedReviews = $reviews->groupBy('kategori_lomba','id_user');
         
         $groupedReviews = $groupedReviews->map(function ($userReviews) {
         $totalFinal = 0;
