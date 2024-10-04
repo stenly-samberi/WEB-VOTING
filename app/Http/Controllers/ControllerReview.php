@@ -189,8 +189,6 @@ class ControllerReview extends Controller
     }
     
     
-
-   
     public function reviews_stop() {
 
         //tampilkan data ke dashboard
@@ -257,7 +255,7 @@ class ControllerReview extends Controller
 
         $reviews = Review::with('user:name,id_user,level as juri_level','jemaat:nama,id_njemaat','kategori_lomba:id_kategori_lomba,kategori_lomba')->get();
         
-        $groupedReviews = $reviews->groupBy(['no_tampil', 'id_user']);
+        $groupedReviews = $reviews->groupBy(['kategori_lomba', 'id_user']);
         
         $groupedReviews = $groupedReviews->map(function ($userReviews) {
         $totalFinal = 0;
@@ -300,9 +298,7 @@ class ControllerReview extends Controller
         });
 
         $sortedReviews = $groupedReviews->sortByDesc('total_final');
-
-        //return ['data' => 	$sortedReviews];
-
+        
         return view('html.lihat_review', ['data' => $sortedReviews]);
        
     }
