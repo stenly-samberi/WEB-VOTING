@@ -257,7 +257,7 @@ class ControllerReview extends Controller
         
         $groupedReviews = $reviews->groupBy(['kategori_lomba', 'id_user','id_njemaat']);
 
-       
+        return  $groupedReviews;
         
         $groupedReviews = $groupedReviews->map(function ($userReviews) {
         $totalFinal = 0;
@@ -289,7 +289,7 @@ class ControllerReview extends Controller
             $medali = "Gold";
         } 
 
-        return $mappedReviews;
+       
 
         return ['reviews' => $mappedReviews,
                 'medali'  => $medali,
@@ -301,7 +301,7 @@ class ControllerReview extends Controller
 
         $sortedReviews = $groupedReviews->sortByDesc('total_final');
 
-        //return view('html.lihat_review', ['data' => $sortedReviews]);
+        return view('html.lihat_review', ['data' => $sortedReviews]);
        
     }
 
