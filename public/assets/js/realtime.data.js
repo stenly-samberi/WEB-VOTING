@@ -13,6 +13,7 @@ function showErrorModal(message) {
 
 
 function fetchHasil() {
+    let rowNumber = 1;
         $.ajax({
             url: '/dash/data', // URL endpoint untuk mengambil data
             method: 'GET',
@@ -40,6 +41,7 @@ function fetchHasil() {
                     }
     
                     var row = `<tr>
+                        <td><h6 class="fw-semibold mb-0">${rowNumber}</h6></td>
                         <td><h6 class="fw-semibold mb-0">${view.nomor_tampil}</h6></td>
                         <td>
                         

@@ -140,7 +140,7 @@
                 <span>
                   <i class="ti ti-phone"></i>
                 </span>
-                <span class="hide-menu">Dash Setting</span>
+                <span class="hide-menu">Setting</span>
               </a>
             </li>
 
