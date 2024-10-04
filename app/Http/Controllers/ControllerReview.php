@@ -286,12 +286,14 @@ class ControllerReview extends Controller
             $medali = "Silver";
         } else if ($nilai_akhir >= 80 && $nilai_akhir <= 100) {
             $medali = "Gold";
-        } 
+        }
+
+
 
         return ['reviews' => $mappedReviews,
                 'medali'  => $medali,
-                'nomor_tampil' => $mappedReviews->first()->no_tampil,
-                'jemaat'  => $mappedReviews->first()->jemaat->nama,
+                'nomor_tampil' => $mappedReviews->first()['data']->first()[0]->no_tampil,
+                'jemaat'  => $mappedReviews->first()['data']->first()[0]->jemaat->nama,
                 'total_final' => $nilai_akhir
             ];
         });
