@@ -43,16 +43,17 @@ function fetchHasil() {
                     var row = `<tr>
                         <td><h6 class="fw-semibold mb-0">${rowNumber}</h6></td>
                         <td><h6 class="fw-semibold mb-0">${view.nomor_tampil}</h6></td>
-                        <td><h6 class="fw-semibold mb-0">${view.kategoril}</h6></td>
+                        <td><h6 class="fw-semibold mb-0">${view.kategori}</h6></td>
                         <td>
                         
-                        <h6 class="fw-semibold mb-1">${view.jemaat}</h6>
+                            <h6 class="fw-semibold mb-1">${view.jemaat}</h6>
 
-                        <div class="d-flex align-items-center gap-2">
-                            ${view.juri.map(juri => `<img src="${juri.photo_url}" alt="${juri.name}" class="rounded-circle" width="30" height="30">`).join(' ')}
-                        </div>
+                            <div class="d-flex align-items-center gap-2">
+                                ${view.juri.map(juri => `<img src="${juri.photo_url}" alt="${juri.name}" class="rounded-circle" width="30" height="30">`).join(' ')}
+                            </div>
                             
                         </td>
+
                         <td>
                             <div class="d-flex align-items-center gap-2">
                                 <span class="badge ${medalClass} rounded-3 fw-semibold">${view.medali}</span>
