@@ -128,10 +128,7 @@ class ControllerReview extends Controller
 
     public function reviews() {
         //tampilkan data ke dashboard
-        // $reviews = Review::with('user:name,id_user,level as juri_level,img_src as foto_juri',
-        // 'jemaat:nama,id_njemaat',
-        // 'kategori_lomba:id_kategori_lomba,kategori_lomba')->get();
-
+       
         $reviews = Review::with('user:name,id_user,level as juri_level,img_src as foto_juri',
         'jemaat:nama,id_njemaat',
         'kategori_lomba:id_kategori_lomba,kategori_lomba')
@@ -139,18 +136,14 @@ class ControllerReview extends Controller
             $query->where('status', 1);
         })->get();
 
-
         //$groupedReviews = $reviews->groupBy(['no_tampil', 'id_user']);
         $groupedReviews = $reviews->groupBy(['kategori_lomba', 'id_user']);
-
-        //$groupedReviews = $reviews->groupBy('kategori_lomba','id_user');
-
         
         $groupedReviews = $groupedReviews->map(function ($userReviews) {
         $totalFinal = 0;
         $nilai_akhir = 0;
         $medali = "";
-        $juriData = []; //new
+        $juriData = [];
         
         $mappedReviews = $userReviews->map(function ($reviews) use (&$totalFinal, &$juriData) {
         $totalNilaiWajib = $reviews->where('genre_lagu', 'LAGU WAJIB')->sum('nilai');
@@ -185,7 +178,8 @@ class ControllerReview extends Controller
                 'nomor_tampil' => $mappedReviews->first()['data']->first()->no_tampil,
                 'jemaat'  => $mappedReviews->first()['data']->first()->jemaat->nama,
                 'total_final' => $nilai_akhir,
-                'juri'  => $juriData
+                'juri'  => $juriData,
+                'kategori' => $mappedReviews->first()['data']->first()->kategori_lomba->kategori_lomba
             ];
         });
 

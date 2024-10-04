@@ -33,11 +33,12 @@
                     <table id="data-table" class="table text-nowrap mb-0 align-middle">
                         <thead class="text-dark fs-4">
                             <tr>
-                                <th><h6 class="fw-semibold mb-0">No</h6></th>
-                                <th><h6 class="fw-semibold mb-0">No Tampil</h6></th>
-                                <th><h6 class="fw-semibold mb-0">Peserta</h6></th>
-                                <th><h6 class="fw-semibold mb-0">Medali</h6></th>
-                                <th><h6 class="fw-semibold mb-0">Nilai</h6></th>
+                                <th><h6 class="fw-semibold mb-0">NO</h6></th>
+                                <th><h6 class="fw-semibold mb-0">NO TAMPIL</h6></th>
+                                <th><h6 class="fw-semibold mb-0">KATEGORI</h6></th>
+                                <th><h6 class="fw-semibold mb-0">PESERTA</h6></th>
+                                <th><h6 class="fw-semibold mb-0">MEDALI</h6></th>
+                                <th><h6 class="fw-semibold mb-0">NILAI</h6></th>
                             </tr>
                         </thead>
                         

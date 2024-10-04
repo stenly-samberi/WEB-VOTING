@@ -43,6 +43,7 @@ function fetchHasil() {
                     var row = `<tr>
                         <td><h6 class="fw-semibold mb-0">${rowNumber}</h6></td>
                         <td><h6 class="fw-semibold mb-0">${view.nomor_tampil}</h6></td>
+                        <td><h6 class="fw-semibold mb-0">${view.kategoril}</h6></td>
                         <td>
                         
                         <h6 class="fw-semibold mb-1">${view.jemaat}</h6>
