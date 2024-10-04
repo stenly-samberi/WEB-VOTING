@@ -8,7 +8,7 @@
 
       <!-- Formulir Filter -->
       <div class="row mb-4">
-        <div class="col-12">
+        <div class="col-12 border border-1">
           <form method="GET" action="">
             <div class="row">
               <div class="col-md-2">
