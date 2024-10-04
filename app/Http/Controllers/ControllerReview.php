@@ -132,8 +132,8 @@ class ControllerReview extends Controller
             'jemaat:nama,id_njemaat',
             'kategori_lomba:id_kategori_lomba,kategori_lomba')->get();
     
-        // Group by no_tampil, id_user dan kategori_lomba
-        $groupedReviews = $reviews->groupBy(['no_tampil', 'id_user', 'kategori_lomba']);
+        // Group by no_tampil, id_user, dan kategori_lomba
+        $groupedReviews = $reviews->groupBy(['no_tampil', 'id_user', 'kategori_lomba.id_kategori_lomba']);
     
         $groupedReviews = $groupedReviews->map(function ($userReviews) {
             $totalFinal = 0;
@@ -183,6 +183,7 @@ class ControllerReview extends Controller
         $sortedReviews = $groupedReviews->sortByDesc('total_final');
         return response()->json(['data' => $sortedReviews]);
     }
+    
     
 
    
