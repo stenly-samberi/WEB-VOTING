@@ -11,28 +11,27 @@
         <div class="col-12">
           <form method="GET" action="">
             <div class="row">
-              <div class="col-md-3">
-                <label for="kategori" class="form-label">Kategori</label>
+              <div class="col-md-2">
                 <select class="form-select" id="kategori" name="kategori">
                   <option value="">Pilih Kategori</option>
                   <!-- Tambahkan opsi kategori di sini -->
                 </select>
               </div>
-              <div class="col-md-3">
-                <label for="juri" class="form-label">Juri</label>
+              <div class="col-md-4">
+                
                 <select class="form-select" id="juri" name="juri">
                   <option value="">Pilih Juri</option>
                   <!-- Tambahkan opsi juri di sini -->
                 </select>
               </div>
-              <div class="col-md-3">
-                <label for="jemaat" class="form-label">Jemaat</label>
+              <div class="col-md-4">
+               
                 <select class="form-select" id="jemaat" name="jemaat">
                   <option value="">Pilih Jemaat</option>
                   <!-- Tambahkan opsi jemaat di sini -->
                 </select>
               </div>
-              <div class="col-md-3 d-flex align-items-end">
+              <div class="col-md-2 d-flex align-items-end">
                 <button type="submit" class="btn btn-primary">Filter</button>
               </div>
             </div>
