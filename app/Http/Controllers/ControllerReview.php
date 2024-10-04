@@ -249,10 +249,10 @@ return response()->json(['data' => $groupedReviews]);
         'kategori_lomba:id_kategori_lomba,kategori_lomba')->get();
 
         //$groupedReviews = $reviews->groupBy(['no_tampil', 'id_user']);
-        //$groupedReviews = $reviews->groupBy(['no_tampil', 'id_user']);
+        $groupedReviews = $reviews->groupBy(['no_tampil', 'id_user']);
 
-        $groupedReviews = $reviews->groupBy('kategori_lomba','id_user');
-        
+        //$groupedReviews = $reviews->groupBy('kategori_lomba','id_user');
+
         
         $groupedReviews = $groupedReviews->map(function ($userReviews) {
         $totalFinal = 0;
