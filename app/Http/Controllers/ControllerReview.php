@@ -279,15 +279,13 @@ class ControllerReview extends Controller
 
         $nilai_akhir = (float) $nilai_akhir;
 
-        if ($nilai_akhir <= 75) {
+        if ($nilai_akhir < 60) {
             $medali = "Bronze";
-        } else if ($nilai_akhir >= 76 && $nilai_akhir <= 85) {
+        } else if ($nilai_akhir >= 60 && $nilai_akhir < 80) {
             $medali = "Silver";
-        } else if ($nilai_akhir >= 86 && $nilai_akhir <= 100) {
+        } else if ($nilai_akhir >= 80 && $nilai_akhir <= 100) {
             $medali = "Gold";
-        } else {
-            $medali = "Tidak ada medali";
-        }
+        } 
 
         return ['reviews' => $mappedReviews,
                 'medali'  => $medali,
@@ -298,7 +296,7 @@ class ControllerReview extends Controller
         });
 
         $sortedReviews = $groupedReviews->sortByDesc('total_final');
-        
+
         return view('html.lihat_review', ['data' => $sortedReviews]);
        
     }
