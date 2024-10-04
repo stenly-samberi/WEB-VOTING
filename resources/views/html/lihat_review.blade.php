@@ -9,35 +9,35 @@
       <!-- Formulir Filter -->
       <form method="GET" action="">
         <div class="row mb-4">
-          <div class="col-md-3">
-            <label for="kategori" class="form-label">Kategori</label>
+
+          <div class="col-lg-3">
             <select class="form-select" id="kategori" name="kategori">
               <option value="">Pilih Kategori</option>
               <option value="">PAM</option>
               <option value="">PAR</option>
             </select>
           </div>
-          <div class="col-md-3">
-            <label for="juri" class="form-label">Juri</label>
+
+          <div class="col-lg-3">
             <select class="form-select" id="juri" name="juri">
               <option value="">Pilih Juri</option>
               <option value="">Stenly</option>
               <option value="">Matias</option>
-              
             </select>
           </div>
-          <div class="col-md-3">
-            <label for="jemaat" class="form-label">Jemaat</label>
+
+          <div class="col-lg-3">
             <select class="form-select" id="jemaat" name="jemaat">
               <option value="">Pilih Jemaat</option>
               <option value="">Kalvari Tembagapura</option>
               <option value="">Viadolorosa</option>
-              
             </select>
           </div>
-          <div class="col-md-3 d-flex align-items-end">
+
+          <div class="col-lg-3 d-flex align-items-end">
             <button type="submit" class="btn btn-primary">Filter</button>
           </div>
+
         </div>
       </form>
 
