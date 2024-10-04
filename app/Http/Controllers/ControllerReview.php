@@ -132,8 +132,8 @@ class ControllerReview extends Controller
             'jemaat:nama,id_njemaat',
             'kategori_lomba:id_kategori_lomba,kategori_lomba')->get();
     
-        // Group by no_tampil, id_user, dan kategori_lomba
-        $groupedReviews = $reviews->groupBy(['no_tampil', 'id_user', 'kategori_lomba.id_kategori_lomba']);
+        // Group by id_user dan kategori_lomba
+        $groupedReviews = $reviews->groupBy(['id_user', 'kategori_lomba.id_kategori_lomba']);
     
         $groupedReviews = $groupedReviews->map(function ($userReviews) {
             $totalFinal = 0;
@@ -173,7 +173,6 @@ class ControllerReview extends Controller
             return [
                 'reviews' => $mappedReviews,
                 'medali' => $medali,
-                'nomor_tampil' => $mappedReviews->first()['data']->first()->no_tampil,
                 'jemaat' => $mappedReviews->first()['data']->first()->jemaat->nama,
                 'total_final' => $nilai_akhir,
                 'juri' => $juriData
