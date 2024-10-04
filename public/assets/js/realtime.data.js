@@ -41,7 +41,7 @@ function fetchHasil() {
                     }
     
                     var row = `<tr>
-                        <td><h6 class="fw-semibold mb-0">${rowNumber + 1}</h6></td>
+                        <td><h6 class="fw-semibold mb-0">${rowNumber}</h6></td>
                         <td><h6 class="fw-semibold mb-0">${view.nomor_tampil}</h6></td>
                         <td>
                         
@@ -60,6 +60,7 @@ function fetchHasil() {
                         <td><h6 class="fw-semibold mb-0 fs-4">${view.total_final}</h6></td>
                     </tr>`;
                     tbody.append(row);
+                    rowNumber++;
                 });
     
                 // Jika tidak ada data, tampilkan pesan "No data available"
