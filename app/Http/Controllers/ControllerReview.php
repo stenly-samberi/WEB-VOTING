@@ -136,8 +136,6 @@ class ControllerReview extends Controller
         })->get();
     
         $groupedReviews = $reviews->groupBy(['id_kategori_lomba', 'id_njemaat']);
-
-        return response()->json(['data' => $groupedReviews]);
     
         $groupedReviews = $groupedReviews->map(function ($userReviews) {
             $totalFinal = 0;
