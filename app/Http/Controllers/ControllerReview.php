@@ -288,6 +288,7 @@ $groupedReviews = $groupedReviews->map(function ($userReviews) {
 
     $firstReview = $mappedReviews->first()['data']->first()->first();
 
+    
     return [
         'reviews' => $mappedReviews,
         'medali' => $medali,
