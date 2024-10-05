@@ -388,10 +388,12 @@ class ControllerReview extends Controller
         return response()->json($category);
     }
 
-    public function dash_setting_updated(Request $request){
+    public function dash_setting_updated_stop(Request $request){
 
+    
         $id = $request->input('id');
         $statusValue = $request->input('status') === 'true';
+
         $peserta = KategoriLomba::where('id_kategori_lomba', $id)->firstOrFail();
         $peserta->status = $statusValue;
         $peserta->save();
@@ -399,6 +401,32 @@ class ControllerReview extends Controller
        
        
     }
+
+    public function dash_setting_updated(Request $request) {
+        try {
+            // Validasi input
+            $validatedData = $request->validate([
+                'id' => 'required|integer',
+                'status' => 'required|boolean|unique:status'
+            ]);
+    
+            // Ambil data dari input yang sudah divalidasi
+            $id = $validatedData['id'];
+            $statusValue = $validatedData['status'];
+    
+            // Update status peserta
+            $peserta = KategoriLomba::where('id_kategori_lomba', $id)->firstOrFail();
+            $peserta->status = $statusValue;
+            $peserta->save();
+
+            return response()->json(['message' => 'Status updated successfully']);
+            
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            // Tangkap pengecualian validasi dan kembalikan pesan error dalam format JSON
+            return response()->json(['errors' => $e->errors()], 422);
+        }
+    }
+    
     
     
 }

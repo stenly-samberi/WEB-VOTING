@@ -77,7 +77,7 @@ function fetchHasil_stop() {
         });
     }
 
-    function fetchHasil() {
+function fetchHasil() {
         let rowNumber = 1;
         $.ajax({
             url: '/dash/data', // URL endpoint untuk mengambil data
