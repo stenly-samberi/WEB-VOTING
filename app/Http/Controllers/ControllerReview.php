@@ -127,6 +127,69 @@ class ControllerReview extends Controller
     }
 
     public function reviews() {
+        // Tampilkan data ke dashboard
+        $reviews = Review::with([
+            'user:id,name,level as juri_level,img_src as foto_juri',
+            'jemaat:id,nama',
+            'kategori_lomba:id,kategori_lomba'
+        ])->whereHas('kategori_lomba', function($query) {
+            $query->where('status', 1);
+        })->get();
+    
+        $groupedReviews = $reviews->groupBy(['kategori_lomba', 'id_njemaat', 'id_user']);
+    
+        $groupedReviews = $groupedReviews->map(function ($userReviews) {
+            $totalFinal = 0;
+            $nilai_akhir = 0;
+            $medali = "";
+            $juriData = [];
+    
+            $mappedReviews = $userReviews->map(function ($reviews) use (&$totalFinal, &$juriData) {
+                $totalNilaiWajib = $reviews->where('genre_lagu', 'LAGU WAJIB')->sum('nilai');
+                $totalNilaiPilihan = $reviews->where('genre_lagu', 'LAGU PILIHAN')->sum('nilai');
+                $totalNilai = $totalNilaiWajib + $totalNilaiPilihan;
+    
+                $totalFinal += $totalNilai;
+    
+                $juriData[] = [
+                    'name' => $reviews->first()->user->name,
+                    'photo_url' => asset('images/profile/' . $reviews->first()->user->foto_juri)
+                ];
+    
+                return [
+                    'data' => $reviews,
+                    'nilai_keseluruhan' => $totalNilai,
+                    'total_nilai' => $totalNilai / 2
+                ];
+            });
+    
+            $nilai_akhir = round(($totalFinal / 2) / 3, 2); // Melakukan pembulatan menjadi 2 decimal
+    
+            if ($nilai_akhir < 60) {
+                $medali = "Bronze";
+            } else if ($nilai_akhir >= 60 && $nilai_akhir < 80) {
+                $medali = "Silver";
+            } else if ($nilai_akhir >= 80 && $nilai_akhir <= 100) {
+                $medali = "Gold";
+            }
+    
+            return [
+                'reviews' => $mappedReviews,
+                'medali' => $medali,
+                'nomor_tampil' => $mappedReviews->first()['data']->first()->no_tampil,
+                'jemaat' => $mappedReviews->first()['data']->first()->jemaat->nama,
+                'total_final' => $nilai_akhir,
+                'kategori' => $mappedReviews->first()['data']->first()->kategori_lomba->kategori_lomba,
+                'juri' => $juriData
+            ];
+        });
+    
+        $sortedReviews = $groupedReviews->sortByDesc('total_final');
+        return response()->json(['data' => $sortedReviews]);
+    }
+    
+
+    public function reviews_stop_1() {
         //tampilkan data ke dashboard
         $reviews = Review::with('user:name,id_user,level as juri_level,img_src as foto_juri',
         'jemaat:nama,id_njemaat',
@@ -135,8 +198,7 @@ class ControllerReview extends Controller
             $query->where('status', 1);
         })->get();
 
-        //$groupedReviews = $reviews->groupBy(['no_tampil', 'id_user']);
-        $groupedReviews = $reviews->groupBy(['kategori_lomba', 'id_user']);
+        $groupedReviews = $reviews->groupBy(['kategori_lomba', 'id_njemaat' ,'id_user']);
         
         $groupedReviews = $groupedReviews->map(function ($userReviews) {
         $totalFinal = 0;
