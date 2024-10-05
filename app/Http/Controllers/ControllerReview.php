@@ -135,7 +135,7 @@ class ControllerReview extends Controller
             $query->where('status', 1);
         })->get();
     
-        $groupedReviews = $reviews->groupBy(['kategori_lomba', 'id_njemaat']);
+        $groupedReviews = $reviews->groupBy(['id_kategori_lomba', 'id_njemaat']);
 
         return response()->json(['data' => $groupedReviews]);
     
