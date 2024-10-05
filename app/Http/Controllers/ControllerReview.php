@@ -128,11 +128,10 @@ class ControllerReview extends Controller
 
     public function reviews() {
         // Tampilkan data ke dashboard
-        $reviews = Review::with([
-            'user:id,name,level as juri_level,img_src as foto_juri',
-            'jemaat:id,nama',
-            'kategori_lomba:id,kategori_lomba'
-        ])->whereHas('kategori_lomba', function($query) {
+        $reviews = Review::with('user:name,id_user,level as juri_level,img_src as foto_juri',
+        'jemaat:nama,id_njemaat',
+        'kategori_lomba:id_kategori_lomba,kategori_lomba')
+        ->whereHas('kategori_lomba', function($query) {
             $query->where('status', 1);
         })->get();
     
