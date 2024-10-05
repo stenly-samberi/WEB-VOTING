@@ -144,6 +144,7 @@ class ControllerReview extends Controller
             $medali = "";
             $juriData = [];
     
+            
             $mappedReviews = $userReviews->map(function ($reviews) use (&$totalFinal, &$juriData) {
                 $totalNilaiWajib = $reviews->where('genre_lagu', 'LAGU WAJIB')->sum('nilai');
                 $totalNilaiPilihan = $reviews->where('genre_lagu', 'LAGU PILIHAN')->sum('nilai');
