@@ -126,7 +126,7 @@ class ControllerReview extends Controller
         return view('html.dash');
     }
 
-    public function reviews() {
+    public function reviews_stop_1() {
         // Tampilkan data ke dashboard
         $reviews = Review::with('user:name,id_user,level as juri_level,img_src as foto_juri',
         'jemaat:nama,id_njemaat',
@@ -150,12 +150,10 @@ class ControllerReview extends Controller
     
                 $totalFinal += $totalNilai;
     
-                foreach ($reviews as $review) {
-                    $juriData[] = [
-                        'name' => $review->user->name,
-                        'photo_url' => asset('images/profile/' . $review->user->foto_juri)
-                    ];
-                }
+                $juriData[] = [
+                    'name' => $reviews->first()->user->name,
+                    'photo_url' => asset('images/profile/' . $reviews->first()->user->foto_juri)
+                ];
     
                 return [
                     'data' => $reviews,
@@ -190,7 +188,7 @@ class ControllerReview extends Controller
     }
     
 
-    public function reviews_stop_1() {
+    public function reviews() {
         //tampilkan data ke dashboard
         $reviews = Review::with('user:name,id_user,level as juri_level,img_src as foto_juri',
         'jemaat:nama,id_njemaat',
