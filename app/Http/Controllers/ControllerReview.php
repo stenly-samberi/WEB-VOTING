@@ -192,7 +192,7 @@ class ControllerReview extends Controller
     }
     
 
-    public function reviews() {
+    public function reviews_stop_1() {
         //tampilkan data ke dashboard
         $reviews = Review::with('user:name,id_user,level as juri_level,img_src as foto_juri',
         'jemaat:nama,id_njemaat',
@@ -253,7 +253,7 @@ class ControllerReview extends Controller
     }
     
     
-    public function reviews_stop_1() {
+    public function reviews() {
 
         //tampilkan data ke dashboard
         $reviews = Review::with('user:name,id_user,level as juri_level,img_src as foto_juri',
