@@ -390,13 +390,26 @@ class ControllerReview extends Controller
 
     public function dash_setting_updated(Request $request){
 
+        $validator = Validator::make($request->all(), [
+            'id' => 'required',
+            'status' => 'required:unique:status',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'error' => $validator->errors()
+            ], 422);
+        }
+
+
         $id = $request->input('id');
         $statusValue = $request->input('status') === 'true';
 
         $peserta = KategoriLomba::where('id_kategori_lomba', $id)->firstOrFail();
         $peserta->status = $statusValue;
         $peserta->save();
-        return response()->json(['message' => 'Status updated successfully']);
+
+        return response()->json(['message' => 'Peserta Tampil Berhasil'],200);
        
        
     }
