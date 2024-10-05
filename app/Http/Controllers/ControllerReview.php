@@ -392,7 +392,7 @@ class ControllerReview extends Controller
 
         $validator = Validator::make($request->all(), [
             'id' => 'required',
-            'status' => 'required:unique:status',
+            'status' => 'required:unique:tbl_kategori_lomba,status',
         ]);
 
         if ($validator->fails()) {
