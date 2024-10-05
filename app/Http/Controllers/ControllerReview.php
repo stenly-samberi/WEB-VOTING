@@ -135,7 +135,7 @@ class ControllerReview extends Controller
             $query->where('status', 1);
         })->get();
     
-        $groupedReviews = $reviews->groupBy(['id_kategori_lomba']);
+        $groupedReviews = $reviews->groupBy(['id_kategori_lomba','id_njemaat']);
     
         $groupedReviews = $groupedReviews->map(function ($userReviews) {
             $totalFinal = 0;
@@ -150,10 +150,13 @@ class ControllerReview extends Controller
     
                 $totalFinal += $totalNilai;
     
-                $juriData[] = [
-                    'name' => $reviews->first()->user->name,
-                    'photo_url' => asset('images/profile/' . $reviews->first()->user->foto_juri)
-                ];
+                $juriData = $reviews->map(function ($review) {
+                    return [
+                        'name' => $review->user->name,
+                        'photo_url' => asset('images/profile/' . $review->user->foto_juri)
+                    ];
+                });
+                
     
                 return [
                     'data' => $reviews,
