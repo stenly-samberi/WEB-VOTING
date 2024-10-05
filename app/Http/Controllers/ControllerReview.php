@@ -150,10 +150,12 @@ class ControllerReview extends Controller
     
                 $totalFinal += $totalNilai;
     
-                $juriData[] = [
-                    'name' => $reviews->first()->user->name,
-                    'photo_url' => asset('images/profile/' . $reviews->first()->user->foto_juri)
-                ];
+                foreach ($reviews as $review) {
+                    $juriData[] = [
+                        'name' => $review->user->name,
+                        'photo_url' => asset('images/profile/' . $review->user->foto_juri)
+                    ];
+                }
     
                 return [
                     'data' => $reviews,
