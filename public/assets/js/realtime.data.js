@@ -117,10 +117,10 @@ function fetchHasil_stop() {
                         </td>
                         <td>
                             <div class="d-flex align-items-center gap-2">
-                                ${view.juri.length === 3 ? `<span class="badge ${medalClass} rounded-3 fw-semibold">${view.medali}</span>` : ''}
+                                ${view.juri.length === 3 ? `<span class="badge ${medalClass} rounded-3 fw-semibold">${view.medali}</span>` : '-'}
                             </div>
                         </td>
-                        <td><h6 class="fw-semibold mb-0 fs-4">${view.juri.length === 3 ? view.total_final : ''}</h6></td>
+                        <td><h6 class="fw-semibold mb-0 fs-4">${view.juri.length === 3 ? view.total_final : '-'}</h6></td>
                     </tr>`;
                     tbody.append(row);
                     rowNumber++;
