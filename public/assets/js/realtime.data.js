@@ -12,7 +12,8 @@ function showErrorModal(message) {
 }
 
 
-function fetchHasil() {
+
+function fetchHasil_stop() {
     let rowNumber = 1;
         $.ajax({
             url: '/dash/data', // URL endpoint untuk mengambil data
@@ -75,6 +76,67 @@ function fetchHasil() {
             }
         });
     }
+
+    function fetchHasil() {
+        let rowNumber = 1;
+        $.ajax({
+            url: '/dash/data', // URL endpoint untuk mengambil data
+            method: 'GET',
+            success: function(response) {
+                console.log(response); // Tambahkan ini untuk melihat data yang diterima
+                var tbody = $('#data-table tbody');
+                tbody.empty(); // Kosongkan tbody sebelum menambahkan data baru
+    
+                // Iterasi objek response.data
+                $.each(response.data, function(key, view) {
+                    var medalClass = '';
+                    switch (view.medali) {
+                        case 'Gold':
+                            medalClass = 'bg-success';
+                            break;
+                        case 'Silver':
+                            medalClass = 'bg-secondary';
+                            break;
+                        case 'Bronze':
+                            medalClass = 'bg-danger';
+                            break;
+                        default:
+                            medalClass = 'bg-primary';
+                            break;
+                    }
+    
+                    var row = `<tr>
+                        <td><h6 class="fw-semibold mb-0">${rowNumber}</h6></td>
+                        <td><h6 class="fw-semibold mb-0">${view.nomor_tampil}</h6></td>
+                        <td><h6 class="fw-semibold mb-0">${view.kategori}</h6></td>
+                        <td>
+                            <h6 class="fw-semibold mb-1">${view.jemaat}</h6>
+                            <div class="d-flex align-items-center gap-2">
+                                ${view.juri.map(juri => `<img src="${juri.photo_url}" alt="${juri.name}" class="rounded-circle" width="30" height="30">`).join(' ')}
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center gap-2">
+                                ${view.juri.length === 3 ? `<span class="badge ${medalClass} rounded-3 fw-semibold">${view.medali}</span>` : ''}
+                            </div>
+                        </td>
+                        <td><h6 class="fw-semibold mb-0 fs-4">${view.juri.length === 3 ? view.total_final : ''}</h6></td>
+                    </tr>`;
+                    tbody.append(row);
+                    rowNumber++;
+                });
+    
+                // Jika tidak ada data, tampilkan pesan "No data available"
+                if (Object.keys(response.data).length === 0) {
+                    tbody.append('<tr><td colspan="4" class="text-center">No data available</td></tr>');
+                }
+            },
+            error: function() {
+                showErrorModal('Koneksi ke server gagal.');
+            }
+        });
+    }
+    
 
     fetchHasil()
     setInterval(fetchHasil, 5000); // Refresh every 5 seconds
