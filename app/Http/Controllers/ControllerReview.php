@@ -135,7 +135,7 @@ class ControllerReview extends Controller
             $query->where('status', 1);
         })->get();
     
-        $groupedReviews = $reviews->groupBy('id_njemaat');
+        $groupedReviews = $reviews->groupBy('id_njemaat','id_kategori_lomba');
     
         $groupedReviews = $groupedReviews->map(function ($userReviews) {
             $totalFinal = 0;
