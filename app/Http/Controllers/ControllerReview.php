@@ -136,7 +136,7 @@ class ControllerReview extends Controller
         })->get();
 
         //$groupedReviews = $reviews->groupBy(['no_tampil', 'id_user']);
-        $groupedReviews = $reviews->groupBy(['kategori_lomba', 'id_user','id_njemaat']);
+        $groupedReviews = $reviews->groupBy(['kategori_lomba', 'id_user']);
         
         $groupedReviews = $groupedReviews->map(function ($userReviews) {
         $totalFinal = 0;
@@ -254,7 +254,7 @@ class ControllerReview extends Controller
 
         $reviews = Review::with('user:name,id_user,level as juri_level','jemaat:nama,id_njemaat','kategori_lomba:id_kategori_lomba,kategori_lomba')->get();
         
-        $groupedReviews = $reviews->groupBy(['kategori_lomba','nama','id_user']);
+        $groupedReviews = $reviews->groupBy(['id_kategori_lomba','id_njemaat','id_user']);
 
         $groupedReviews = $groupedReviews->map(function ($userReviews) {
         
