@@ -155,7 +155,8 @@ class ControllerReview extends Controller
                         'name' => $review->user->name,
                         'photo_url' => asset('images/profile/' . $review->user->foto_juri)
                     ];
-                });
+                })->unique('name')->values();
+                
                 
     
                 return [
