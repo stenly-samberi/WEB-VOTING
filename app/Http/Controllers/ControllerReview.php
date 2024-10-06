@@ -349,32 +349,32 @@ class ControllerReview extends Controller
             ];
         });
 
-        $nilai_akhir = ($totalFinal / 2) / 3;
-        $nilai_akhir = number_format($nilai_akhir, 2);
-        $nilai_akhir = (float) $nilai_akhir;
+        // $nilai_akhir = ($totalFinal / 2) / 3;
+        // $nilai_akhir = number_format($nilai_akhir, 2);
+        // $nilai_akhir = (float) $nilai_akhir;
 
-        if ($nilai_akhir < 60) {
-            $medali = "Bronze";
-        } else if ($nilai_akhir >= 60 && $nilai_akhir < 80) {
-            $medali = "Silver";
-        } else if ($nilai_akhir >= 80 && $nilai_akhir <= 100) {
-            $medali = "Gold";
-        }
+        // if ($nilai_akhir < 60) {
+        //     $medali = "Bronze";
+        // } else if ($nilai_akhir >= 60 && $nilai_akhir < 80) {
+        //     $medali = "Silver";
+        // } else if ($nilai_akhir >= 80 && $nilai_akhir <= 100) {
+        //     $medali = "Gold";
+        // }
 
-        $firstReview = $mappedReviews->first()['data']->first()->first();
+        // $firstReview = $mappedReviews->first()['data']->first()->first();
 
-        return [
-            'reviews' => $mappedReviews,
-            'medali' => $medali,
-            'nomor_tampil' => $firstReview ? $firstReview->no_tampil : null,
-            'jemaat' => $firstReview ? $firstReview->jemaat->nama : null,
-            'total_final' => $nilai_akhir
-        ];
+        // return [
+        //     'reviews' => $mappedReviews,
+        //     'medali' => $medali,
+        //     'nomor_tampil' => $firstReview ? $firstReview->no_tampil : null,
+        //     'jemaat' => $firstReview ? $firstReview->jemaat->nama : null,
+        //     'total_final' => $nilai_akhir
+        // ];
     });
 
     $sortedReviews = $groupedReviews->sortByDesc('total_final');
 
-    return ['data' => $sortedReviews];
+    return ['data' => $groupedReviews];
 
     return view('html.lihat_review', ['data' => $sortedReviews]);
 
