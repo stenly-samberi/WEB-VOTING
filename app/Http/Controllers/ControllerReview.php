@@ -391,44 +391,23 @@ class ControllerReview extends Controller
     public function dash_setting_updated(Request $request){
 
         $validator = Validator::make($request->all(), [
-            'id_kategori_lomba' => 'required|integer',
+            'id' => 'required',
             'status' => 'required|unique:tbl_kategori_lomba,status',
         ]);
-    
+
         if ($validator->fails()) {
             return response()->json([
-                'error' => $validator->errors(),
-            ], 422);
+                'error' => $validator->errors()
+            ], 200);
         }
-    
-        $id = $request->input('id_kategori_lomba');
+        $id = $request->input('id');
         $statusValue = $request->input('status') === 'true';
-    
+
         $peserta = KategoriLomba::where('id_kategori_lomba', $id)->firstOrFail();
         $peserta->status = $statusValue;
         $peserta->save();
-    
-        return response()->json(['message' => 'Peserta Tampil Berhasil'], 200);
-       
 
-        // $validator = Validator::make($request->all(), [
-        //     'id' => 'required',
-        //     'status' => 'required|unique:tbl_kategori_lomba,status',
-        // ]);
-
-        // if ($validator->fails()) {
-        //     return response()->json([
-        //         'error' => $validator->errors()
-        //     ], 422);
-        // }
-        // $id = $request->input('id');
-        // $statusValue = $request->input('status') === 'true';
-
-        // $peserta = KategoriLomba::where('id_kategori_lomba', $id)->firstOrFail();
-        // $peserta->status = $statusValue;
-        // $peserta->save();
-
-        // return response()->json(['message' => 'Peserta Tampil Berhasil'],200);
+        return response()->json(['message' => 'Peserta Tampil Berhasil'],200);
 
     }
 
