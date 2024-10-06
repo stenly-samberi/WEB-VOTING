@@ -365,8 +365,8 @@ function updateStatus(id,isChecked) {
 function UpdateStatusViewDash(id, status) {
     var xhr = new XMLHttpRequest();
     var url = '/api/updateDash'; // Sesuaikan dengan route yang Anda definisikan
-    //var params = 'id=' + id + '&status=' + (status ? 'true' : 'false');
-    var params = 'id_kategori_lomba=' + encodeURIComponent(id) + '&status=' + encodeURIComponent(status ? 'true' : 'false');
+    var params = 'id=' + id + '&status=' + (status ? 'true' : 'false');
+    //var params = 'id_kategori_lomba=' + encodeURIComponent(id) + '&status=' + encodeURIComponent(status ? 'true' : 'false');
     xhr.open('POST', url, true);
 
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
