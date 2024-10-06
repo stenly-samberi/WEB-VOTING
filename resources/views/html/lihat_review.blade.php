@@ -54,21 +54,21 @@
                   <th scope="col">Opsi</th>
                 </tr>
               </thead>
+              
               <tbody>
-              <tbody>
-                  @foreach($data as $view)
+                  @foreach($data as $v)
                       <tr>
-                          <td>{{ $view['no_tampil'] }}</td>
-                          <td>{{ $view['jemaat']['nama'] }}</td>
-                          <td>{{ $view['judul_lagu'] }}</td>
-                          <td>{{ $view['intonasi'] }}</td>
-                          <td>{{ $view['vocal'] }}</td>
+                          <td>{{ $v['no_tampil'] }}</td>
+                          <td>{{ $v['jemaat']['nama'] }}</td>
+                          <td>{{ $v['judul_lagu'] }}</td>
+                          <td>{{ $v['intonasi'] }}</td>
+                          <td>{{ $v['vocal'] }}</td>
                           <td>
                               <a href="#"><i class="ti ti-download"></i></a>
                           </td>
                       </tr>
                   @endforeach
-              </tbody>
+              
               </tbody>
             </table>
           </div>
