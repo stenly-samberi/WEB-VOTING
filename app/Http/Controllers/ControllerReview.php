@@ -328,11 +328,11 @@ class ControllerReview extends Controller
             'jemaat:nama,id_njemaat',
             'kategori_lomba:id_kategori_lomba,kategori_lomba')->get();
 
-            return ['data' => $reviews];
+            //return ['data' => $reviews];
 
             //$groupedReviews = $reviews->groupBy('id_kategori_lomba');
 
-            return view('html.lihat_review', ['data' => $groupedReviews]);
+            return view('html.lihat_review', ['data' => $review]);
             return ['data' => $groupedReviews];
 
             $groupedReviews = $groupedReviews->map(function ($userReviews) {
