@@ -398,22 +398,18 @@ class ControllerReview extends Controller
         if ($validator->fails()) {
             return response()->json([
                 'error' => $validator->errors(),
-                'input' => $request->all()
             ], 422);
         }
     
-        try {
-            $id = $request->input('id_kategori_lomba');
-            $statusValue = $request->input('status') === 'true';
+        $id = $request->input('id_kategori_lomba');
+        $statusValue = $request->input('status') === 'true';
     
-            $peserta = KategoriLomba::where('id_kategori_lomba', $id)->firstOrFail();
-            $peserta->status = $statusValue;
-            $peserta->save();
+        $peserta = KategoriLomba::where('id_kategori_lomba', $id)->firstOrFail();
+        $peserta->status = $statusValue;
+        $peserta->save();
     
-            return response()->json(['message' => 'Peserta Tampil Berhasil'], 200);
-        } catch (\Exception $e) {
-            return response()->json(['error' => $e->getMessage()], 500);
-        }
+        return response()->json(['message' => 'Peserta Tampil Berhasil'], 200);
+       
 
         // $validator = Validator::make($request->all(), [
         //     'id' => 'required',
