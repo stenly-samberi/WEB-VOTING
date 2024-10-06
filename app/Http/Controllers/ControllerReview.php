@@ -325,18 +325,17 @@ class ControllerReview extends Controller
     
     public function lihat_Reviews(){
         $reviews = Review::with('user:name,id_user,level as juri_level,img_src as foto_juri',
-    'jemaat:nama,id_njemaat',
-    'kategori_lomba:id_kategori_lomba,kategori_lomba')->get();
+            'jemaat:nama,id_njemaat',
+            'kategori_lomba:id_kategori_lomba,kategori_lomba')->get();
 
-    // Kelompokkan berdasarkan kategori, jemaat, dan user
-    $groupedReviews = $reviews->groupBy(['id_kategori_lomba', 'id_njemaat', 'id_user']);
+            $groupedReviews = $reviews->groupBy(['id_kategori_lomba', 'id_njemaat']);
 
-    $groupedReviews = $groupedReviews->map(function ($userReviews) {
-        $totalFinal = 0;
-        $nilai_akhir = 0;
-        $medali = "";
+            $groupedReviews = $groupedReviews->map(function ($userReviews) {
+            $totalFinal = 0;
+            $nilai_akhir = 0;
+            $medali = "";
 
-        $mappedReviews = $userReviews->map(function ($reviews) use (&$totalFinal) {
+            $mappedReviews = $userReviews->map(function ($reviews) use (&$totalFinal) {
             $totalNilaiWajib = $reviews->where('genre_lagu', 'LAGU WAJIB')->sum('nilai');
             $totalNilaiPilihan = $reviews->where('genre_lagu', 'LAGU PILIHAN')->sum('nilai');
             $totalNilai = $totalNilaiWajib + $totalNilaiPilihan;
