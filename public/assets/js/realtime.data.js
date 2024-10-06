@@ -365,7 +365,8 @@ function updateStatus(id,isChecked) {
 function UpdateStatusViewDash(id, status) {
     var xhr = new XMLHttpRequest();
     var url = '/api/updateDash'; // Sesuaikan dengan route yang Anda definisikan
-    var params = 'id=' + id + '&status=' + (status ? 'true' : 'false');
+    //var params = 'id=' + id + '&status=' + (status ? 'true' : 'false');
+    var params = 'id=' + encodeURIComponent(id) + '&status=' + encodeURIComponent(status ? 'true' : 'false');
     xhr.open('POST', url, true);
 
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -375,7 +376,8 @@ function UpdateStatusViewDash(id, status) {
             if (xhr.status == 200) {
                 console.log(xhr.responseText);
             } else {
-                console.error('Error: ' + xhr.status);
+                //console.error('Error: ' + xhr.status);
+                console.error('Error: ' + xhr.status + ' - ' + xhr.responseText);
             }
         }
     };

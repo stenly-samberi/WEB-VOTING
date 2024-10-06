@@ -391,27 +391,49 @@ class ControllerReview extends Controller
     public function dash_setting_updated(Request $request){
 
         $validator = Validator::make($request->all(), [
-            'id' => 'required',
+            'id' => 'required|integer',
             'status' => 'required|unique:tbl_kategori_lomba,status',
         ]);
-
+    
         if ($validator->fails()) {
             return response()->json([
-                'error' => $validator->errors()
+                'error' => $validator->errors(),
+                'input' => $request->all()
             ], 422);
         }
+    
+        try {
+            $id = $request->input('id');
+            $statusValue = $request->input('status') === 'true';
+    
+            $peserta = KategoriLomba::where('id_kategori_lomba', $id)->firstOrFail();
+            $peserta->status = $statusValue;
+            $peserta->save();
+    
+            return response()->json(['message' => 'Peserta Tampil Berhasil'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
 
+        // $validator = Validator::make($request->all(), [
+        //     'id' => 'required',
+        //     'status' => 'required|unique:tbl_kategori_lomba,status',
+        // ]);
 
-        $id = $request->input('id');
-        $statusValue = $request->input('status') === 'true';
+        // if ($validator->fails()) {
+        //     return response()->json([
+        //         'error' => $validator->errors()
+        //     ], 422);
+        // }
+        // $id = $request->input('id');
+        // $statusValue = $request->input('status') === 'true';
 
-        $peserta = KategoriLomba::where('id_kategori_lomba', $id)->firstOrFail();
-        $peserta->status = $statusValue;
-        $peserta->save();
+        // $peserta = KategoriLomba::where('id_kategori_lomba', $id)->firstOrFail();
+        // $peserta->status = $statusValue;
+        // $peserta->save();
 
-        return response()->json(['message' => 'Peserta Tampil Berhasil'],200);
-       
-       
+        // return response()->json(['message' => 'Peserta Tampil Berhasil'],200);
+
     }
 
 }
