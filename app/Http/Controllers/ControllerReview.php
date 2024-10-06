@@ -397,7 +397,9 @@ class ControllerReview extends Controller
 
         if ($validator->fails()) {
             return response()->json([
-                'error' => $validator->errors()
+                'error' => $validator->errors(),
+                'id' => $request->input('id_kategori_lomba'),
+                'status' => $request->input('status'),
             ], 200);
         }
         $id = $request->input('id_kategori_lomba');
