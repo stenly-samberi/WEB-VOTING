@@ -48,8 +48,9 @@
                 <tr class="text-uppercase">
                   <th scope="col">No Urut</th>
                   <th scope="col">Jemaat</th>
-                  <th scope="col">Nilai</th>
-                  <th scope="col">Medali</th>
+                  <th scope="col">LAGU</th>
+                  <th scope="col">Intonasi</th>
+                  <th scope="col">Vocal</th>
                   <th scope="col">Opsi</th>
                 </tr>
               </thead>
@@ -57,10 +58,11 @@
               <tbody>
                   @foreach($data as $view)
                       <tr>
-                          <td>{{ $view['nomor_tampil'] }}</td>
-                          <td>{{ $view['jemaat'] }}</td>
-                          <td>{{ $view['total_final'] }}</td>
-                          <td>{{ $view['medali'] }}</td>
+                          <td>{{ $view['no_tampil'] }}</td>
+                          <td>{{ $view['jemaat']['nama'] }}</td>
+                          <td>{{ $view['judul_lagu'] }}</td>
+                          <td>{{ $view['intonasi'] }}</td>
+                          <td>{{ $view['vocal'] }}</td>
                           <td>
                               <a href="#"><i class="ti ti-download"></i></a>
                           </td>
