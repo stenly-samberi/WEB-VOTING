@@ -330,6 +330,8 @@ class ControllerReview extends Controller
 
             $groupedReviews = $reviews->groupBy(['id_kategori_lomba','id_njemaat']);
 
+            return ['data' => $groupedReviews];
+
             $groupedReviews = $groupedReviews->map(function ($userReviews) {
             $totalFinal = 0;
             $nilai_akhir = 0;
