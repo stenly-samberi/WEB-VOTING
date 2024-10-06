@@ -404,7 +404,7 @@ class ControllerReview extends Controller
         // }
 
         $id = $request->input('id_kategori_lomba');
-        $statusValue = $request->input('status') === 'false';
+        $statusValue = $request->input('status') === 'true';
 
         $peserta = KategoriLomba::where('id_kategori_lomba', $id)->firstOrFail();
         $peserta->status = $statusValue;
