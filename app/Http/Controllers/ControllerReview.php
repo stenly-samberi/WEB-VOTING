@@ -390,21 +390,21 @@ class ControllerReview extends Controller
 
     public function dash_setting_updated(Request $request){
 
-        $validator = Validator::make($request->all(), [
-            'id_kategori_lomba' => 'required',
-            'status' => 'required|unique:tbl_kategori_lomba,status',
-        ]);
+        // $validator = Validator::make($request->all(), [
+        //     'id_kategori_lomba' => 'required',
+        //     'status' => 'required|unique:tbl_kategori_lomba,status',
+        // ]);
 
-        if ($validator->fails()) {
-            return response()->json([
-                'error' => $validator->errors(),
-                'id' => $request->input('id_kategori_lomba'),
-                'status' => $request->input('status'),
-            ], 200);
-        }
+        // if ($validator->fails()) {
+        //     return response()->json([
+        //         'error' => $validator->errors(),
+        //         'id' => $request->input('id_kategori_lomba'),
+        //         'status' => $request->input('status'),
+        //     ], 200);
+        // }
 
         $id = $request->input('id_kategori_lomba');
-        $statusValue = $request->input('status') === '1';
+        $statusValue = $request->input('status') === 'false';
 
         $peserta = KategoriLomba::where('id_kategori_lomba', $id)->firstOrFail();
         $peserta->status = $statusValue;
