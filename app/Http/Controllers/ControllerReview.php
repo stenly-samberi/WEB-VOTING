@@ -322,7 +322,7 @@ class ControllerReview extends Controller
         
     }
 
-    public function lihat_Reviews() {
+    public function lihat_Reviews(Request $request) {
         $reviews = Review::with([
             'user' => function($query) {
                 $query->select('name', 'id_user', 'level as juri_level', 'img_src as foto_juri');
@@ -333,7 +333,10 @@ class ControllerReview extends Controller
             'kategori_lomba' => function($query) {
                 $query->select('id_kategori_lomba', 'kategori_lomba');
             }
-        ])->get();
+        ])
+        ->where('id_njemaat', 31)
+        ->where('id_kategori_lomba', 1)
+        ->get();
     
         $reviews = $reviews->map(function ($review) {
             $totalNilaiWajib = $review->where('genre_lagu', 'LAGU WAJIB')->sum('nilai');
