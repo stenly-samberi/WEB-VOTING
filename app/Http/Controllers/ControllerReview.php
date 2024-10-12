@@ -343,11 +343,12 @@ class ControllerReview extends Controller
         $totalNilaiWajib = $review->where('genre_lagu', 'LAGU WAJIB')->sum('nilai');
         $totalNilaiPilihan = $review->where('genre_lagu', 'LAGU PILIHAN')->sum('nilai');
         $totalNilai = $totalNilaiWajib + $totalNilaiPilihan;
+
         $totalFinal += $totalNilai;
 
         return [
             'data' => $review,
-            'nilai_keseluruan' => $totalNilai
+            'nilai_keseluruan' => $totalNilai / 2
         ];
     });
 
@@ -374,7 +375,7 @@ class ControllerReview extends Controller
         'total_final' => $nilai_akhir
     ];
 
-    return response()->json(['data' => $result]);
+    return $result;
 
 }
     
