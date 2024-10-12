@@ -333,6 +333,7 @@ class ControllerReview extends Controller
 
         //return view('html.lihat_review', ['data' => $reviews]);
         $groupedReviews = $groupedReviews->map(function ($userReviews) {
+        
         $totalFinal = 0;
         $nilai_akhir = 0;
         $medali = "";
@@ -376,7 +377,7 @@ class ControllerReview extends Controller
 
     $sortedReviews = $groupedReviews->sortByDesc('total_final');
 
-    return ['data' => $sortedReviews];
+    return $sortedReviews;
 
     return view('html.lihat_review', ['data' => $sortedReviews]);
 
