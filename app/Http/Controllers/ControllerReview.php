@@ -365,7 +365,7 @@ class ControllerReview extends Controller
             ];
         });
 
-        return ['data' => $reviews];
+        return ['reviews' => $reviews];
         
         return view('html.lihat_review', ['data' => $reviews]);
     }
