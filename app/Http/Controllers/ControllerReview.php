@@ -328,7 +328,9 @@ class ControllerReview extends Controller
             'jemaat:nama,id_njemaat',
             'kategori_lomba:id_kategori_lomba,kategori_lomba')->get();
 
-        return $reviews;
+        $groupedReviews = $reviews->groupBy('id_user');
+
+        return $groupedReviews;
         
 
             return ['data' => $reviews];
