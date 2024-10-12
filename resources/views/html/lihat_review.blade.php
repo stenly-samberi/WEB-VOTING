@@ -46,8 +46,8 @@
               <thead>
                 <tr class="text-uppercase">
                   <th scope="col">Juri</th>
-                  <th scope="col">genre</th>
                   <th scope="col">Jemaat</th>
+                  <th scope="col">genre</th>
                   <th scope="col">LAGU</th>
                   <th scope="col">Intonasi</th>
                   <th scope="col">Vocal</th>
@@ -62,8 +62,8 @@
                   @foreach($data as $v)
                       <tr>
                           <td>{{ $v['user']['name'] }}</td>
-                          <td>{{ $v['genre_lagu'] }}</td>
                           <td>{{ $v['jemaat']['nama'] }}</td>
+                          <td>{{ $v['genre_lagu'] }}</td>
                           <td>{{ $v['judul_lagu'] }}</td>
                           <td>{{ $v['intonasi'] }}</td>
                           <td>{{ $v['vocal'] }}</td>
