@@ -47,6 +47,8 @@
               <thead>
                 <tr class="text-uppercase">
                   <th scope="col">No Tampil</th>
+                  <th scope="col">Juri</th>
+                  <th scope="col">genre</th>
                   <th scope="col">Jemaat</th>
                   <th scope="col">LAGU</th>
                   <th scope="col">Intonasi</th>
@@ -62,6 +64,8 @@
                   @foreach($data as $v)
                       <tr>
                           <td>{{ $v['no_tampil'] }}</td>
+                          <td>{{ $v['user']['name'] }}</td>
+                          <td>{{ $v['genre_lagu'] }}</td>
                           <td>{{ $v['jemaat']['nama'] }}</td>
                           <td>{{ $v['judul_lagu'] }}</td>
                           <td>{{ $v['intonasi'] }}</td>
