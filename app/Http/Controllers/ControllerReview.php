@@ -330,7 +330,6 @@ class ControllerReview extends Controller
 
         $groupedReviews = $reviews->groupBy('id_user');
 
-
         //return view('html.lihat_review', ['data' => $reviews]);
         $groupedReviews = $groupedReviews->map(function ($userReviews) {
         
@@ -344,7 +343,6 @@ class ControllerReview extends Controller
         $totalNilai = $totalNilaiWajib + $totalNilaiPilihan;
 
         $totalFinal += $totalNilai;
-
             return [
                 'data' => $reviews,
                 'nilai_keseluruan' => $totalNilai,
@@ -375,9 +373,9 @@ class ControllerReview extends Controller
         ];
     });
 
-    $sortedReviews = $groupedReviews->sortByDesc('total_final');
+    //$sortedReviews = $groupedReviews->sortByDesc('total_final');
 
-    return $sortedReviews;
+    return ['data' => $groupedReviews];
 
     return view('html.lihat_review', ['data' => $sortedReviews]);
 
