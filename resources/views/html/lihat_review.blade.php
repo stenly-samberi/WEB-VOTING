@@ -12,28 +12,27 @@
           <method="GET" action="">
 
             <div class="row">
-              <div class="col-md-2">
+              <div class="col-md-4">
                 <select class="form-control" id="kategori" name="kategori">
                   <option value="">Pilih Kategori</option>
                   <!-- Tambahkan opsi kategori di sini -->
                 </select>
               </div>
               
+              
               <div class="col-md-4">
-                <select class="form-control" id="juri" name="juri">
-                  <option value="">Pilih Juri</option>
-                  <!-- Tambahkan opsi juri di sini -->
-                </select>
-              </div>
-              <div class="col-md-4">
-               
                 <select class="form-control" id="jemaat" name="jemaat">
                   <option value="">Pilih Jemaat</option>
                   <!-- Tambahkan opsi jemaat di sini -->
                 </select>
               </div>
+
               <div class="col-md-2">
                 <button type="submit" class="btn btn-primary">Filter</button>
+              </div>
+
+              <div class="col-md-2">
+                <button type="submit" class="btn btn-success">Download</button>
               </div>
             </div>
           </form>
@@ -46,7 +45,6 @@
             <table class="table table-striped fs-3">
               <thead>
                 <tr class="text-uppercase">
-                  <th scope="col">No Tampil</th>
                   <th scope="col">Juri</th>
                   <th scope="col">genre</th>
                   <th scope="col">Jemaat</th>
@@ -63,7 +61,6 @@
               <tbody>
                   @foreach($data as $v)
                       <tr>
-                          <td>{{ $v['no_tampil'] }}</td>
                           <td>{{ $v['user']['name'] }}</td>
                           <td>{{ $v['genre_lagu'] }}</td>
                           <td>{{ $v['jemaat']['nama'] }}</td>
