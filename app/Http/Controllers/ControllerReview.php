@@ -364,7 +364,9 @@ class ControllerReview extends Controller
                 'total_final' => $nilai_akhir
             ];
         });
-    
+
+        return ['data' => $reviews];
+        
         return view('html.lihat_review', ['data' => $reviews]);
     }
     
