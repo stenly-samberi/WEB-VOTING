@@ -333,6 +333,8 @@ class ControllerReview extends Controller
             //$groupedReviews = $reviews->groupBy('id_kategori_lomba');
 
             return view('html.lihat_review', ['data' => $reviews]);
+
+            
             return ['data' => $groupedReviews];
 
             $groupedReviews = $groupedReviews->map(function ($userReviews) {

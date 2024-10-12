@@ -51,6 +51,9 @@
                   <th scope="col">LAGU</th>
                   <th scope="col">Intonasi</th>
                   <th scope="col">Vocal</th>
+                  <th scope="col">partitur</th>
+                  <th scope="col">artitistik</th>
+                  <th scope="col">nilai</th>
                   <th scope="col">Opsi</th>
                 </tr>
               </thead>
@@ -63,6 +66,9 @@
                           <td>{{ $v['judul_lagu'] }}</td>
                           <td>{{ $v['intonasi'] }}</td>
                           <td>{{ $v['vocal'] }}</td>
+                          <td>{{ $v['partitur'] }}</td>
+                          <td>{{ $v['artitistik'] }}</td>
+                          <td>{{ $v['nilai'] }}</td>
                           <td>
                               <a href="#"><i class="ti ti-download"></i></a>
                           </td>
