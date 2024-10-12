@@ -338,40 +338,45 @@ class ControllerReview extends Controller
         ->where('id_kategori_lomba', 1)
         ->get();
     
-        $reviews = $reviews->map(function ($review) {
-            $totalNilaiWajib = $review->where('genre_lagu', 'LAGU WAJIB')->sum('nilai');
-            $totalNilaiPilihan = $review->where('genre_lagu', 'LAGU PILIHAN')->sum('nilai');
-            $totalNilai = $totalNilaiWajib + $totalNilaiPilihan;
-            
-            $totalFinal = $totalNilai;
-            $nilai_akhir = ($totalFinal / 2) / 3;
-            $nilai_akhir = number_format($nilai_akhir, 2);
-            $nilai_akhir = (float) $nilai_akhir;
-    
-            $medali = '';
-            if ($nilai_akhir < 60) {
-                $medali = "Bronze";
-            } else if ($nilai_akhir >= 60 && $nilai_akhir < 80) {
-                $medali = "Silver";
-            } else if ($nilai_akhir >= 80 && $nilai_akhir <= 100) {
-                $medali = "Gold";
-            }
-    
-            return [
-                'data' => $review,
-                'nilai_keseluruan' => $totalNilai,
-                'total_nilai' => $totalNilai / 2,
-                'medali' => $medali,
-                'nomor_tampil' => $review->no_tampil,
-                'jemaat' => $review->jemaat->nama,
-                'total_final' => $nilai_akhir
-            ];
-        });
+    $totalFinal = 0;
+    $mappedReviews = $reviews->map(function ($review) use (&$totalFinal) {
+        $totalNilaiWajib = $review->where('genre_lagu', 'LAGU WAJIB')->sum('nilai');
+        $totalNilaiPilihan = $review->where('genre_lagu', 'LAGU PILIHAN')->sum('nilai');
+        $totalNilai = $totalNilaiWajib + $totalNilaiPilihan;
+        $totalFinal += $totalNilai;
 
-        return ['reviews' => $reviews];
-        
-        return view('html.lihat_review', ['data' => $reviews]);
+        return [
+            'data' => $review,
+            'nilai_keseluruan' => $totalNilai
+        ];
+    });
+
+    $nilai_akhir = ($totalFinal / 2) / 3;
+    $nilai_akhir = number_format($nilai_akhir, 2);
+    $nilai_akhir = (float) $nilai_akhir;
+
+    $medali = '';
+    if ($nilai_akhir < 60) {
+        $medali = "Bronze";
+    } else if ($nilai_akhir >= 60 && $nilai_akhir < 80) {
+        $medali = "Silver";
+    } else if ($nilai_akhir >= 80 && $nilai_akhir <= 100) {
+        $medali = "Gold";
     }
+
+    $firstReview = $reviews->first();
+
+    $result = [
+        'reviews' => $mappedReviews,
+        'medali' => $medali,
+        'nomor_tampil' => $firstReview ? $firstReview->no_tampil : null,
+        'jemaat' => $firstReview ? $firstReview->jemaat->nama : null,
+        'total_final' => $nilai_akhir
+    ];
+
+    return response()->json(['data' => $result]);
+
+}
     
   
 
