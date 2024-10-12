@@ -326,9 +326,12 @@ class ControllerReview extends Controller
     public function lihat_Reviews(){
         $reviews = Review::with('user:name,id_user,level as juri_level,img_src as foto_juri',
             'jemaat:nama,id_njemaat',
-            'kategori_lomba:id_kategori_lomba,kategori_lomba')->get()->groupBy('user.id_user');
+            'kategori_lomba:id_kategori_lomba,kategori_lomba')->get();
 
-            //return ['data' => $reviews];
+        return $reviews;
+        
+
+            return ['data' => $reviews];
 
             //$groupedReviews = $reviews->groupBy('id_kategori_lomba');
 
