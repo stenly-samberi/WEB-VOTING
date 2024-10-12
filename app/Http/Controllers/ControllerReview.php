@@ -138,17 +138,17 @@ class ControllerReview extends Controller
         $groupedReviews = $reviews->groupBy(['id_kategori_lomba','id_njemaat']);
     
         $groupedReviews = $groupedReviews->map(function ($userReviews) {
-            $totalFinal = 0;
+            $totalLagu = 0;
             $nilai_akhir = 0;
             $medali = "";
             $juriData = [];
     
-            $mappedReviews = $userReviews->map(function ($reviews) use (&$totalFinal, &$juriData) {
+            $mappedReviews = $userReviews->map(function ($reviews) use (&$totalLagu, &$juriData) {
                 $totalNilaiWajib = $reviews->where('genre_lagu', 'LAGU WAJIB')->sum('nilai');
                 $totalNilaiPilihan = $reviews->where('genre_lagu', 'LAGU PILIHAN')->sum('nilai');
                 $totalNilai = $totalNilaiWajib + $totalNilaiPilihan;
     
-                $totalFinal += $totalNilai;
+                $totalLagu += $totalNilai;
     
                 $juriData = $reviews->map(function ($review) {
                     return [
@@ -166,7 +166,7 @@ class ControllerReview extends Controller
                 ];
             });
     
-            $nilai_akhir = round(($totalFinal / 2) / 3, 2); // Melakukan pembulatan menjadi 2 decimal
+            $nilai_akhir = round(($totalLagu / 2) / 3, 2); // Melakukan pembulatan menjadi 2 decimal
     
             if ($nilai_akhir < 60) {
                 $medali = "Bronze";
@@ -204,17 +204,17 @@ class ControllerReview extends Controller
         $groupedReviews = $reviews->groupBy(['kategori_lomba', 'id_njemaat' ,'id_user']);
         
         $groupedReviews = $groupedReviews->map(function ($userReviews) {
-        $totalFinal = 0;
+        $totalLagu = 0;
         $nilai_akhir = 0;
         $medali = "";
         $juriData = [];
         
-        $mappedReviews = $userReviews->map(function ($reviews) use (&$totalFinal, &$juriData) {
+        $mappedReviews = $userReviews->map(function ($reviews) use (&$totalLagu, &$juriData) {
         $totalNilaiWajib = $reviews->where('genre_lagu', 'LAGU WAJIB')->sum('nilai');
         $totalNilaiPilihan = $reviews->where('genre_lagu', 'LAGU PILIHAN')->sum('nilai');
         $totalNilai = $totalNilaiWajib + $totalNilaiPilihan;
         
-        $totalFinal += $totalNilai;
+        $totalLagu += $totalNilai;
 
         $juriData [] = [
             'name' => $reviews->first()->user->name,
@@ -227,7 +227,7 @@ class ControllerReview extends Controller
                 ];
         });
         
-        $nilai_akhir =  round( ($totalFinal / 2) / 3, 2);//melakukan pembulatan menjadi 2 decimal
+        $nilai_akhir =  round( ($totalLagu / 2) / 3, 2);//melakukan pembulatan menjadi 2 decimal
 
         if ($nilai_akhir < 60) {
             $medali = "Bronze";
@@ -274,17 +274,17 @@ class ControllerReview extends Controller
 
         
         $groupedReviews = $groupedReviews->map(function ($userReviews) {
-        $totalFinal = 0;
+        $totalLagu = 0;
         $nilai_akhir = 0;
         $medali = "";
         $juriData = []; //new
         
-        $mappedReviews = $userReviews->map(function ($reviews) use (&$totalFinal, &$juriData) {
+        $mappedReviews = $userReviews->map(function ($reviews) use (&$totalLagu, &$juriData) {
         $totalNilaiWajib = $reviews->where('genre_lagu', 'LAGU WAJIB')->sum('nilai');
         $totalNilaiPilihan = $reviews->where('genre_lagu', 'LAGU PILIHAN')->sum('nilai');
         $totalNilai = $totalNilaiWajib + $totalNilaiPilihan;
         
-        $totalFinal += $totalNilai;
+        $totalLagu += $totalNilai;
 
         $juriData [] = [
             'name' => $reviews->first()->user->name,
@@ -297,7 +297,7 @@ class ControllerReview extends Controller
                 ];
         });
         
-        $nilai_akhir =  round( ($totalFinal / 2) / 3, 2);//melakukan pembulatan menjadi 2 decimal
+        $nilai_akhir =  round( ($totalLagu / 2) / 3, 2);//melakukan pembulatan menjadi 2 decimal
 
         if ($nilai_akhir < 60) {
             $medali = "Bronze";
@@ -338,13 +338,14 @@ class ControllerReview extends Controller
         ->where('id_kategori_lomba', 1)
         ->get();
     
-    $totalFinal = 0;
-    $mappedReviews = $reviews->map(function ($review) use (&$totalFinal) {
+    $totalLagu = 0;
+    $mappedReviews = $reviews->map(function ($review) use (&$totalLagu) {
         $totalNilaiWajib = $review->where('genre_lagu', 'LAGU WAJIB')->sum('nilai');
         $totalNilaiPilihan = $review->where('genre_lagu', 'LAGU PILIHAN')->sum('nilai');
+
         $totalNilai = $totalNilaiWajib + $totalNilaiPilihan;
 
-        $totalFinal += $totalNilai;
+        $totalLagu += $totalNilai;
 
         return [
             'data' => $review,
@@ -352,7 +353,7 @@ class ControllerReview extends Controller
         ];
     });
 
-    $nilai_akhir = ($totalFinal / 2) / 3;
+    $nilai_akhir = ($totalLagu) / 3;
     $nilai_akhir = number_format($nilai_akhir, 2);
     $nilai_akhir = (float) $nilai_akhir;
 
