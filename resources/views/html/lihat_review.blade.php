@@ -46,7 +46,7 @@
             <table class="table table-striped fs-3">
               <thead>
                 <tr class="text-uppercase">
-                  <th scope="col">No Urut</th>
+                  <th scope="col">No Tampil</th>
                   <th scope="col">Jemaat</th>
                   <th scope="col">LAGU</th>
                   <th scope="col">Intonasi</th>
@@ -54,7 +54,7 @@
                   <th scope="col">partitur</th>
                   <th scope="col">artitistik</th>
                   <th scope="col">nilai</th>
-                  <th scope="col">Opsi</th>
+                  
                 </tr>
               </thead>
               
@@ -69,9 +69,6 @@
                           <td>{{ $v['partitur'] }}</td>
                           <td>{{ $v['artitistik'] }}</td>
                           <td>{{ $v['nilai'] }}</td>
-                          <td>
-                              <a href="#"><i class="ti ti-download"></i></a>
-                          </td>
                       </tr>
                   @endforeach
               
