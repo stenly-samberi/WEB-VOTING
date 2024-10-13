@@ -42,45 +42,47 @@
       <div class="card mb-0">
         <div class="card-body">
           <div style="overflow-x: auto;">
-            <table class="table table-striped fs-3">
-              <thead>
-                <tr class="text-uppercase">
-                  <th scope="col">Juri</th>
-                  <th scope="col">Jemaat</th>
-                  <th scope="col">genre</th>
-                  <th scope="col">LAGU</th>
-                  <th scope="col">Intonasi</th>
-                  <th scope="col">Vocal</th>
-                  <th scope="col">partitur</th>
-                  <th scope="col">artitistik</th>
-                  <th scope="col">nilai</th>
-                  
-                </tr>
-              </thead>
-              <tbody>
-                  @foreach($data_logs as $key => $log)
-                          @foreach($log['reviews'] as $review)
-                              @foreach($review['data'] as $reviewData)
-                                <tr>
-                                  <td>{{ $reviewData['user']['name'] }}</td>
-                                  <td>{{ $reviewData['jemaat']['nama'] }}</td>
-                                  <td>{{ $reviewData['genre_lagu'] }}</td>
-                                  <td>{{ $reviewData['judul_lagu'] }}</td>
-                                  <td>{{ $reviewData['intonasi'] }}</td>
-                                  <td>{{ $reviewData['vocal'] }}</td>
-                                  <td>{{ $reviewData['partitur'] }}</td>
-                                  <td>{{ $reviewData['artitistik'] }}</td>
-                                  <td>{{ $reviewData['nilai'] }}</td>
-                                </tr>
+              <div class="table-responsive">
+                <table class="table text-nowrap mb-0 align-middle">
+                  <thead class="text-dark fs-4">
+                    <tr class="text-uppercase">
+                      <th scope="col">Juri</th>
+                      <th scope="col">Jemaat</th>
+                      <th scope="col">genre</th>
+                      <th scope="col">LAGU</th>
+                      <th scope="col">Intonasi</th>
+                      <th scope="col">Vocal</th>
+                      <th scope="col">partitur</th>
+                      <th scope="col">artitistik</th>
+                      <th scope="col">nilai</th>
+                      
+                    </tr>
+                  </thead>
+                  <tbody>
+                      @foreach($data_logs as $key => $log)
+                              @foreach($log['reviews'] as $review)
+                                  @foreach($review['data'] as $reviewData)
+                                    <tr>
+                                      <td>{{ $reviewData['user']['name'] }}</td>
+                                      <td>{{ $reviewData['jemaat']['nama'] }}</td>
+                                      <td>{{ $reviewData['genre_lagu'] }}</td>
+                                      <td>{{ $reviewData['judul_lagu'] }}</td>
+                                      <td>{{ $reviewData['intonasi'] }}</td>
+                                      <td>{{ $reviewData['vocal'] }}</td>
+                                      <td>{{ $reviewData['partitur'] }}</td>
+                                      <td>{{ $reviewData['artitistik'] }}</td>
+                                      <td>{{ $reviewData['nilai'] }}</td>
+                                    </tr>
+                                  @endforeach
                               @endforeach
-                          @endforeach
 
-                        <p>Medali: {{ $log['medali'] }}</p>
-                        <p>Nomor Tampil: {{ $log['nomor_tampil'] }}</p>
-                        <p>Total Final: {{ $log['total_final'] }}</p>
-                  @endforeach
-              </tbody>
-            </table>
+                            <p>Medali: {{ $log['medali'] }}</p>
+                            <p>Nomor Tampil: {{ $log['nomor_tampil'] }}</p>
+                            <p>Total Final: {{ $log['total_final'] }}</p>
+                      @endforeach
+                  </tbody>
+                </table>
+            </div>
           </div>
         </div>
       </div>
