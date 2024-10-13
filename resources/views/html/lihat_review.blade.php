@@ -43,7 +43,7 @@
         <div class="card-body">
           <div style="overflow-x: auto;">
               <div class="table-responsive">
-                <table class="table text-nowrap mb-0 align-middle">
+                <table class="table table-striped text-nowrap mb-0 align-middle">
                   <thead class="text-dark fs-4">
                     <tr class="text-uppercase">
                       <th scope="col">Juri</th>
