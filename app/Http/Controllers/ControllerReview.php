@@ -323,14 +323,21 @@ class ControllerReview extends Controller
     }
 
     public function lihat_Reviews(Request $request) {
-        $reviews = Review::with('user:name,id_user,level as juri_level,img_src as foto_juri',
-        'jemaat:nama,id_njemaat',
-        'kategori_lomba:id_kategori_lomba,kategori_lomba')
-        ->whereHas('kategori_lomba', function($query) {
-            $query->where('id_kategori_lomba', 1);
-            $query->where('id_njemaat', 13);
-        })->get();
-
+        $reviews = Review::with([
+            'user' => function($query) {
+                $query->select('name', 'id_user', 'level', 'img_src');
+            },
+            'jemaat' => function($query) {
+                $query->select('nama', 'id_njemaat');
+            },
+            'kategori_lomba' => function($query) {
+                $query->select('id_kategori_lomba', 'kategori_lomba');
+            }
+        ])
+        ->where('id_kategori_lomba', 1)
+        ->where('id_njemaat', 13)
+        ->get();
+        
         $groupedReviews = $reviews->groupBy(['no_tampil', 'id_user']);
 
         $groupedReviews = $groupedReviews->map(function ($userReviews) {
