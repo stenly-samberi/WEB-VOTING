@@ -74,6 +74,10 @@
                                 </tr>
                               @endforeach
                           @endforeach
+
+                        <p>Medali: {{ $log['medali'] }}</p>
+                        <p>Nomor Tampil: {{ $log['nomor_tampil'] }}</p>
+                        <p>Total Final: {{ $log['total_final'] }}</p>
                   @endforeach
               </tbody>
             </table>
