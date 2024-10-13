@@ -59,7 +59,7 @@
               </thead>
               
               <tbody>
-                  @foreach($data_logs as $key => log)
+                  @foreach($data_logs as $key => $log)
                       <tr>
                           @foreach($log['reviews'] as $review)
                               @foreach($review['data'] as $reviewData)
