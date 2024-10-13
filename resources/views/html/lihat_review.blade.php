@@ -57,7 +57,6 @@
                   
                 </tr>
               </thead>
-              
               <tbody>
                   @foreach($data_logs as $key => $log)
                           @foreach($log['reviews'] as $review)
@@ -76,7 +75,6 @@
                               @endforeach
                           @endforeach
                   @endforeach
-              
               </tbody>
             </table>
           </div>
