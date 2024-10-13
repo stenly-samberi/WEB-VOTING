@@ -335,7 +335,7 @@ class ControllerReview extends Controller
             }
         ])
         ->where('id_kategori_lomba', 1)
-        ->where('id_njemaat', 13)
+        ->where('id_njemaat', 31)
         ->get();
         
         $groupedReviews = $reviews->groupBy(['no_tampil', 'id_user']);
