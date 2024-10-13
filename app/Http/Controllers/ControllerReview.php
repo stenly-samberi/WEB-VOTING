@@ -323,7 +323,6 @@ class ControllerReview extends Controller
     }
 
     public function lihat_Reviews(Request $request) {
-        
         $reviews = Review::with('user:name,id_user,level as juri_level,img_src as foto_juri',
         'jemaat:nama,id_njemaat',
         'kategori_lomba:id_kategori_lomba,kategori_lomba')
