@@ -385,7 +385,12 @@ class ControllerReview extends Controller
         });
 
         $sortedReviews = $groupedReviews->sortByDesc('total_final');
-        return response()->json(['data_logs' => $sortedReviews]);
+
+        return view('html.lihat_review', [
+            'data_logs' => $sortedReviews
+        ]);
+
+        //return response()->json(['data_logs' => $sortedReviews]);
 
     }
     

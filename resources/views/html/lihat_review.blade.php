@@ -59,17 +59,21 @@
               </thead>
               
               <tbody>
-                  @foreach($data as $v)
+                  @foreach($data_logs as $key => log)
                       <tr>
-                          <td>{{ $v['user']['name'] }}</td>
-                          <td>{{ $v['jemaat']['nama'] }}</td>
-                          <td>{{ $v['genre_lagu'] }}</td>
-                          <td>{{ $v['judul_lagu'] }}</td>
-                          <td>{{ $v['intonasi'] }}</td>
-                          <td>{{ $v['vocal'] }}</td>
-                          <td>{{ $v['partitur'] }}</td>
-                          <td>{{ $v['artitistik'] }}</td>
-                          <td>{{ $v['nilai'] }}</td>
+                          @foreach($log['reviews'] as $review)
+                              @foreach($review['data'] as $reviewData)
+                              <td>{{ $reviewData['user']['name'] }}</td>
+                              <td>{{ $reviewData['jemaat']['nama'] }}</td>
+                              <td>{{ $reviewData['genre_lagu'] }}</td>
+                              <td>{{ $reviewData['judul_lagu'] }}</td>
+                              <td>{{ $reviewData['intonasi'] }}</td>
+                              <td>{{ $reviewData['vocal'] }}</td>
+                              <td>{{ $reviewData['partitur'] }}</td>
+                              <td>{{ $reviewData['artitistik'] }}</td>
+                              <td>{{ $reviewData['nilai'] }}</td>
+                              @endforeach
+                          @endforeach
                       </tr>
                   @endforeach
               
