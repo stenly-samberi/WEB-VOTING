@@ -60,21 +60,21 @@
               
               <tbody>
                   @foreach($data_logs as $key => $log)
-                      <tr>
                           @foreach($log['reviews'] as $review)
                               @foreach($review['data'] as $reviewData)
-                              <td>{{ $reviewData['user']['name'] }}</td>
-                              <td>{{ $reviewData['jemaat']['nama'] }}</td>
-                              <td>{{ $reviewData['genre_lagu'] }}</td>
-                              <td>{{ $reviewData['judul_lagu'] }}</td>
-                              <td>{{ $reviewData['intonasi'] }}</td>
-                              <td>{{ $reviewData['vocal'] }}</td>
-                              <td>{{ $reviewData['partitur'] }}</td>
-                              <td>{{ $reviewData['artitistik'] }}</td>
-                              <td>{{ $reviewData['nilai'] }}</td>
+                                <tr>
+                                  <td>{{ $reviewData['user']['name'] }}</td>
+                                  <td>{{ $reviewData['jemaat']['nama'] }}</td>
+                                  <td>{{ $reviewData['genre_lagu'] }}</td>
+                                  <td>{{ $reviewData['judul_lagu'] }}</td>
+                                  <td>{{ $reviewData['intonasi'] }}</td>
+                                  <td>{{ $reviewData['vocal'] }}</td>
+                                  <td>{{ $reviewData['partitur'] }}</td>
+                                  <td>{{ $reviewData['artitistik'] }}</td>
+                                  <td>{{ $reviewData['nilai'] }}</td>
+                                </tr>
                               @endforeach
                           @endforeach
-                      </tr>
                   @endforeach
               
               </tbody>
