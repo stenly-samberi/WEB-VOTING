@@ -323,62 +323,65 @@ class ControllerReview extends Controller
     }
 
     public function lihat_Reviews(Request $request) {
-        $reviews = Review::with([
-            'user' => function($query) {
-                $query->select('name', 'id_user', 'level as juri_level', 'img_src as foto_juri');
-            },
-            'jemaat' => function($query) {
-                $query->select('nama', 'id_njemaat');
-            },
-            'kategori_lomba' => function($query) {
-                $query->select('id_kategori_lomba', 'kategori_lomba');
-            }
-        ])
-        ->where('id_njemaat', 31)
-        ->where('id_kategori_lomba', 1)
-        ->get();
-    
-    $totalLagu = 0;
-    $mappedReviews = $reviews->map(function ($review) use (&$totalLagu) {
-        $totalNilaiWajib = $review->where('genre_lagu', 'LAGU WAJIB')->sum('nilai');
-        $totalNilaiPilihan = $review->where('genre_lagu', 'LAGU PILIHAN')->sum('nilai');
+        
+        $reviews = Review::with('user:name,id_user,level as juri_level,img_src as foto_juri',
+        'jemaat:nama,id_njemaat',
+        'kategori_lomba:id_kategori_lomba,kategori_lomba')
+        ->whereHas('kategori_lomba', function($query) {
+            $query->where('id_kategori_lomba', 1);
+            $query->where('id_njemaat', 13);
+        })->get();
 
+        $groupedReviews = $reviews->groupBy(['no_tampil', 'id_user']);
+
+        $groupedReviews = $groupedReviews->map(function ($userReviews) {
+        $totalLagu = 0;
+        $nilai_akhir = 0;
+        $medali = "";
+        $juriData = []; //new
+        
+        $mappedReviews = $userReviews->map(function ($reviews) use (&$totalLagu, &$juriData) {
+        $totalNilaiWajib = $reviews->where('genre_lagu', 'LAGU WAJIB')->sum('nilai');
+        $totalNilaiPilihan = $reviews->where('genre_lagu', 'LAGU PILIHAN')->sum('nilai');
         $totalNilai = $totalNilaiWajib + $totalNilaiPilihan;
-
+        
         $totalLagu += $totalNilai;
 
-        return [
-            'data' => $review,
-            'nilai_keseluruan' => $totalNilai / 2
+        $juriData [] = [
+            'name' => $reviews->first()->user->name,
+            'photo_url' => asset('images/profile/' . $reviews->first()->user->foto_juri)
         ];
-    });
+    
+        return ['data' => $reviews,
+                    'nilai_keseluruan' => $totalNilai,
+                    'total_nilai' => $totalNilai / 2
+                ];
+        });
+        
+        $nilai_akhir =  round( ($totalLagu / 2) / 3, 2);//melakukan pembulatan menjadi 2 decimal
 
-    $nilai_akhir = ($totalLagu) / 3;
-    $nilai_akhir = number_format($nilai_akhir, 2);
-    $nilai_akhir = (float) $nilai_akhir;
+        if ($nilai_akhir < 60) {
+            $medali = "Bronze";
+        } else if ($nilai_akhir >= 60 && $nilai_akhir < 80) {
+            $medali = "Silver";
+        } else if ($nilai_akhir >= 80 && $nilai_akhir <= 100) {
+            $medali = "Gold";
+        } 
 
-    $medali = '';
-    if ($nilai_akhir < 60) {
-        $medali = "Bronze";
-    } else if ($nilai_akhir >= 60 && $nilai_akhir < 80) {
-        $medali = "Silver";
-    } else if ($nilai_akhir >= 80 && $nilai_akhir <= 100) {
-        $medali = "Gold";
+        return ['reviews' => $mappedReviews,
+                'medali'  => $medali,
+                'nomor_tampil' => $mappedReviews->first()['data']->first()->no_tampil,
+                'jemaat'  => $mappedReviews->first()['data']->first()->jemaat->nama,
+                'total_final' => $nilai_akhir,
+                'kategori' => $mappedReviews->first()['data']->first()->kategori_lomba->kategori_lomba,
+                'juri'  => $juriData
+            ];
+        });
+
+        $sortedReviews = $groupedReviews->sortByDesc('total_final');
+        return response()->json(['data' => $sortedReviews]);
+
     }
-
-    $firstReview = $reviews->first();
-
-    $result = [
-        'reviews' => $mappedReviews,
-        'medali' => $medali,
-        'nomor_tampil' => $firstReview ? $firstReview->no_tampil : null,
-        'jemaat' => $firstReview ? $firstReview->jemaat->nama : null,
-        'total_final' => $nilai_akhir
-    ];
-
-    return $result;
-
-}
     
   
 
