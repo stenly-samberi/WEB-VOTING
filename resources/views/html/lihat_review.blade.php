@@ -3,7 +3,7 @@
 <div class="container">
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title fw-semibold mb-4">Log</h5>
+            <h5 class="card-title fw-semibold mb-4">Data Log</h5>
                     <form method="POST" action="{{ route('log.filter') }}">
                     @csrf
                         <div class="row mb-4">
@@ -16,7 +16,7 @@
                             </div>
 
                             <div class="col-lg-2">
-                                <button type="submit" class="btn btn-primary">Cari Data Log</button>
+                                <button type="submit" class="btn btn-primary">Cari Data</button>
                             </div>
                         </div>
                     </form>
