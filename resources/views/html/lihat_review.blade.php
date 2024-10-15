@@ -49,8 +49,8 @@
                                             @foreach($review['data'] as $reviewData)
                                                 <tr>
                                                     <td>{{ $rowNumber++ }}</td>
-                                                    <td>{{ $reviewData['user']['name'] }}</td>
-                                                    <td>{{ $reviewData['jemaat']['nama'] }}</td>
+                                                    <td rowspan="2">{{ $reviewData['user']['name'] }}</td>
+                                                    <td rowspan="2">{{ $reviewData['jemaat']['nama'] }}</td>
                                                     <td>{{ $reviewData['genre_lagu'] }}</td>
                                                     <td>{{ $reviewData['judul_lagu'] }}</td>
                                                     <td>{{ $reviewData['intonasi'] }}</td>
