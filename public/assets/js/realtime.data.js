@@ -18,7 +18,7 @@ $(document).ready(function() {
     });
 
     $.ajax({
-        url: '/log/kategori',
+        url: '/log/jemaat',
         type: 'GET',
         dataType: 'json',
         success: function(response) {
