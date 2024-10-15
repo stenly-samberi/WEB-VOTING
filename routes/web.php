@@ -105,6 +105,7 @@ Route::prefix('log')->name('log.')->group(function(){
     Route::get('/jemaat', [LogController::class, 'jemaat'])->name('jemaat')->middleware('auth');
     Route::get('/kategori', [LogController::class, 'kategori'])->name('kategori')->middleware('auth');
     Route::get('/data', [LogController::class,'data_logs'])->name('data')->middleware('auth');
+    Route::post('/filter', [LogController::class,'data_logs'])->name('filter')->middleware('auth');
 });
 
 

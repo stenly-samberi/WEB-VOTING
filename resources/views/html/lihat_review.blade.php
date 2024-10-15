@@ -7,7 +7,7 @@
          
             <div class="row mb-4">
                 <div class="col-12">
-                    <form method="POST" action="">
+                    <form method="POST" action="{{route('log.filter'}}">
                     @csrf
                         <div class="row border border-1">
                             <div class="col-md-4">
