@@ -74,6 +74,7 @@ class LogController extends Controller
 
         return ['reviews' => $mappedReviews,
                 'medali'  => $medali,
+                'peserta'  => $mappedReviews->first()['data']->first()->jemaat->nama,
                 'nomor_tampil' => $mappedReviews->first()['data']->first()->no_tampil,
                 'jemaat'  => $mappedReviews->first()['data']->first()->jemaat->nama,
                 'total_final' => $nilai_akhir,

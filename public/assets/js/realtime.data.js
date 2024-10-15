@@ -34,9 +34,6 @@ $(document).ready(function() {
         }
     });
 
-
-
-
 function formatNomorTampil(nomor) {
     return nomor < 10 ? '0' + nomor : nomor;
 }

@@ -75,8 +75,13 @@
                                         @endforeach
 
                                         <tr>
-                                            <td colspan="8" class="text-right"><b>No. Tampil</b></td>
-                                            <td>{{ $log['nomor_tampil'] }}</td>
+                                            <td colspan="8" class="text-right"><b>Peserta</b></td>
+                                            <td>{{ $log['peserta'] }}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="8" class="text-right"><b>Kategori</b></td>
+                                            <td>{{ $log['kategori'] }}</td>
                                         </tr>
 
                                         <tr>
