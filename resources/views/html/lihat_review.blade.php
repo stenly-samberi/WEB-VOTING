@@ -61,9 +61,9 @@
                                                 </tr>
                                             @endforeach
                                         @endforeach
-                                        <p>Medali: {{ $log['medali'] }}</p>
+                                        <!-- <p>Medali: {{ $log['medali'] }}</p>
                                         <p>Nomor Tampil: {{ $log['nomor_tampil'] }}</p>
-                                        <p>Total Final: {{ $log['total_final'] }}</p>
+                                        <p>Total Final: {{ $log['total_final'] }}</p> -->
                                     @empty
                                         <tr>
                                             <td colspan="9" class="text-center">No data available</td>
