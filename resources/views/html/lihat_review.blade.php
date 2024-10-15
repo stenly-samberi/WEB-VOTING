@@ -13,9 +13,8 @@
 
             <div class="row">
               <div class="col-md-4">
-                <select class="form-control" id="kategori" name="kategori">
-                  <option value="">Pilih Kategori</option>
-                  <!-- Tambahkan opsi kategori di sini -->
+                <select class="form-control" id="categories" name="kategori">
+                 
                 </select>
               </div>
               

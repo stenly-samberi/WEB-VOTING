@@ -1,5 +1,23 @@
 $(document).ready(function() {
 
+    $.ajax({
+        url: '/log/kategori',
+        type: 'GET',
+        dataType: 'json',
+        success: function(response) {
+            var categories = response.data;
+            var $select = $('#categories');
+            $.each(categories, function(index, category) {
+                $select.append('<option value="' + category.id_kategori_lomba + '">' + category.kategori_lomba + '</option>');
+            });
+        },
+        error: function(xhr) {
+            console.error(xhr);
+        }
+    });
+
+
+
 
 function formatNomorTampil(nomor) {
     return nomor < 10 ? '0' + nomor : nomor;
@@ -10,6 +28,7 @@ function showErrorModal(message) {
     let errorModal = new bootstrap.Modal(document.getElementById('errorModal'));
     errorModal.show();
 }
+
 
 
 
