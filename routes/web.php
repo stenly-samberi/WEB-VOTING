@@ -10,6 +10,7 @@ use App\Http\Controllers\ControllerPeserta;
 use App\Http\Controllers\ControllerRegister;
 use App\Http\Controllers\ControllerReview;
 use App\Http\Controllers\ControllerUser;
+use App\Http\Controllers\LogController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('dash', function () {
@@ -98,6 +99,11 @@ Route::prefix('review')->name('review.')->group(function () {
     Route::get('/{id}/edit', [ControllerReview::class, 'edit'])->name('edit')->middleware('auth');
     Route::put('/{id}', [ControllerReview::class, 'update'])->name('update')->middleware('auth');
     Route::delete('/{id}', [ControllerReview::class, 'destroy'])->name('destroy')->middleware('auth');
+});
+
+Route::prefix('log')->name('log.')->group(function(){
+    Route::get('/jemaat', [LogController::class, 'jemaat'])->name('jemaat')->middleware('auth');
+    Route::get('/kategori', [LogController::class, 'kategori'])->name('kategori')->middleware('auth');
 });
 
 
