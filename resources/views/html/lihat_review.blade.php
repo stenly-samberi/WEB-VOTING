@@ -31,7 +31,7 @@
                                         <th scope="col">No</th>
                                         <th scope="col">Juri</th>
                                         <th scope="col">Jemaat</th>
-                                        <th scope="col">Genre</th>
+                                        <!-- <th scope="col">Genre</th> -->
                                         <th scope="col">Lagu</th>
                                         <th scope="col">Intonasi</th>
                                         <th scope="col">Vocal</th>
@@ -51,7 +51,7 @@
                                                     <td>{{ $rowNumber++ }}</td>
                                                     <td>{{ $reviewData['user']['name'] }}</td>
                                                     <td>{{ $reviewData['jemaat']['nama'] }}</td>
-                                                    <td>{{ $reviewData['genre_lagu'] }}</td>
+                                                    <!-- <td>{{ $reviewData['genre_lagu'] }}</td> -->
                                                     <td>{{ $reviewData['judul_lagu'] }}</td>
                                                     <td>{{ $reviewData['intonasi'] }}</td>
                                                     <td>{{ $reviewData['vocal'] }}</td>
