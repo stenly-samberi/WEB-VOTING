@@ -75,28 +75,28 @@
                                         @endforeach
 
                                         <tr>
-                                            <td colspan="8" class="text-right"><b>Peserta</b></td>
+                                            <td colspan="6" class="text-right"><b>Peserta</b></td>
                                             <td>{{ $log['peserta'] }}</td>
                                         </tr>
 
                                         <tr>
-                                            <td colspan="8" class="text-right"><b>Kategori</b></td>
+                                            <td colspan="6" class="text-right"><b>Kategori</b></td>
                                             <td>{{ $log['kategori'] }}</td>
                                         </tr>
 
                                         <tr>
-                                            <td colspan="8" class="text-right"><b>Medali</b></td>
+                                            <td colspan="6" class="text-right"><b>Medali</b></td>
                                             <td>{{ $log['medali'] }}</td>
                                         </tr>
 
                                         <tr>
-                                            <td colspan="8" class="text-right"><b>Total Keseluruhan</b></td>
+                                            <td colspan="6" class="text-right"><b>Total Keseluruhan</b></td>
                                             <td>{{ $log['total_final'] }}</td>
                                         </tr>
                                         
                                     @empty
                                         <tr>
-                                            <td colspan="10" class="text-center">No data available</td>
+                                            <td colspan="9" class="text-center">No data available</td>
                                         </tr>
                                     @endforelse
                                 </tbody>
