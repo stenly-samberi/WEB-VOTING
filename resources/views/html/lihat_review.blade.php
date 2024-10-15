@@ -28,6 +28,7 @@
                             <table class="table table-striped text-nowrap mb-0 align-middle">
                                 <thead class=" fs-4">
                                     <tr class="text-uppercase">
+                                        <th scope="col">No</th>
                                         <th scope="col">Juri</th>
                                         <th scope="col">Jemaat</th>
                                         <th scope="col">Genre</th>
@@ -44,6 +45,7 @@
                                         @foreach($log['reviews'] as $review)
                                             @foreach($review['data'] as $reviewData)
                                                 <tr>
+                                                    <td>{{ $loop->iteration }}</td>
                                                     <td>{{ $reviewData['user']['name'] }}</td>
                                                     <td>{{ $reviewData['jemaat']['nama'] }}</td>
                                                     <td>{{ $reviewData['genre_lagu'] }}</td>
