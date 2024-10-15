@@ -104,7 +104,7 @@ Route::prefix('review')->name('review.')->group(function () {
 Route::prefix('log')->name('log.')->group(function(){
     Route::get('/jemaat', [LogController::class, 'jemaat'])->name('jemaat')->middleware('auth');
     Route::get('/kategori', [LogController::class, 'kategori'])->name('kategori')->middleware('auth');
-    Route::post('/data', [LogController::class,'data_logs'])->name('data')->middleware('auth');
+    Route::get('/data', [LogController::class,'data_logs'])->name('data')->middleware('auth');
 });
 
 
