@@ -7,8 +7,9 @@
          
             <div class="row mb-4">
                 <div class="col-12">
-                    <form method="GET" action="">
-                        <div class="row">
+                    <form method="POST" action="">
+                    @csrf
+                        <div class="row border border-1">
                             <div class="col-md-4">
                                 <select class="form-control" id="categories" name="kategori"></select>
                             </div>
@@ -44,7 +45,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($data_logs as $key => $log)
+                                    @forelse($data_logs as $key => $log)
                                         @foreach($log['reviews'] as $review)
                                             @foreach($review['data'] as $reviewData)
                                                 <tr>
@@ -63,8 +64,13 @@
                                         <p>Medali: {{ $log['medali'] }}</p>
                                         <p>Nomor Tampil: {{ $log['nomor_tampil'] }}</p>
                                         <p>Total Final: {{ $log['total_final'] }}</p>
-                                    @endforeach
+                                    @empty
+                                        <tr>
+                                            <td colspan="9" class="text-center">No data available</td>
+                                        </tr>
+                                    @endforelse
                                 </tbody>
+
                             </table>
                         </div>
                     </div>

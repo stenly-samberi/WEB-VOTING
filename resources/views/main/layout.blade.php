@@ -127,7 +127,7 @@
             </li>
 
             <li class="sidebar-item">
-              <a class="sidebar-link" href="{{ url('review/lihat_review') }}" aria-expanded="false">
+              <a class="sidebar-link" href="{{ url('log/data') }}" aria-expanded="false">
                 <span>
                   <i class="ti ti-aperture"></i>
                 </span>
