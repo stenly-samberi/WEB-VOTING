@@ -1,5 +1,13 @@
 @extends('main.layout')
 @section('content')
+
+<style>
+    .text-right {
+        text-align: right;
+    }
+</style>
+
+
 <div class="container">
     <div class="card">
         <div class="card-body">
@@ -11,16 +19,20 @@
                                 <select class="form-control" id="categories" name="kategori"></select>
                             </div>
 
-                            <div class="col-lg-5">
+                            <div class="col-lg-5 ">
                                 <select class="form-control" id="jemaat" name="jemaat"></select>
                             </div>
 
                             <div class="col-lg-2">
-                                <button type="submit" class="btn btn-primary">Cari Data</button>
+                                <button type="submit" class="btn btn-success m-0">Cari Data</button>
                             </div>
+
+                            <!-- <div class="col-lg-2">
+                                <a href="{{ route('log.download') }}" class="btn btn-success m-0">Download</a>
+                            </div> -->
                         </div>
                     </form>
-              
+
             <div class="card mb-0">
                 <div class="card-body">
                     <div style="overflow-x: auto;">
@@ -61,9 +73,22 @@
                                                 </tr>
                                             @endforeach
                                         @endforeach
-                                        <!-- <p>Medali: {{ $log['medali'] }}</p>
-                                        <p>Nomor Tampil: {{ $log['nomor_tampil'] }}</p>
-                                        <p>Total Final: {{ $log['total_final'] }}</p> -->
+
+                                        <tr>
+                                            <td colspan="8" class="text-right"><b>No. Tampil</b></td>
+                                            <td>{{ $log['nomor_tampil'] }}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="8" class="text-right"><b>Medali</b></td>
+                                            <td>{{ $log['medali'] }}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="8" class="text-right"><b>Total Keseluruhan</b></td>
+                                            <td>{{ $log['total_final'] }}</td>
+                                        </tr>
+                                        
                                     @empty
                                         <tr>
                                             <td colspan="10" class="text-center">No data available</td>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\KategoriLomba;
 use App\Models\DataJemaat;
 use App\Models\Review;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 
 class LogController extends Controller
@@ -87,4 +88,12 @@ class LogController extends Controller
             'data_logs' => $sortedReviews
         ]);
     }
+
+    public function downloadPDF()
+    {
+        $data_logs = // Ambil data log Anda di sini
+        $pdf = Pdf::loadView('pdf.log', compact('data_logs'));
+        return $pdf->download('data_log.pdf');
+    }
+
 }

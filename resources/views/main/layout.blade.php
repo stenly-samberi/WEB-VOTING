@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Modernize Free</title>
+  <title>Voting Apps - Dashboard</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <link rel="shortcut icon" type="image/png" href="{{ asset('assets/images/logos/favicon.png') }}" />
   <link rel="stylesheet" href="{{ asset('assets/css/styles.min.css') }}" />
@@ -21,9 +21,10 @@
       <!-- Sidebar scroll-->
       <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
-          <a href="#" class="text-nowrap logo-img">
-            {{-- <h3>Web Voting</h3> --}}
-            <img src="{{ asset('assets/images/logos/dark-logo.svg') }}" width="180" alt="" />
+          <a href="#" class="text-nowrap logo-img d-flex align-items-center">
+            <img src="{{ asset('assets/images/logos/favicon.png') }}" width="30" alt="" />
+            <h4 class="m-2"><strong>Voting Apps</strong></h4>
+            <!-- <img src="{{ asset('assets/images/logos/dark-logo.svg') }}" width="180" alt="" /> -->
           </a>
           <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
             <i class="ti ti-x fs-8"></i>
@@ -129,9 +130,9 @@
             <li class="sidebar-item">
               <a class="sidebar-link" href="{{ url('log/data') }}" aria-expanded="false">
                 <span>
-                  <i class="ti ti-aperture"></i>
+                  <i class="ti ti-file"></i>
                 </span>
-                <span class="hide-menu">log</span>
+                <span class="hide-menu">Data log</span>
               </a>
             </li>
 
@@ -174,8 +175,8 @@
           <div class="unlimited-access hide-menu bg-light-primary position-relative mb-7 mt-5 rounded">
             <div class="d-flex">
               <div class="unlimited-access-title me-3">
-                <h6 class="fw-semibold fs-4 mb-6 text-dark w-85">Download Apps</h6>
-                <a href="#" target="_blank" class="btn btn-primary fs-2 fw-semibold lh-sm">Buy Free</a>
+                <h6 class="fw-semibold fs-4 mb-6 text-dark w-85">Team Multimedia</h6>
+                <a href="#" target="_blank" class="btn btn-primary fs-2 fw-semibold lh-sm">Hubungi</a>
               </div>
               <div class="unlimited-access-img">
                 <img src="../assets/images/backgrounds/rocket.png" alt="" class="img-fluid">
@@ -208,7 +209,7 @@
           </ul>
           <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
             <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
-              <a href="#" target="_blank" class="btn btn-primary">Download Form</a>
+              <!-- <a href="#" target="_blank" class="btn btn-primary">Download Form</a> -->
               <li class="nav-item dropdown">
                 <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
                   aria-expanded="false">
