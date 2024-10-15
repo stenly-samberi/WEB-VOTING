@@ -41,11 +41,14 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @php
+                                        $rowNumber = 1;
+                                    @endphp
                                     @forelse($data_logs as $key => $log)
                                         @foreach($log['reviews'] as $review)
                                             @foreach($review['data'] as $reviewData)
                                                 <tr>
-                                                    <td>{{ $loop->iteration }}</td>
+                                                    <td>{{ $rowNumber++ }}</td>
                                                     <td>{{ $reviewData['user']['name'] }}</td>
                                                     <td>{{ $reviewData['jemaat']['nama'] }}</td>
                                                     <td>{{ $reviewData['genre_lagu'] }}</td>
