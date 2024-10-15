@@ -8,8 +8,24 @@ $(document).ready(function() {
             var categories = response.data;
             var $select = $('#categories');
             $.each(categories, function(index, category) {
-                alert(category.id_kategori_lomba)
                 $select.append('<option value="' + category.id_kategori_lomba + '">' + category.kategori_lomba + '</option>');
+            });
+        },
+        error: function(xhr) {
+            alert(xhr);
+            console.error(xhr);
+        }
+    });
+
+    $.ajax({
+        url: '/log/kategori',
+        type: 'GET',
+        dataType: 'json',
+        success: function(response) {
+            var jemaat = response.data;
+            var $select = $('#jemaat');
+            $.each(jemaat, function(index, peserta) {
+                $select.append('<option value="' + peserta.id_njemaat + '">' + peserta.nama + '</option>');
             });
         },
         error: function(xhr) {

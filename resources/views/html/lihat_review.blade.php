@@ -21,8 +21,7 @@
               
               <div class="col-md-4">
                 <select class="form-control" id="jemaat" name="jemaat">
-                  <option value="">Pilih Jemaat</option>
-                  <!-- Tambahkan opsi jemaat di sini -->
+                 
                 </select>
               </div>
 
