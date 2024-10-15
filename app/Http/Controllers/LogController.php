@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\KategoriLomba;
+use App\Models\DataJemaat;
 use Illuminate\Http\Request;
 
 class LogController extends Controller
