@@ -1,37 +1,32 @@
 @extends('main.layout')
 @section('content')
-<div class="container-fluid">
+<div class="container">
     <div class="card">
         <div class="card-body">
             <h5 class="card-title fw-semibold mb-4">Log</h5>
-         
-            <div class="row mb-4">
-                <div class="col-12">
                     <form method="POST" action="{{ route('log.filter') }}">
                     @csrf
-                        <div class="row border border-1">
-                            <div class="col-md-4">
+                        <div class="row mb-4">
+                            <div class="col-lg-5">
                                 <select class="form-control" id="categories" name="kategori"></select>
                             </div>
-                            <div class="col-md-4">
+
+                            <div class="col-lg-5">
                                 <select class="form-control" id="jemaat" name="jemaat"></select>
                             </div>
-                            <div class="col-md-2">
-                                <button type="submit" class="btn btn-primary">Filter</button>
-                            </div>
-                            <div class="col-md-2">
-                                <button type="submit" class="btn btn-success">Download</button>
+
+                            <div class="col-lg-2">
+                                <button type="submit" class="btn btn-primary">Cari Data Log</button>
                             </div>
                         </div>
                     </form>
-                </div>
-            </div>
+              
             <div class="card mb-0">
                 <div class="card-body">
                     <div style="overflow-x: auto;">
                         <div class="table-responsive">
                             <table class="table table-striped text-nowrap mb-0 align-middle">
-                                <thead class="text-dark fs-4">
+                                <thead class=" fs-4">
                                     <tr class="text-uppercase">
                                         <th scope="col">Juri</th>
                                         <th scope="col">Jemaat</th>
