@@ -159,7 +159,7 @@ function fetchHasil() {
     
                 // Jika tidak ada data, tampilkan pesan "No data available"
                 if (Object.keys(response.data).length === 0) {
-                    tbody.append('<tr><td colspan="6" class="text-center">No data available</td></tr>');
+                    tbody.append('<tr><td colspan="6" class="text-center">Belum ada data</td></tr>');
                 }
             },
             error: function() {
