@@ -1,5 +1,13 @@
 $(document).ready(function() {
 
+    document.getElementById('btnCetak').addEventListener('click', function() {
+        var printContents = document.getElementById('cetakTabel').innerHTML;
+        var originalContents = document.body.innerHTML;
+        document.body.innerHTML = printContents;
+        window.print();
+        document.body.innerHTML = originalContents;
+    });
+
     $.ajax({
         url: '/log/kategori',
         type: 'GET',

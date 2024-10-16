@@ -69,7 +69,6 @@ function laguBykategori(data){
     }
 }
 
-
 function fetchData() {
     // Membuat objek XMLHttpRequest
     var xhr = new XMLHttpRequest();
@@ -97,11 +96,9 @@ function fetchData() {
     xhr.send();
 }
 
-
-
 //simpan data keserver menggunakan form
 document.getElementById('btn-daftar').addEventListener('click', function() {
-   
+  
     var jemaat = document.getElementById('jemaat-select').value;
     var kordinator = document.getElementById('kordinator-input').value;
     var phone = document.getElementById('phone-input').value;
@@ -189,4 +186,6 @@ document.getElementById('btn-daftar').addEventListener('click', function() {
     };
     xhr.send(JSON.stringify(data));
 });
+
+
 
