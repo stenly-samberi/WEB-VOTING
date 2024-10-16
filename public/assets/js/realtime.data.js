@@ -1,13 +1,5 @@
 $(document).ready(function() {
 
-    document.getElementById('btnCetak').addEventListener('click', function() {
-        var printContents = document.getElementById('cetakTabel').innerHTML;
-        var originalContents = document.body.innerHTML;
-        document.body.innerHTML = printContents;
-        window.print();
-        document.body.innerHTML = originalContents;
-    });
-
     $.ajax({
         url: '/log/kategori',
         type: 'GET',
@@ -51,9 +43,6 @@ function showErrorModal(message) {
     let errorModal = new bootstrap.Modal(document.getElementById('errorModal'));
     errorModal.show();
 }
-
-
-
 
 function fetchHasil_stop() {
     let rowNumber = 1;
@@ -117,7 +106,7 @@ function fetchHasil_stop() {
                 showErrorModal('Koneksi ke server gagal.');
             }
         });
-    }
+}
 
 function fetchHasil() {
         let rowNumber = 1;
@@ -177,13 +166,11 @@ function fetchHasil() {
                 showErrorModal('Koneksi ke server gagal.');
             }
         });
-    }
+}
     
-
-    fetchHasil()
-    setInterval(fetchHasil, 5000); // Refresh every 5 seconds
+fetchHasil()
+setInterval(fetchHasil, 5000); // Refresh every 5 seconds
    
-
 function fetchPeserta() {
         $.ajax({
             url: '/nomor_tampil/data',
@@ -211,10 +198,10 @@ function fetchPeserta() {
                 });
             }
         });
-    }
+}
 
-    fetchPeserta();
-    setInterval(fetchPeserta, 5000); // Refresh every 5 seconds
+fetchPeserta();
+setInterval(fetchPeserta, 5000); // Refresh every 5 seconds
 
 
 function fetchPeserta_tampil_to_juri() {
@@ -348,12 +335,9 @@ function fetchPeserta_tampil_to_juri() {
             }
         };
 
-    }
-
+}
     fetchPeserta_tampil_to_juri();
     setInterval(fetchPeserta_tampil_to_juri, 5000);
-
-
 });
 
 function dash_setting_view() {
@@ -426,6 +410,14 @@ function UpdateStatusViewDash(id, status) {
     xhr.send(params);
     
 }
+
+document.getElementById('btnCetak').addEventListener('click', function() {
+        var printContents = document.getElementById('cetakTabel').innerHTML;
+        var originalContents = document.body.innerHTML;
+        document.body.innerHTML = printContents;
+        window.print();
+        document.body.innerHTML = originalContents;
+});
 
 
 
