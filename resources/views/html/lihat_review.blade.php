@@ -75,22 +75,22 @@
                                         @endforeach
 
                                         <tr>
-                                            <td colspan="6" class="text-right"><b>Peserta</b></td>
+                                            <td colspan="7" class="text-right"><b>Peserta</b></td>
                                             <td>{{ $log['peserta'] }}</td>
                                         </tr>
 
                                         <tr>
-                                            <td colspan="6" class="text-right"><b>Kategori</b></td>
+                                            <td colspan="7" class="text-right"><b>Kategori</b></td>
                                             <td>{{ $log['kategori'] }}</td>
                                         </tr>
 
                                         <tr>
-                                            <td colspan="6" class="text-right"><b>Medali</b></td>
+                                            <td colspan="7" class="text-right"><b>Medali</b></td>
                                             <td>{{ $log['medali'] }}</td>
                                         </tr>
 
                                         <tr>
-                                            <td colspan="6" class="text-right"><b>Total Keseluruhan</b></td>
+                                            <td colspan="7" class="text-right"><b>Total Keseluruhan</b></td>
                                             <td>{{ $log['total_final'] }}</td>
                                         </tr>
                                         
