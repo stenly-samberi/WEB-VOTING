@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let id_register, id_lagu, id_kategori_lomba,no_tampil = null;
 
-
     cards.forEach(card => {
         card.addEventListener('click', function() {
           

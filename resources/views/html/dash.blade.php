@@ -42,7 +42,7 @@
                             </tr>
                         </thead>
                         
-                        <tbody id="data-table tbody">
+                        <tbody>
 
                         </tbody>
                     </table>
