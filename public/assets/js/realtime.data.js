@@ -114,7 +114,7 @@ function fetchHasil() {
             url: '/dash/data', // URL endpoint untuk mengambil data
             method: 'GET',
             success: function(response) {
-                console.log(response); // Tambahkan ini untuk melihat data yang diterima
+                // console.log(response); // Tambahkan ini untuk melihat data yang diterima
                 var tbody = $('#data-table tbody');
                 tbody.empty(); // Kosongkan tbody sebelum menambahkan data baru
     
