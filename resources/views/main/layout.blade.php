@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dashboard</title>
+  <title>Musik - Dashboard</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <link rel="shortcut icon" type="image/png" href="{{ asset('assets/images/logos/favicon.png') }}" />
   <link rel="stylesheet" href="{{ asset('assets/css/styles.min.css') }}" />
@@ -23,7 +23,7 @@
         <div class="brand-logo d-flex align-items-center justify-content-between">
           <a href="#" class="text-nowrap logo-img d-flex align-items-center">
             <img src="{{ asset('assets/images/logos/favicon.png') }}" width="30" alt="" />
-            <h4 class="m-2"><strong>MUSIKAMUNDI</strong></h4>
+            <h4 class="m-2"><strong>MUSI</strong>KAMUNDI</h4>
             <!-- <img src="{{ asset('assets/images/logos/dark-logo.svg') }}" width="180" alt="" /> -->
           </a>
           <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
