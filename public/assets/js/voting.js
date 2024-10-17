@@ -1,6 +1,6 @@
-document.addEventListener('DOMContentLoaded', function() {
+let baseUrl = "https://8000-idx-web-voting-1720763927432.cluster-qpa6grkipzc64wfjrbr3hsdma2.cloudworkstations.dev";
 
-    let baseUrl = "https://admin.viadolorosa.web.id/";
+document.addEventListener('DOMContentLoaded', function() {
 
     const cards = document.querySelectorAll('.card-click');
 
@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.getElementById("btn-submit").onclick = function() {
         if (id_register) {
+
 
             alert (id_register);
 
@@ -70,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 };
     
                 let xhr = new XMLHttpRequest();
-                xhr.open("POST", "https://admin.viadolorosa.web.id/api/penilaian", true);
+                xhr.open("POST", baseUrl + "/api/penilaian", true);
                 xhr.setRequestHeader("Content-Type", "application/json");
           
                 xhr.onreadystatechange = function() {
@@ -96,8 +97,5 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Silakan Pilih Peserta lomba');
         }
     };
-    
-    
-    
     
 });

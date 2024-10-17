@@ -14,7 +14,6 @@ use App\Http\Controllers\LogController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('dash', function () {
-    // halaman dashboard
 })->middleware('auth')->middleware('auth');
 
 Route::get('/', function () {
@@ -47,6 +46,7 @@ Route::prefix('peserta')->name('peserta.')->group(function () {
     Route::post('/', [ControllerPeserta::class, 'peserta_detail'])->name('detail')->middleware('auth');
     Route::put('/{id}', [ControllerPeserta::class, 'updated'])->name('updated_peserta')->middleware('auth');
     Route::delete('/{id}', [ControllerPeserta::class, 'destroy'])->name('destroy')->middleware('auth');
+    Route::get('/lagu', [ControllerPeserta::class, 'lagu'])->name('lagu')->middleware('auth');
 });
 
 Route::prefix('kategori_lomba')->name('kategori_lomba.')->group(function () {
@@ -58,7 +58,7 @@ Route::prefix('kategori_lomba')->name('kategori_lomba.')->group(function () {
 Route::prefix('data_jemaat')->name('data_jemaat.')->group(function () {
     Route::get('/', [ControllerDataJemaat::class, 'index'])->name('index')->middleware('auth');
     Route::post('/', [ControllerDataJemaat::class, 'store'])->name('store')->middleware('auth');
-    Route::put('/{id}', [ControllerDataJemaat::class, 'updated'])->name('updated')->middleware('auth');
+    Route::put('/updated', [ControllerDataJemaat::class, 'updated'])->name('updated')->middleware('auth');
     Route::delete('/{id}', [ControllerDataJemaat::class, 'destroy'])->name('destroy')->middleware('auth');
 });
 

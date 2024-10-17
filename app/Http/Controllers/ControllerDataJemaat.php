@@ -11,11 +11,7 @@ class ControllerDataJemaat extends Controller
     public function index()
     {
         $kategori = KategoriJemaat::all();
-
         $datajemaat = DataJemaat::with('kategori_jemaat')->get();
-  
-        // return $datajemaat;
-    
         return view('html.nama_gereja', [
             'datajemaat' => $datajemaat,
             'datakategori' => $kategori
@@ -23,7 +19,7 @@ class ControllerDataJemaat extends Controller
     }
 
     public function store(Request $request){
-        
+    
         $validatedData = $request->validate([
             'nama' => 'required|string|max:255',
             'kategori' =>'required|integer|max:255'
@@ -43,15 +39,13 @@ class ControllerDataJemaat extends Controller
         
     }
 
-    public function destroy($id)
-    {
+    public function destroy($id){
         $kategori = DataJemaat::findOrFail($id);
         $kategori->delete();
         return redirect()->route('data_jemaat.index')->with('success', 'Data Jemaat berhasil dihapus.');
     }
 
     public function edit(Request $request){
-
        $datajemaat = DataJemaat::find($request->idj);
        $datakategori = KategoriJemaat::all();
       

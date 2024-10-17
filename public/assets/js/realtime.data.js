@@ -1,5 +1,25 @@
 $(document).ready(function() {
 
+let url = "https://8000-idx-web-voting-1720763927432.cluster-qpa6grkipzc64wfjrbr3hsdma2.cloudworkstations.dev";
+
+
+$.ajax({
+    url: '/peserta/lagu',
+    type: 'GET',
+    dataType: 'json',
+    success: function(response) {
+        var categories = response.data;
+        var $select = $('#lagu_pilihan');
+        $.each(categories, function(index, lagu) {
+            $select.append('<option value="' + lagu.id_lagu + '">' + lagu.judul + '</option>');
+        });
+    },
+    error: function(xhr) {
+        alert(xhr);
+        console.error(xhr);
+    }
+});
+
     $.ajax({
         url: '/log/kategori',
         type: 'GET',
@@ -77,9 +97,7 @@ function fetchHasil_stop() {
                         <td><h6 class="fw-semibold mb-0">${view.nomor_tampil}</h6></td>
                         <td><h6 class="fw-semibold mb-0">${view.kategori}</h6></td>
                         <td>
-                        
                             <h6 class="fw-semibold mb-1">${view.jemaat}</h6>
-
                             <div class="d-flex align-items-center gap-2">
                                 ${view.juri.map(juri => `<img src="${juri.photo_url}" alt="${juri.name}" class="rounded-circle" width="30" height="30">`).join(' ')}
                             </div>
@@ -309,7 +327,7 @@ function fetchPeserta_tampil_to_juri() {
                     };
         
                     let xhr = new XMLHttpRequest();
-                    xhr.open("POST", "https://admin.viadolorosa.web.id/api/penilaian", true);
+                    xhr.open("POST", url + "/api/penilaian", true);
                     xhr.setRequestHeader("Content-Type", "application/json");
                     xhr.onreadystatechange = function() {
                         if (xhr.readyState === XMLHttpRequest.DONE) {

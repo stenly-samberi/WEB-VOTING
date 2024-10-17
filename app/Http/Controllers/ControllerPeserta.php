@@ -16,7 +16,6 @@ use Illuminate\Validation\Rule;
 class ControllerPeserta extends Controller
 {
     public function index(){
-
         $registers = Peserta::with('data_jemaat', 'data_lagu', 'kategori_lomba')->get();
         return view('html.data_peserta', [
             'peserta' => $registers
@@ -59,15 +58,12 @@ class ControllerPeserta extends Controller
                 'file'               => 'empty.pdf',
             ]);
 
-            // Berikan respons sukses
-            // return response()->json('Pendaftaran Peserta Berhasil', 200);
-            
             return response()->json(['message' => 'Pendaftaran Peserta Berhasil'], 200);
            
         
 
         } catch (\Exception $e) {
-            // Tangani kesalahan
+
             return response()->json('Terjadi Kesalahan : ' . $e->getMessage(), 500);
         }
         return redirect()->route('peserta.index')->with('success', 'Pendaftaran Peserta Berhasil');
@@ -92,17 +88,13 @@ class ControllerPeserta extends Controller
         ]);
     }
 
-    public function destroy($id)
-    {
+    public function destroy($id){
         $kategori = Peserta::findOrFail($id);
         $kategori->delete();
         return redirect()->route('peserta.index')->with('success', 'Data has been deleted.');
     }
 
     public function updated(Request $request, $id){
-
-        //return $request->input('id_kategori_lomba');
-
         $request->validate([
             'no_tampil' => ['required','integer','min:1','max:30',
                 Rule::unique('tbl_register')->where(function ($query) use ($request) {
@@ -114,7 +106,13 @@ class ControllerPeserta extends Controller
 
         $peserta = Peserta::findOrFail($id);
         $peserta->no_tampil = $request->input('no_tampil');
+        $peserta->id_lagu = $request->input('id_lagu');
         $peserta->save();
-        return redirect()->route('peserta.index')->with('success', 'Nomor tampil berhasil diupdate');
+        return redirect()->route('peserta.index')->with('success', 'Data Berhasil di Update');
+    }
+
+    public function lagu(){
+        $lagu = GenreLagu::where('genre','Pilihan')->get();
+        return response()->json(['data' => $lagu]);
     }
 }

@@ -1,3 +1,4 @@
+let link = "https://8000-idx-web-voting-1720763927432.cluster-qpa6grkipzc64wfjrbr3hsdma2.cloudworkstations.dev";
 
 function displayJemaat(jemaatData){
     var jemaatselect = document.getElementById('jemaat-select');
@@ -73,7 +74,7 @@ function fetchData() {
     // Membuat objek XMLHttpRequest
     var xhr = new XMLHttpRequest();
     // Menentukan metode, URL, dan asynchronousnya
-    xhr.open('GET', 'https://admin.viadolorosa.web.id/api/register', true);
+    xhr.open('GET', link + '/api/register', true);
     // Mengatur tindakan yang dilakukan saat permintaan selesai
     xhr.onload = function() {
         if (xhr.status >= 200 && xhr.status < 300) {
@@ -124,7 +125,7 @@ document.getElementById('btn-daftar').addEventListener('click', function() {
 
     // Kirim data ke Laravel menggunakan AJAX
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'https://admin.viadolorosa.web.id/api/register', true);
+    xhr.open('POST', link + '/api/register', true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onload = function () {
         if (xhr.status >= 200 && xhr.status < 300) {

@@ -16,7 +16,7 @@
     <div class="horizontal">
         <div class="mb-3 col-6">
             <label for="exampleInputEmail1" class="form-label">Nama Jemaat</label>
-            <input name="nama_jemaat" type="text" value="{{ $peserta[0]->nama_jemaat }}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input disabled name="nama_jemaat" type="text" value="{{ $peserta[0]->nama_jemaat }}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
         </div>
 
         <div class="mb-3 col-3">
@@ -33,17 +33,18 @@
     <div class="horizontal">
         <div class="mb-3 col-6">
             <label for="exampleInputEmail1" class="form-label">Lagu Wajib</label>
-            <input name="lagu_wajib" type="text" value="{{ $peserta[0]->lagu_wajib }}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input disabled name="lagu_wajib" type="text" value="{{ $peserta[0]->lagu_wajib }}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
         </div>
 
         <div class="mb-3 col-3">
             <label for="exampleInputEmail1" class="form-label">Lagu Pilihan</label>
-            <input name="lagu_pilihan" type="text" value="{{ $peserta[0]->judul_lagu }}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <select name="id_lagu" class="form-select" id="lagu_pilihan"></select>
+            <!-- <input name="lagu_pilihan" type="text" value="{{ $peserta[0]->judul_lagu }}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"> -->
         </div>
 
         <div class="mb-3 col-3">
             <label for="exampleInputEmail1" class="form-label">Kategori Lomba</label>
-            <input name="kategori_lomba" type="text" value="{{ $peserta[0]->kategori_lomba }}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input disabled name="kategori_lomba" type="text" value="{{ $peserta[0]->kategori_lomba }}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
         </div>
     </div>
 

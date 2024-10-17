@@ -102,7 +102,7 @@
                                         @csrf
                                         <input name="idP" value="{{ $user->id_register }}" type="hidden">
                                         <button type="submit" class="btn btn-success search-button">
-                                            <i class="ti ti-search"></i>
+                                            <i class="ti ti-edit"></i>
                                         </button>
                                     </form>
                                 </td>
