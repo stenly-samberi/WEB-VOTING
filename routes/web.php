@@ -90,6 +90,7 @@ Route::prefix('nomor_tampil')->name('nomor_tampil.')->group(function () {
     Route::get('/', [ControllerNomorTampil::class, 'index'])->name('index')->middleware('auth');
     Route::get('/data', [ControllerNomorTampil::class, 'getData'])->name('data')->middleware('auth');
     Route::post('/nomor_tampil', [ControllerNomorTampil::class, 'generateRandomOrder'])->name('generateRandomOrder')->middleware('auth');
+    Route::post('/reset', [ControllerNomorTampil::class, 'reset'])->name('reset')->middleware('auth');
 });
 
 Route::prefix('review')->name('review.')->group(function () {

@@ -2,7 +2,6 @@ $(document).ready(function() {
 
 let url = "https://admin.viadolorosa.web.id";
 
-
 $.ajax({
     url: '/peserta/lagu',
     type: 'GET',

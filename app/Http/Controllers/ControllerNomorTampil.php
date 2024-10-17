@@ -9,9 +9,7 @@ use Illuminate\Http\Request;
 class ControllerNomorTampil extends Controller
 {
     public function index() {
-       
         return view('html.nomor_tampil');
-
     }
 
     public function getData(){
@@ -25,8 +23,7 @@ class ControllerNomorTampil extends Controller
         return response()->json($registers);
     }
 
-    public function updated_status(Request $request)
-    { 
+public function updated_status(Request $request){ 
        
         $id = $request->input('id');
         $statusValue = $request->input('status') === 'true';
@@ -37,8 +34,7 @@ class ControllerNomorTampil extends Controller
     }
     
     
-    public function generateRandomOrder()
-{
+public function generateRandomOrder(){
     // Mengambil semua peserta dan mengelompokkan berdasarkan id_kategori_lomba
     $pesertaGroupedByKategori = Peserta::all()->groupBy('id_kategori_lomba');
 
@@ -54,9 +50,13 @@ class ControllerNomorTampil extends Controller
     }
 
     Review::query()->delete();
-
     return redirect()->route('nomor_tampil.index')->with('success', 'Nomor urut peserta berhasil dibuat');
 }
+
+    public function reset(){
+        Peserta::query()->update(['no_tampil' => 0]);
+        return redirect()->back()->with('success', 'Nomor Berhasil di Reset');
+    }
 
     
 
