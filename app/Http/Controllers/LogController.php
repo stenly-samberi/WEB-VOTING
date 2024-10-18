@@ -90,11 +90,13 @@ class LogController extends Controller
         ]);
     }
 
-    public function downloadPDF()
-    {
-        $data_logs = // Ambil data log Anda di sini
-        $pdf = Pdf::loadView('pdf.log', compact('data_logs'));
-        return $pdf->download('data_log.pdf');
+    public function destroy(){
+        try {
+            Review::query()->delete();
+            return response()->json(['message' => 'All reviews deleted successfully'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Failed to delete reviews'], 500);
+        }
     }
 
 }

@@ -15,11 +15,11 @@
                     <form method="POST" action="{{ route('log.filter') }}">
                     @csrf
                         <div class="row mb-4">
-                            <div class="col-lg-3">
+                            <div class="col-lg-1">
                                 <select class="form-control" id="categories" name="kategori"></select>
                             </div>
 
-                            <div class="col-lg-6">
+                            <div class="col-lg-7">
                                 <select class="form-control" id="jemaat" name="jemaat"></select>
                             </div>
 
@@ -27,11 +27,17 @@
                                 <button type="submit" class="btn btn-success m-0">Filter</button>
                             </div>
 
-                            <div class="col-lg-2">
-                                <button class="btn btn-danger" id="btnCetak">Cetak Data</button>
+                    </form>
+
+                            <div class="col-lg-1">
+                                <button class="btn btn-primary" id="btnCetak">Cetak</button>
+                            </div>
+
+                            <div class="col-lg-1">
+                                <button class="btn btn-danger" id="btnHapus">Hapus</button>
                             </div>
                         </div>
-                    </form>
+                   
 
                     
 

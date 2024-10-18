@@ -437,6 +437,27 @@ document.getElementById('btnCetak').addEventListener('click', function() {
         document.body.innerHTML = originalContents;
 });
 
+document.getElementById('btnHapus').addEventListener('click', function() { 
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+        }
+    });
+    
+    $.ajax({
+        url: '/log/delete',
+        type: 'DELETE',
+        success: function(result) {
+            alert(result.message);
+        },
+        error: function(xhr) {
+            var response = JSON.parse(xhr.responseText);
+            alert(response.message);
+        }
+    });
+});
+
 
 
 

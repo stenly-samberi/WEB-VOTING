@@ -107,8 +107,7 @@ Route::prefix('log')->name('log.')->group(function(){
     Route::get('/kategori', [LogController::class, 'kategori'])->name('kategori')->middleware('auth');
     Route::get('/data', [LogController::class,'data_logs'])->name('data')->middleware('auth');
     Route::post('/filter', [LogController::class,'data_logs'])->name('filter')->middleware('auth');
-    Route::get('/download', [LogController::class, 'downloadPDF'])->name('download')->middleware('auth');
-
+    Route::delete('/delete', [LogController::class, 'destroy'])->name('delete')->middleware('auth');
 });
 
 

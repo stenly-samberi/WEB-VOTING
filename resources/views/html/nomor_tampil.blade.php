@@ -13,7 +13,7 @@
           <div class="col-lg-2">
               <form action="{{ route('nomor_tampil.generateRandomOrder') }}" method="POST">
                 @csrf
-                <button type="submit" class="btn btn-primary">Generated</button>
+                <button disabled type="submit" class="btn btn-primary">Generated</button>
               </form>
           </div>
 

@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <title>Dashboard</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <link rel="shortcut icon" type="image/png" href="{{ asset('assets/images/logos/favicon.png') }}" />
@@ -31,17 +32,10 @@
           </div>
         </div>
 
-
         <!-- Sidebar navigation-->
-
-        
-
         <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
 
           <ul id="sidebarnav">
-
-          
-
             <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
               <span class="hide-menu">Home</span>

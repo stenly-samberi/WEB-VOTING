@@ -48,8 +48,6 @@ public function generateRandomOrder(){
             $peserta->update(['no_tampil' => $noUrut]);
         }
     }
-
-    Review::query()->delete();
     return redirect()->route('nomor_tampil.index')->with('success', 'Nomor urut peserta berhasil dibuat');
 }
 
