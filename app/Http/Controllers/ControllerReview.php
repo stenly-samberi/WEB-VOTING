@@ -312,8 +312,8 @@ class ControllerReview extends Controller
             ];
         });
 
-        $sortedReviews = $groupedReviews->sortByDesc('total_final');
-        //$sortedReviews = $groupedReviews->values()->sortByDesc('total_final');
+        //$sortedReviews = $groupedReviews->sortByDesc('total_final');
+        $sortedReviews = $groupedReviews->sortByDesc('total_final')->values();
         return response()->json(['data' => $sortedReviews]);
         
     }
