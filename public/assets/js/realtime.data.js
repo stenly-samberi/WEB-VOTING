@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-let url = "https://8000-idx-web-voting-1720763927432.cluster-qpa6grkipzc64wfjrbr3hsdma2.cloudworkstations.dev";
+let url = "https://admin.viadolorosa.web.id";
 
 $.ajax({
     url: '/peserta/lagu',
