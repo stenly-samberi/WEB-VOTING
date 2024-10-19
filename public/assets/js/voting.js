@@ -1,4 +1,4 @@
-let baseUrl = "https://admin.viadolorosa.web.id";
+let baseUrl = "https://8000-idx-web-voting-1720763927432.cluster-qpa6grkipzc64wfjrbr3hsdma2.cloudworkstations.dev";
 
 document.addEventListener('DOMContentLoaded', function() {
 
